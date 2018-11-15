@@ -1,28 +1,35 @@
-// require gulp module
-let gulp = require("gulp");
-let webpack = require('webpack-stream');
+const gulp = require("gulp");
+const webpack = require('webpack-stream');
+const sass = require('gulp-sass');
 
-let OUT_DIR = './build';
+const OUT_DIR = './build';
 
-// create a task to copy static html to the build folder
+sass.compiler = require('node-sass');
+
 gulp.task('copy:html', () =>
-gulp.src('./app/template/index.html')
-  .pipe(gulp.dest(OUT_DIR)));
+  gulp.src('./app/index.html')
+    .pipe(gulp.dest(OUT_DIR)));
 
-// copy css to build folder
-gulp.task('copy:css', () =>
-gulp.src('./app/template/style.css')
-  .pipe(gulp.dest(OUT_DIR)));
+gulp.task('scss', () =>
+  gulp.src('./app/scss/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./app/css')));
 
-// if any assets are present, copy them to the build folder as well
+gulp.task('copy:css', ['scss'], () =>
+  gulp.src('./app/css/style.css')
+    .pipe(gulp.dest(OUT_DIR)));
+
 gulp.task('copy:assets', () =>
-gulp.src('./app/assets/*')
-  .pipe(gulp.dest(OUT_DIR + '/assets/')));
+  gulp.src('./app/assets/*')
+    .pipe(gulp.dest(OUT_DIR + '/assets/')));
 
-gulp.task('webpack', () => {
-  return gulp.src('build/')
+gulp.task('webpack', () =>
+  gulp.src('build/')
     .pipe(webpack(require('./webpack.config.js')))
-    .pipe(gulp.dest('build/'));
-  });
+    .pipe(gulp.dest('build/')));
 
 gulp.task('default', ['copy:html', 'copy:css', 'copy:assets', 'webpack']);
+
+gulp.task('watch', function () {
+  gulp.watch('./app/scss/**/*.scss', ['default']);
+});
