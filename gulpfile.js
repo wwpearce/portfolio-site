@@ -24,7 +24,7 @@ gulp.task('copy:css', ['scss'], () =>
 
 gulp.task('copy:assets', () =>
   gulp.src('./app/assets/*')
-  .pipe(gulp.dest(OUT_DIR + '/assets/')));
+  .pipe(gulp.dest(`${OUT_DIR}/assets/`)));
 
 gulp.task('webpack', () =>
   gulp.src('build/')
@@ -35,6 +35,10 @@ gulp.task('serve', () =>
   browserSync.init({
     server: OUT_DIR
   }));
+
+gulp.task('upload:dev', shell.task(`aws s3 cp build ${bucket}development --recursive`))
+gulp.task('upload:staging', shell.task(`aws s3 cp build ${bucket}staging --recursive`))
+gulp.task('upload:prod', shell.task(`aws s3 cp build ${bucket}production --recursive`))
 
 gulp.task('watch', ['serve'], () => {
   gulp.watch('./app/scss/**/*.scss', ['copy:css']).on('change', browserSync.reload);
