@@ -9,7 +9,10 @@
     "serve": "preact build && preact serve",
     "dev": "preact watch",
     "lint": "eslint src",
-    "test": "jest"
+    "test": "jest",
+    "images": "imageoptim --help",
+    "upload:staging": "aws s3 cp build s3://billwpearce.com.staging/ --recursive",
+    "upload:production": "aws s3 cp build s3://billwpearce.com/ --recursive --dryrun && echo 'Remove dryrun if ur sure.'"
   },
   "eslintConfig": {
     "extends": "eslint-config-synacor"
