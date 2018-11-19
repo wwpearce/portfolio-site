@@ -1,0 +1,2 @@
+webpackJsonp([1],{ZAL5:function(e){e.exports={home:"home__MseGd"}},"iOg+":function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var o=t("KM04"),c=(t.n(o),t("ZAL5")),u=t.n(c),s=Object(o.h)("h1",null,"Sup"),h=Object(o.h)("p",null,"This is the Home component.");n.default=function(){return Object(o.h)("div",{class:u.a.home},s,h)}}});
+//# sourceMappingURL=route-home.chunk.93cfe.js.map
