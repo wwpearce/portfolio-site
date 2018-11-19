@@ -3,9 +3,11 @@ const webpack = require('webpack-stream');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync');
 const shell = require('gulp-shell');
+const imagemin = require('gulp-imagemin');
 
 const OUT_DIR = './build';
-const bucket = 's3://billwpearce.com/';
+const prod_bucket = 's3://billwpearce.com/';
+const staging_bucket = 's3://billwpearce.com.staging/';
 
 sass.compiler = require('node-sass');
 
@@ -23,7 +25,7 @@ gulp.task('copy:css', ['scss'], () =>
   .pipe(gulp.dest(OUT_DIR)));
 
 gulp.task('copy:assets', () =>
-  gulp.src('./app/assets/*')
+  gulp.src(['./app/assets/**/*', '!./app/assets/images/*'])
   .pipe(gulp.dest(`${OUT_DIR}/assets/`)));
 
 gulp.task('webpack', () =>
@@ -36,15 +38,20 @@ gulp.task('serve', () =>
     server: OUT_DIR
   }));
 
-gulp.task('upload:dev', shell.task(`aws s3 cp build ${bucket}development --recursive`))
-gulp.task('upload:staging', shell.task(`aws s3 cp build ${bucket}staging --recursive`))
-gulp.task('upload:prod', shell.task(`aws s3 cp build ${bucket}production --recursive`))
+gulp.task('images', () =>
+  gulp.src('./app/assets/images/*')
+  .pipe(imagemin())
+  .pipe(gulp.dest(`${OUT_DIR}/assets/images/`)));
 
 gulp.task('watch', ['serve'], () => {
   gulp.watch('./app/scss/**/*.scss', ['copy:css']).on('change', browserSync.reload);
-  gulp.watch('./app/assets/*', ['copy:assets']).on('change', browserSync.reload);
+  gulp.watch(['./app/assets/**/*', '!./app/assets/images/*'] ['copy:assets']).on('change', browserSync.reload);
+  gulp.watch('./app/assets/images/*' ['images']).on('change', browserSync.reload);
   gulp.watch('./app/index.html', ['copy:html']).on('change', browserSync.reload);
   gulp.watch('./app/js/**/*.js', ['webpack']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('build', ['copy:css', 'copy:assets', 'images', 'copy:html', 'webpack']);
+gulp.task('upload:staging', shell.task(`aws s3 cp build ${staging_bucket} --recursive`))
+gulp.task('upload:prod', shell.task(`aws s3 cp build ${prod_bucket} --recursive`))
+gulp.task('default', ['build', 'watch']);
