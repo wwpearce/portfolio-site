@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Ozymandias';
+  src: url('Ozymandias.eot');
+  src: url('Ozymandias.woff2') format('woff2'),
+       url('Ozymandias.woff') format('woff'),
+       url('Ozymandias.ttf') format('truetype'),
+       url('Ozymandias.svg#Ozymandias') format('svg'),
+       url('Ozymandias.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
