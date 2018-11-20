@@ -10,7 +10,8 @@
     "dev": "preact watch",
     "lint": "eslint src",
     "test": "jest",
-    "images": "imageoptim --help",
+    "optimize-images": "imageoptim --help",
+    "svgr": "svgr src/svg -d src/components/svg",
     "upload:staging": "aws s3 cp build s3://billwpearce.com.staging/ --recursive",
     "upload:production": "aws s3 cp build s3://billwpearce.com/ --recursive --dryrun && echo 'Remove dryrun if ur sure.'"
   },

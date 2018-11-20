@@ -1,0 +1,31 @@
+.splash {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+	svg {
+		transition: fill .4s ease;
+		fill: orange;
+	}
+}
+
+.hi_my_name_is {
+	width: 13rem;
+}
+
+.bill_pearce {
+	width: 30rem;
+}
+
+.and_i_make {
+	width: 14rem;
+  margin-top: 1rem;
+}
+
+.internet_stuff {
+	width: 22rem;
+	margin-top: 2rem;
+}
