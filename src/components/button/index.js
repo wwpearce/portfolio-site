@@ -1,11 +1,22 @@
-import { h } from 'preact';
-import { Link } from 'preact-router/match';
+import {
+  h,
+  Component
+} from 'preact';
 import style from './style';
 
-const Button = () => (
-	<button class={style.button}>
-		<Link activeClassName={style.active} href="/">menu</Link>
-	</button>
-);
+export default class Button extends Component {
 
-export default Button;
+  constructor(props) {
+    super(props)
+  };
+
+  componentDidMount() {
+    console.log(this);
+  };
+
+  render() {
+    return (
+			<button onClick = {this.props.handleScrollButtonClick} id = 'scrollButton' class = {style.scroll} >scroooooool!</button>
+    );
+  }
+}

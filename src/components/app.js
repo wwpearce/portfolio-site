@@ -1,9 +1,16 @@
-import { h, Component } from 'preact';
-import { Router } from 'preact-router';
+import {
+  h,
+  render,
+  Component
+} from 'preact';
+import {
+  Router
+} from 'preact-router';
 
 import Header from './header';
-import Splash from './splash';
+import Screen from './screen';
 import Button from './button';
+import Hamburger from './hamburger';
 
 var randomColor = require('randomcolor'); // import the script
 
@@ -13,30 +20,107 @@ import Profile from '../routes/profile';
 
 export default class App extends Component {
 
-	/** Gets fired when the route changes.
-	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
-	 *	@param {string} event.url	The newly routed URL
-	 */
-	handleRoute = e => {
-		this.currentUrl = e.url;
+  constructor(props) {
+    super(props)
+		this.setState({
+      appState: 'splash'
+    });
+		this.handleScrollButtonClick = this.handleScrollButtonClick.bind(this);
+    this.handleHamburgerClick = this.handleHamburgerClick.bind(this);
+  };
+
+  handleHamburgerClick = (e) => {
+    e.preventDefault();
+		let $state, $buttonClicked;
+		$buttonClicked = e.target.id;
+		if ($buttonClicked === 'menu-button') {
+			$state = 'menu';
+		}
+    this.setState({
+      appState: $state
+    });
+		console.log(this.state);
+  };
+
+	handleScrollButtonClick = (e) => {
+    e.preventDefault();
+		let $state, $buttonClicked;
+		$buttonClicked = e.target.id;
+		if ($buttonClicked === 'menu-button') {
+			$state = 'menu';
+		}
+    this.setState({
+      appState: $state
+    });
+		console.log(this.state);
+  };
+
+	addListeners = () => {
+		const $body = document.querySelector('#scrollButton');
+		$body.addEventListener('click', this.changeColors, false);
+
+    const $hamburger = document.querySelector('#hamburger');
+    $hamburger.addEventListener('click', this.toggleHamburger, false);
 	};
 
-	componentDidMount() {
-		console.log(this);
-		document.querySelector('body').addEventListener("click", function(){
-		    // document.getElementById("demo").innerHTML = "Hello World";
-				const $randomColor = randomColor();
-				document.querySelector('svg').style.fill = $randomColor;
-				document.querySelector('a').style.color = $randomColor;
-		});
-	}
+  toggleMenuState = (e) => {
+    let $state = 'menu';
+    this.setState({
+      appState: $state
+    });
+		console.log(this.state);
+  };
 
-	render() {
-		return (
-			<div id="app">
-			<Splash />
-			<Button />
-			</div>
-		);
-	}
+  toggleHamburger = (e) => {
+    if (e.target.id === 'hamburgerActual') {
+      e.target.classList.toggle('is-active');
+    }
+    else {
+      e.target.children[0].classList.toggle('is-active');
+    }
+    this.toggleMenuState();
+  };
+
+	changeColors = (e) => {
+		const $randomColor = randomColor();
+		document.querySelector('svg').style.fill = $randomColor;
+		document.querySelector('button').style.color = $randomColor;
+    document.querySelector('#hamburger').style.color = $randomColor;
+	};
+
+  componentDidMount() {
+    console.log(this.state);
+		this.addListeners();
+  };
+
+  getDerivedStateFromProps(props, state) {
+    console.log(props, state);
+  };
+
+  render() {
+    let $state = this.state.appState;
+    let $screen;
+
+    if ($state === 'splash') {
+      $screen = <Screen / >
+      console.log("this sholud be the splash");
+    }
+    else if ($state === 'menu') {
+      $screen = <Screen / >
+      console.log("this should be the menu");
+    }
+    else {
+      $screen = <Screen / >
+      console.log("dunno what this is");
+    }
+
+    console.log("rendering");
+    return (
+			<div id = "app" >
+        <Hamburger /  >
+	      {$screen}
+	      <Button / >
+      </div>
+    );
+  }
 }

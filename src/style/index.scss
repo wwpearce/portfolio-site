@@ -1,3 +1,4 @@
+@import 'reset';
 @import 'fonts/BrandonGrotesque-Regular/font';
 
 html, body {
@@ -5,16 +6,18 @@ html, body {
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	background: #FAFAFA;
-	font-family: 'Helvetica Neue', arial, sans-serif;
-	font-weight: 400;
-	color: #444;
+	background: white;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	cursor: grab;
+	&:active {
+		cursor: grabbing;
+	}
 }
 
 * {
 	box-sizing: border-box;
+	user-select: none;
 }
 
 #app {
