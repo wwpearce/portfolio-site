@@ -4,7 +4,7 @@ import {
 } from 'preact';
 import style from './style';
 
-import DesktopLayout from '..../svg/DesktopLayout.js'
+import DesktopLayout from './svg/DesktopLayout.js'
 
 export default class Splash extends Component {
 

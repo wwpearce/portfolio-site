@@ -7,12 +7,11 @@ import {
   Router
 } from 'preact-router';
 
-import Header from './header';
-import Screen from './screen';
-import Menu from './menu';
-import AboutMe from './aboutMe';
-import Button from './button';
 import Hamburger from './hamburger';
+
+import Splash from './screens/splash';
+import Menu from './screens/menu';
+import About from './screens/about';
 
 var randomColor = require('randomcolor'); // import the script
 
@@ -102,13 +101,17 @@ export default class App extends Component {
     let $screen;
 
     if ($state === 'splash') {
-      $screen = <Screen / >
+      $screen =
+      <div class="screen">
+        <Splash state={this.state}/ >
+        <Menu / >
+      </div>
     }
     else if ($state === 'menu') {
       $screen = <Menu / >
     }
     else {
-      $screen = <Screen / >
+      $screen = <Splash state={this.state}/ >
     }
     return (
 			<div id = "app" >
