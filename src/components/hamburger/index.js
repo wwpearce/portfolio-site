@@ -11,7 +11,6 @@ export default class Hamburger extends Component {
   };
 
   componentDidMount() {
-    console.log(this);
   };
 
   render() {

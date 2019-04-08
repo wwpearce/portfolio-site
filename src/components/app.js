@@ -9,6 +9,8 @@ import {
 
 import Header from './header';
 import Screen from './screen';
+import Menu from './menu';
+import AboutMe from './aboutMe';
 import Button from './button';
 import Hamburger from './hamburger';
 
@@ -56,19 +58,24 @@ export default class App extends Component {
   };
 
 	addListeners = () => {
-		const $body = document.querySelector('#scrollButton');
-		$body.addEventListener('click', this.changeColors, false);
+		const $svg = document.querySelector('svg');
+		$svg.addEventListener('click', this.changeColors, false);
 
     const $hamburger = document.querySelector('#hamburger');
     $hamburger.addEventListener('click', this.toggleHamburger, false);
 	};
 
   toggleMenuState = (e) => {
-    let $state = 'menu';
+    let $state = this.state.appState;
+    if ($state === 'splash') {
+      $state = 'menu';
+    }
+    else if ($state === 'menu') {
+      $state = 'splash';
+    }
     this.setState({
       appState: $state
     });
-		console.log(this.state);
   };
 
   toggleHamburger = (e) => {
@@ -84,42 +91,29 @@ export default class App extends Component {
 	changeColors = (e) => {
 		const $randomColor = randomColor();
 		document.querySelector('svg').style.fill = $randomColor;
-		document.querySelector('button').style.color = $randomColor;
-    document.querySelector('#hamburger').style.color = $randomColor;
 	};
 
   componentDidMount() {
-    console.log(this.state);
 		this.addListeners();
   };
 
-  getDerivedStateFromProps(props, state) {
-    console.log(props, state);
-  };
-
-  render() {
+  render(props, state) {
     let $state = this.state.appState;
     let $screen;
 
     if ($state === 'splash') {
       $screen = <Screen / >
-      console.log("this sholud be the splash");
     }
     else if ($state === 'menu') {
-      $screen = <Screen / >
-      console.log("this should be the menu");
+      $screen = <Menu / >
     }
     else {
       $screen = <Screen / >
-      console.log("dunno what this is");
     }
-
-    console.log("rendering");
     return (
 			<div id = "app" >
         <Hamburger /  >
 	      {$screen}
-	      <Button / >
       </div>
     );
   }

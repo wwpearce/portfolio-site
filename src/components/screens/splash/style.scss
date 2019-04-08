@@ -1,0 +1,17 @@
+.screen {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+	svg {
+		transition: fill .4s ease;
+		fill: black;
+		width: 29.35rem;
+	}
+}
+
+.DesktopLayout {
+}

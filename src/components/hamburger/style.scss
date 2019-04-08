@@ -7,16 +7,15 @@ $hamburger-margins: 35px;
   position: absolute;
   width: $hamburger-width;
   height: $hamburger-width;
-  background-color: white;
   left: $hamburger-margins;
   top: $hamburger-margins;
   z-index: 100;
 
   :global(.hamburgerActual) {
-      @include burger($hamburger-width, 7px, 5px, #444);
+      @include burger($hamburger-width, 7px, 5px, #000);
   }
 
   :global(.hamburgerActual):global(.is-active) {
-    @include burger-to-cross;
+    @include burger-to-cross(#fff);
   }
 }
