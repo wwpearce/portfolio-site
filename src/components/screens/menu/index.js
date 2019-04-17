@@ -11,33 +11,52 @@ export default class Screen extends Component {
   };
 
   addListeners = () => {
-    const linkArray = document.querySelectorAll('a.menu-link');
-
+    let linkArray = document.querySelectorAll('a.menu-link');
     for (let i = 0; i < linkArray.length; i++) {
       linkArray[i].addEventListener('click', this.doLinkClick, false);
     }
 	};
 
+  removeListeners = () => {
+    let linkArray = document.querySelectorAll('a.menu-link');
+    for (let i = 0; i < linkArray.length; i++) {
+      linkArray[i].removeEventListener('click', this.doLinkClick, false);
+    }
+  }
+
   doLinkClick = (e) => {
-    console.log(e.target.id);
+    e.preventDefault();
+    this.props.changeScrollPosition(e.target.id, 1, null);
+    this.props.toggleHamburger('hamburgerActual');
   };
 
   componentDidMount() {
     this.addListeners();
   };
 
+  componentWillUnmount() {
+    this.removeListeners();
+  };
+
   render() {
+    const $menuClasses = `${style.menu} screen`;
     return (
-			<menu class={style.menu}>
+			<menu class={$menuClasses}>
       <ul>
         <li>
-          <a id='about-me' class='menu-link'>about me</a>
+          <a id='about' class='menu-link'>
+            <h2>about me</h2>
+          </a>
         </li>
         <li>
-          <a id='work' class='menu-link'>work</a>
+          <a id='work' class='menu-link'>
+            <h2>work</h2>
+          </a>
         </li>
         <li>
-          <a id='contact-me' class='menu-link'>contact me</a>
+          <a id='contact' class='menu-link'>
+            <h2>contact me</h2>
+          </a>
         </li>
       </ul>
 

@@ -4,7 +4,7 @@ import {
 } from 'preact';
 import style from './style';
 
-export default class About extends Component {
+export default class Work extends Component {
 
   constructor(props) {
     super(props)
@@ -19,11 +19,11 @@ export default class About extends Component {
   };
 
   render() {
-    const $aboutClasses = `${style.about} screen`;
+    const $workClasses = `${style.work} screen`;
     return (
-			<about className={$aboutClasses}>
+			<work className={$workClasses}>
         <div class="headline-wrapper">
-          <h1>about me</h1>
+          <h1>work</h1>
         </div>
         <div class="content-wrapper">
           <div class="content-wrapper_left">
@@ -34,7 +34,7 @@ export default class About extends Component {
             <div class="content-wrapper_right-tags"></div>
           </div>
         </div>
-			</about>
+			</work>
     );
   }
 }

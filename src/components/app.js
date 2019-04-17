@@ -6,12 +6,14 @@ import {
 import {
   Router
 } from 'preact-router';
+import { TweenMax, ScrollToPlugin } from "gsap/all";
 
 import Hamburger from './hamburger';
 
 import Splash from './screens/splash';
 import Menu from './screens/menu';
 import About from './screens/about';
+import Work from './screens/work';
 
 var randomColor = require('randomcolor'); // import the script
 
@@ -24,67 +26,69 @@ export default class App extends Component {
   constructor(props) {
     super(props)
 		this.setState({
-      appState: 'splash'
+      appState: 'no-menu',
+      menu : false,
+      section : 'splash',
+      scrollPos : 0
     });
-		this.handleScrollButtonClick = this.handleScrollButtonClick.bind(this);
-    this.handleHamburgerClick = this.handleHamburgerClick.bind(this);
   };
 
-  handleHamburgerClick = (e) => {
-    e.preventDefault();
-		let $state, $buttonClicked;
-		$buttonClicked = e.target.id;
-		if ($buttonClicked === 'menu-button') {
-			$state = 'menu';
-		}
-    this.setState({
-      appState: $state
-    });
-		console.log(this.state);
-  };
-
-	handleScrollButtonClick = (e) => {
-    e.preventDefault();
-		let $state, $buttonClicked;
-		$buttonClicked = e.target.id;
-		if ($buttonClicked === 'menu-button') {
-			$state = 'menu';
-		}
-    this.setState({
-      appState: $state
-    });
-		console.log(this.state);
+  changeScrollPosition = (section, speed, number) => {
+    let $scrollTo;
+    if(number) {
+      $scrollTo = number;
+    }
+    else if(section) {
+      $scrollTo = `${section}`;
+    }
+    TweenMax.to(window, speed, {scrollTo:$scrollTo});
+    console.log("changing");
   };
 
 	addListeners = () => {
 		const $svg = document.querySelector('svg');
-		$svg.addEventListener('click', this.changeColors, false);
-
     const $hamburger = document.querySelector('#hamburger');
-    $hamburger.addEventListener('click', this.toggleHamburger, false);
+
+
+		$svg.addEventListener('click', this.changeColors, false);
+    $hamburger.addEventListener('click', this.doHamburgerClick, false);
 	};
 
-  toggleMenuState = (e) => {
+  toggleMenuState = () => {
+
     let $state = this.state.appState;
-    if ($state === 'splash') {
+    if ($state === 'no-menu') {
       $state = 'menu';
+      this.saveScrollPosition();
     }
     else if ($state === 'menu') {
-      $state = 'splash';
+      $state = 'no-menu';
     }
     this.setState({
       appState: $state
     });
+    console.log(this.state);
   };
 
-  toggleHamburger = (e) => {
-    if (e.target.id === 'hamburgerActual') {
-      e.target.classList.toggle('is-active');
+  toggleHamburger = (target) => {
+    let $item;
+    if(typeof target === 'string') {
+      $item = document.querySelector('.' + target);
     }
     else {
-      e.target.children[0].classList.toggle('is-active');
+      $item = target
+      this.resetScrollPosition();
     }
+    $item.classList.toggle('is-active');
     this.toggleMenuState();
+  };
+
+  doHamburgerClick = (e) => {
+    let $target;
+    if (e.target.children[0]) {
+      $target = e.target.children[0];
+    }
+    this.toggleHamburger($target);
   };
 
 	changeColors = (e) => {
@@ -92,26 +96,43 @@ export default class App extends Component {
 		document.querySelector('svg').style.fill = $randomColor;
 	};
 
+  saveScrollPosition = () => {
+    let $doc = document.documentElement;
+    let $top = (window.pageYOffset || $doc.scrollTop)  - ($doc.clientTop || 0);
+    this.setState({
+      scrollPos: $top
+    });
+  };
+
+  resetScrollPosition = () => {
+    let $scrollPos = this.state.scrollPos;
+    this.changeScrollPosition(null, .01, $scrollPos);
+    console.log(window.scrollY);
+  };
+
+  scrollToSection = (section) => {
+    console.log(section);
+  };
+
   componentDidMount() {
 		this.addListeners();
+    // window.scrollTo(0, 500);
   };
 
   render(props, state) {
     let $state = this.state.appState;
     let $screen;
 
-    if ($state === 'splash') {
-      $screen =
-      <div class="screen">
-        <Splash state={this.state}/ >
-        <Menu / >
-      </div>
-    }
-    else if ($state === 'menu') {
-      $screen = <Menu / >
+    if ($state === 'menu') {
+      $screen = <Menu props={this.props} toggleHamburger={this.toggleHamburger} changeScrollPosition={this.changeScrollPosition}/ >
     }
     else {
-      $screen = <Splash state={this.state}/ >
+      $screen =
+      <div class="screens">
+        <Splash state={this.state}/ >
+        <About / >
+        <Work / >
+      </div>
     }
     return (
 			<div id = "app" >

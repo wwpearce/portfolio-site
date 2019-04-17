@@ -4,15 +4,17 @@ $hamburger-width: 35px;
 $hamburger-margins: 35px;
 
 .hamburger {
-  position: absolute;
+  position: fixed;
   width: $hamburger-width;
   height: $hamburger-width;
   left: $hamburger-margins;
   top: $hamburger-margins;
   z-index: 100;
+  cursor: pointer;
 
   :global(.hamburgerActual) {
       @include burger($hamburger-width, 7px, 5px, #000);
+      pointer-events: none;
   }
 
   :global(.hamburgerActual):global(.is-active) {

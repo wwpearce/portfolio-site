@@ -16,9 +16,10 @@ export default class Splash extends Component {
   };
 
   render() {
+    const $splashClasses = `${style.splash} screen`;
     return (
-			<splash class={style.splash}>
-				<DesktopLayout class={style.DesktopLayout} />
+			<splash className={$splashClasses}>
+				<DesktopLayout className={style.DesktopLayout} />
 			</splash>
     );
   }

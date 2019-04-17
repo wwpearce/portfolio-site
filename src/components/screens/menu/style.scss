@@ -2,16 +2,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: absolute;
+	position: fixed;
 	width: 100vw;
 	height: 100vh;
 	flex-direction: column;
 	background-color: black;
-	color: white;
-	font-family: 'BrandonGrotesque-Regular';
-	font-size: 21px;
-  text-transform: uppercase;
-	letter-spacing: 7px;
 	ul {
 		text-align: center;
 		li {
@@ -19,6 +14,13 @@
 			border-bottom: 1px solid white;
 			&:last-of-type {
 				border-bottom: none;
+			}
+			:global(.menu-link) {
+				display: inline-block;
+				cursor: pointer;
+				h2 {
+					pointer-events: none;
+				}
 			}
 		}
 	}
