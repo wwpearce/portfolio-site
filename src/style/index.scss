@@ -2,7 +2,8 @@
 @import 'fonts/BrandonGrotesque-Regular/font';
 @import 'fonts/BrandonGrotesque-Bold/font';
 
-html, body {
+body,
+html {
 	height: 100%;
 	width: 100%;
 	padding: 0;
@@ -27,7 +28,7 @@ h2 {
 	color: white;
 	font-family: 'BrandonGrotesque-Regular';
 	font-size: 2.5vw;
-  text-transform: uppercase;
+	text-transform: uppercase;
 	letter-spacing: 2vw;
 }
 
@@ -40,10 +41,48 @@ p {
 
 #app {
 	height: 100%;
+
 	.screens {
 		.screen {
 			width: 100vw;
 			height: 100vh;
 		}
+	}
+}
+
+.content-wrapper,
+.menu-wrapper {
+	position: fixed;
+}
+
+.visible {
+	animation: slide-in 0.5s forwards;
+
+	&.menu-wrapper {
+		left: 0;
+		transform: translateX(0%);
+		transition: 0.65s;
+	}
+
+	&.content-wrapper {
+		left: 0;
+		transform: translateX(0%);
+		transition: 0.65s;
+	}
+}
+
+.hidden {
+	animation: slide-in 0.5s forwards;
+
+	&.menu-wrapper {
+		left: -100%;
+		transform: translateX(-100%);
+		transition: 0.65s;
+	}
+
+	&.content-wrapper {
+		left: 100%;
+		transform: translateX(100%);
+		transition: 0.65s;
 	}
 }

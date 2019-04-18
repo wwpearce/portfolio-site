@@ -14,9 +14,12 @@ export default class Hamburger extends Component {
   };
 
   render() {
+    const getBurgerActivity = (this.props.state.state === 'default') ? '' : ' is-active';
+    const hamburgerActualClasses = 'hamburgerActual' + getBurgerActivity;
+
     return (
-			<hamburger onClick = {this.props.handleScroll} id = 'hamburger' class = {style.hamburger} >
-        <div id="hamburgerActual" class="hamburgerActual"></div>
+			<hamburger onClick = {this.props.handleHamburgerClick} id = 'hamburger' class = {style.hamburger} >
+        <div id="hamburgerActual" class={hamburgerActualClasses}></div>
       </hamburger>
     );
   }

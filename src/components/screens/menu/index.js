@@ -4,7 +4,7 @@ import {
 } from 'preact';
 import style from './style';
 
-export default class Screen extends Component {
+export default class Menu extends Component {
 
   constructor(props) {
     super(props)
@@ -22,12 +22,11 @@ export default class Screen extends Component {
     for (let i = 0; i < linkArray.length; i++) {
       linkArray[i].removeEventListener('click', this.doLinkClick, false);
     }
-  }
+  };
 
   doLinkClick = (e) => {
     e.preventDefault();
     this.props.changeScrollPosition(e.target.id, 1, null);
-    this.props.toggleHamburger('hamburgerActual');
   };
 
   componentDidMount() {
@@ -40,8 +39,10 @@ export default class Screen extends Component {
 
   render() {
     const $menuClasses = `${style.menu} screen`;
+    const $visibility = this.props.returnMenuState;
+
     return (
-			<menu class={$menuClasses}>
+			<menu visibility={$visibility} class={$menuClasses}>
       <ul>
         <li>
           <a id='about' class='menu-link'>

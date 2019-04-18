@@ -11,7 +11,7 @@
 
 		}
 	}
-	:global(.content-wrapper) {
+	:global(.inner_content-wrapper) {
 		display: flex;
 		flex-direction: row;
 
@@ -19,16 +19,16 @@
 	    height: 100%;
 	    margin-top: 70px;
 		}
-		:global(.content-wrapper_left) {
+		:global(.inner_content-wrapper_left) {
 	    padding: 0 45px 0 70px;
 			width: 66.66%;
 		}
-		:global(.content-wrapper_right) {
+		:global(.inner_content-wrapper_right) {
 			width: 33.33%;
-			:global(.content-wrapper_right_images) {
+			:global(.inner_content-wrapper_right_images) {
 
 			}
-			:global(.content-wrapper_right-tags) {
+			:global(.inner_content-wrapper_right-tags) {
 
 			}
 		}

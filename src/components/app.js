@@ -14,6 +14,8 @@ import Splash from './screens/splash';
 import Menu from './screens/menu';
 import About from './screens/about';
 import Work from './screens/work';
+import Content from './screens/content';
+import { addListener, addListeners, removeListener, removeListeners } from './utils';
 
 var randomColor = require('randomcolor'); // import the script
 
@@ -24,71 +26,75 @@ import Profile from '../routes/profile';
 export default class App extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
 		this.setState({
       appState: 'no-menu',
       menu : false,
       section : 'splash',
-      scrollPos : 0
+      scrollPos : 0,
+      state : 'default',
+      previousState : 'default',
+      burger : null
     });
+  };
+
+  setSessionStorage = () => {
+    if (!window.localStorage.bpHasVisited) {
+      window.localStorage.bpHasVisited = true;
+    };
+  };
+
+  getSessionStorage = () => {
+    if (!window.localStorage.bpHasVisited) {
+      console.log("Welcome for the first time.");
+      this.setSessionStorage();
+    }
+    else {
+      console.log("Welcome back.");
+    }
+  };
+
+  changeState = (state) => {
+    let $state = state;
+    let $previousState = this.state.state;
+    this.setState({
+      state: $state,
+      previousState: $previousState
+    });
+    console.log(`Changed state from ${$previousState} to ${$state}`);
   };
 
   changeScrollPosition = (section, speed, number) => {
-    let $scrollTo;
-    if(number) {
-      $scrollTo = number;
-    }
-    else if(section) {
-      $scrollTo = `${section}`;
-    }
-    TweenMax.to(window, speed, {scrollTo:$scrollTo});
-    console.log("changing");
+    let scrollTo = section ? section : speed;
+    TweenMax.to(window, speed, {scrollTo:scrollTo});
+    this.toggleState('menu');
   };
 
-	addListeners = () => {
-		const $svg = document.querySelector('svg');
-    const $hamburger = document.querySelector('#hamburger');
+  addRefs = () => {
+    this.$svg = document.querySelector('svg');
+  };
 
-
-		$svg.addEventListener('click', this.changeColors, false);
-    $hamburger.addEventListener('click', this.doHamburgerClick, false);
+	addListenerss = () => {
+		this.$svg.addEventListener('click', this.changeColors, false);
 	};
 
-  toggleMenuState = () => {
-
-    let $state = this.state.appState;
-    if ($state === 'no-menu') {
-      $state = 'menu';
-      this.saveScrollPosition();
+  toggleState = (state) => {
+    if (this.state.state === 'default') {
+      // Changing from the default state to the menu state
+      this.changeState(state);
     }
-    else if ($state === 'menu') {
-      $state = 'no-menu';
-    }
-    this.setState({
-      appState: $state
-    });
-    console.log(this.state);
-  };
-
-  toggleHamburger = (target) => {
-    let $item;
-    if(typeof target === 'string') {
-      $item = document.querySelector('.' + target);
+    else if (this.state.state === state) {
+      // Changing from the menu state back to default
+      this.changeState('default');
     }
     else {
-      $item = target
-      this.resetScrollPosition();
+      // Panic button
+      this.changeState('default');
     }
-    $item.classList.toggle('is-active');
-    this.toggleMenuState();
   };
 
-  doHamburgerClick = (e) => {
-    let $target;
-    if (e.target.children[0]) {
-      $target = e.target.children[0];
-    }
-    this.toggleHamburger($target);
+  handleHamburgerClick = (e) => {
+    this.toggleState('menu');
   };
 
 	changeColors = (e) => {
@@ -96,49 +102,59 @@ export default class App extends Component {
 		document.querySelector('svg').style.fill = $randomColor;
 	};
 
-  saveScrollPosition = () => {
-    let $doc = document.documentElement;
-    let $top = (window.pageYOffset || $doc.scrollTop)  - ($doc.clientTop || 0);
-    this.setState({
-      scrollPos: $top
-    });
-  };
-
-  resetScrollPosition = () => {
-    let $scrollPos = this.state.scrollPos;
-    this.changeScrollPosition(null, .01, $scrollPos);
-    console.log(window.scrollY);
-  };
-
   scrollToSection = (section) => {
     console.log(section);
   };
 
+  returnMenuState = () => {
+    return this.state.state;
+  };
+
+  getState = () => {
+
+  };
+
+  getVisibility = (state) => {
+    if(this.state.state === state) {
+      return 'visible';
+    }
+    else {
+      return 'hidden';
+    };
+  };
+
   componentDidMount() {
-		this.addListeners();
-    // window.scrollTo(0, 500);
+    this.getSessionStorage();
+    this.addRefs();
+		this.addListenerss();
+    this.burger = document.querySelector('.hamburgerActual');
   };
 
   render(props, state) {
-    let $state = this.state.appState;
-    let $screen;
-
-    if ($state === 'menu') {
-      $screen = <Menu props={this.props} toggleHamburger={this.toggleHamburger} changeScrollPosition={this.changeScrollPosition}/ >
-    }
-    else {
-      $screen =
+    let $screen =
       <div class="screens">
-        <Splash state={this.state}/ >
+        <Splash / >
         <About / >
-        <Work / >
+        <Work props={this.props} addListeners={addListeners} toggleState={this.toggleState} / >
       </div>
-    }
+
+    let $menu =
+    <div className={`${this.getVisibility('menu')} menu-wrapper`}>
+      <Menu props={this.props} returnMenuState={this.returnMenuState} visibility={this.returnMenuState} changeScrollPosition={this.changeScrollPosition}/ >
+    </div>
+
+    let $content =
+    <div className={`${this.getVisibility('content')} content-wrapper`}>
+      <Content props={this.props} toggleState={this.toggleState} changeState={this.changeState} / >
+    </div>
+
     return (
-			<div id = "app" >
-        <Hamburger /  >
-	      {$screen}
-      </div>
+			<app>
+      <Hamburger state={this.state} props={this.props} handleHamburgerClick={this.handleHamburgerClick} /  >
+      {$menu}
+      {$content}
+      {$screen}
+      </app>
     );
   }
 }

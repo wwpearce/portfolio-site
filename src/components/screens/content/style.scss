@@ -1,0 +1,27 @@
+.content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+	background-color: black;
+	ul {
+		text-align: center;
+		li {
+			padding: 100px 0;
+			border-bottom: 1px solid white;
+			&:last-of-type {
+				border-bottom: none;
+			}
+			:global(.menu-link) {
+				display: inline-block;
+				cursor: pointer;
+				h2 {
+					pointer-events: none;
+				}
+			}
+		}
+	}
+}

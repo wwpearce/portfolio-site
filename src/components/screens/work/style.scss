@@ -11,27 +11,20 @@
 
 		}
 	}
-	:global(.content-wrapper) {
-		display: flex;
-		flex-direction: row;
+	:global(.inner_content-wrapper) {
+		display: grid;
+    grid-template-columns: repeat(5, 1fr);
+		grid-gap: 1px;
+    background-color: black;
+    border: 1px solid black;
+		margin-top: 70px;
 
 		div {
-	    height: 100%;
-	    margin-top: 70px;
+	    height: 20vw;
+			width: 20vw;
+			background-color: white;
 		}
-		:global(.content-wrapper_left) {
-	    padding: 0 45px 0 70px;
-			width: 66.66%;
-		}
-		:global(.content-wrapper_right) {
-			width: 33.33%;
-			:global(.content-wrapper_right_images) {
 
-			}
-			:global(.content-wrapper_right-tags) {
-
-			}
-		}
 	}
 }
 
