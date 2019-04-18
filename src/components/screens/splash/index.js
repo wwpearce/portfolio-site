@@ -18,7 +18,7 @@ export default class Splash extends Component {
   render() {
     const $splashClasses = `${style.splash} screen`;
     return (
-			<splash className={$splashClasses}>
+			<splash onClick = {this.props.changeColors} className={$splashClasses}>
 				<DesktopLayout className={style.DesktopLayout} />
 			</splash>
     );
