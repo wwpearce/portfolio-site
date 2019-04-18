@@ -105,17 +105,17 @@ export default class App extends Component {
     let $screen = <div class="screens">
       <Splash props={this.props} changeColors={this.changeColors} / >
       <About content={content.about} / >
-      <Work props={this.props} content={content.work} addListeners={addListeners} toggleState={this.toggleState} / >
+      <Work props={this.props} content={content.work} addListeners={addListeners} toggleState={this.toggleState} />
     </div>
 
     let $menu =
     <div className={`${this.getVisibility('menu')} menu-wrapper`}>
-      <Menu props={this.props} content={content.menu} returnMenuState={this.returnMenuState} visibility={this.returnMenuState} changeScrollPosition={this.changeScrollPosition} />
+      <Menu props={this.props} state={this.state} content={content.menu} addListeners={addListeners} removeListeners={removeListeners} changeScrollPosition={this.changeScrollPosition} />
     </div>
 
       let $content =
       <div className={`${this.getVisibility('content')} content-wrapper`}>
-        <Content props={this.props} toggleState={this.toggleState} changeState={this.changeState} />
+        <Content props={this.props} toggleState={this.toggleState} />
       </div>
 
       return (

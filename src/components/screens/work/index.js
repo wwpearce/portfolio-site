@@ -10,7 +10,7 @@ export default class Work extends Component {
     super(props)
   };
 
-  handleLinkeClick = (e) => {
+  handleLinkClick = (e) => {
     this.props.toggleState('content');
   };
 
@@ -24,11 +24,11 @@ export default class Work extends Component {
 
   componentDidMount() {
     this.grid_items = document.querySelectorAll('div.grid-item');
-    this.props.addListeners(this.grid_items, 'click', this.handleLinkeClick);
+    this.props.addListeners(this.grid_items, 'click', this.handleLinkClick);
   };
 
   componentWillUnmount() {
-    this.props.removeListeners(this.grid_items, 'click', this.handleLinkeClick);
+    this.props.removeListeners(this.grid_items, 'click', this.handleLinkClick);
   };
 
   render() {

@@ -10,57 +10,40 @@ export default class Menu extends Component {
     super(props)
   };
 
-  addListeners = () => {
-    let linkArray = document.querySelectorAll('a.menu-link');
-    for (let i = 0; i < linkArray.length; i++) {
-      linkArray[i].addEventListener('click', this.doLinkClick, false);
-    }
-	};
-
-  removeListeners = () => {
-    let linkArray = document.querySelectorAll('a.menu-link');
-    for (let i = 0; i < linkArray.length; i++) {
-      linkArray[i].removeEventListener('click', this.doLinkClick, false);
-    }
-  };
-
-  doLinkClick = (e) => {
+  handleMenuLinkClick = (e) => {
     e.preventDefault();
     this.props.changeScrollPosition(e.target.id, 1, null);
   };
 
   componentDidMount() {
-    this.addListeners();
+    this.$menuLinkElms = document.querySelectorAll('a.menu-link');
+    this.props.addListeners(this.$menuLinkElms, 'click', this.handleMenuLinkClick);
   };
 
   componentWillUnmount() {
-    this.removeListeners();
+    this.props.removeListeners(this.$menuLinkElms);
   };
 
   render() {
-    const $menuClasses = `${style.menu} screen`;
-    const $visibility = this.props.returnMenuState;
-
     return (
-			<menu visibility={$visibility} class={$menuClasses}>
-      <ul>
-        <li>
-          <a id='about' class='menu-link'>
-            <h2>about me</h2>
-          </a>
-        </li>
-        <li>
-          <a id='work' class='menu-link'>
-            <h2>work</h2>
-          </a>
-        </li>
-        <li>
-          <a id='contact' class='menu-link'>
-            <h2>contact me</h2>
-          </a>
-        </li>
-      </ul>
-
+			<menu class={`${style.menu} screen`}>
+        <ul>
+          <li>
+            <a id='about' class='menu-link'>
+              <h2>about</h2>
+            </a>
+          </li>
+          <li>
+            <a id='work' class='menu-link'>
+              <h2>work</h2>
+            </a>
+          </li>
+          <li>
+            <a id='contact' class='menu-link'>
+              <h2>contact me</h2>
+            </a>
+          </li>
+        </ul>
 			</menu>
     );
   }
