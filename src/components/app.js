@@ -17,6 +17,8 @@ import Work from './screens/work';
 import Content from './screens/content';
 import { addListener, addListeners, removeListener, removeListeners } from './utils';
 
+import * as content from './content.json';
+
 var randomColor = require('randomcolor'); // import the script
 
 // Code-splitting is automated for routes
@@ -36,6 +38,7 @@ export default class App extends Component {
       previousState : 'default',
       burger : null
     });
+    console.log(content);
   };
 
   setSessionStorage = () => {
@@ -134,13 +137,13 @@ export default class App extends Component {
     let $screen =
       <div class="screens">
         <Splash / >
-        <About / >
+        <About content={content.about} / >
         <Work props={this.props} addListeners={addListeners} toggleState={this.toggleState} / >
       </div>
 
     let $menu =
     <div className={`${this.getVisibility('menu')} menu-wrapper`}>
-      <Menu props={this.props} returnMenuState={this.returnMenuState} visibility={this.returnMenuState} changeScrollPosition={this.changeScrollPosition}/ >
+      <Menu props={this.props} content={content.menu} returnMenuState={this.returnMenuState} visibility={this.returnMenuState} changeScrollPosition={this.changeScrollPosition}/ >
     </div>
 
     let $content =

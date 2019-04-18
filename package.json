@@ -33,6 +33,7 @@
     "sass-loader": "^7.1.0"
   },
   "dependencies": {
+    "aws-sdk": "^2.440.0",
     "gsap": "^2.1.2",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",

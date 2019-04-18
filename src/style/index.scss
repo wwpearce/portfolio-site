@@ -41,15 +41,10 @@ p {
 	letter-spacing: 0;
 }
 
-#app {
-	height: 100%;
 
-	.screens {
-		.screen {
-			width: 100vw;
-			height: 100vh;
-		}
-	}
+#app, .screen {
+	width: 100vw;
+	height: 100vh;
 }
 
 .content-wrapper,

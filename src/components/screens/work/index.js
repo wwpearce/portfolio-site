@@ -36,7 +36,7 @@ export default class Work extends Component {
     return (
 			<work className={$workClasses}>
         <div class="headline-wrapper">
-          <h1>work</h1>
+          <h1>Work</h1>
         </div>
         <div class="inner_content-wrapper">
             {this.generateGridItems(16)}
