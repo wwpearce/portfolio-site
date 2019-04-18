@@ -1,4 +1,6 @@
 @import 'reset';
+@import 'variables';
+@import 'easings';
 @import 'fonts/BrandonGrotesque-Regular/font';
 @import 'fonts/BrandonGrotesque-Bold/font';
 
@@ -56,33 +58,31 @@ p {
 }
 
 .visible {
-	animation: slide-in 0.5s forwards;
 
 	&.menu-wrapper {
 		left: 0;
 		transform: translateX(0%);
-		transition: 0.65s;
+		transition: $menuInSpeed $easeInCubic;
 	}
 
 	&.content-wrapper {
 		left: 0;
 		transform: translateX(0%);
-		transition: 0.65s;
+		transition: $contentInSpeed $easeInCubic;
 	}
 }
 
 .hidden {
-	animation: slide-in 0.5s forwards;
 
 	&.menu-wrapper {
 		left: -100%;
 		transform: translateX(-100%);
-		transition: 0.65s;
+		transition: $menuOutSpeed $easeInCubic;
 	}
 
 	&.content-wrapper {
 		left: 100%;
 		transform: translateX(100%);
-		transition: 0.65s;
+		transition: $contentOutSpeed $easeInCubic;
 	}
 }
