@@ -28,6 +28,7 @@ export default class App extends Component {
       scrollPos: 0,
       state: 'default',
       previousState: 'default',
+      dropdownOptions : content.work.tags
     });
   };
 
@@ -46,6 +47,11 @@ export default class App extends Component {
     }
   };
 
+  changeDropdownState = (array) => {
+    console.log(array);
+    this.setState({dropdownOptions: array});
+  };
+
   changeState = (state) => {
     let $state = state;
     let $previousState = this.state.state;
@@ -54,13 +60,9 @@ export default class App extends Component {
   };
 
   changeScrollPosition = (section, speed, number) => {
-    let scrollTo = section ? section : speed;
+    let scrollTo = section ? section : number;
     TweenMax.to(window, speed, {scrollTo: scrollTo});
     this.toggleState('menu');
-  };
-
-  addListenerss = () => {
-    this.$svg.addEventListener('click', this.changeColors, false);
   };
 
   toggleState = (state) => {
@@ -85,15 +87,11 @@ export default class App extends Component {
     document.querySelector('svg').style.fill = $randomColor;
   };
 
-  returnMenuState = () => {
-    return this.state.state;
-  };
-
   getVisibility = (state) => {
     if (this.state.state === state) {
-      return 'visible';
+      return 'enter';
     } else {
-      return 'hidden';
+      return 'exit';
     };
   };
 
@@ -105,7 +103,7 @@ export default class App extends Component {
     let $screen = <div class="screens">
       <Splash props={this.props} changeColors={this.changeColors} / >
       <About content={content.about} / >
-      <Work props={this.props} content={content.work} addListeners={addListeners} toggleState={this.toggleState} />
+      <Work props={this.props} state={this.state} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
     </div>
 
     let $menu =

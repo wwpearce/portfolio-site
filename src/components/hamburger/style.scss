@@ -12,12 +12,13 @@ $hamburger-margins: 35px;
   z-index: 100;
   cursor: pointer;
 
-  :global(.hamburgerActual) {
+  .hamburgerActual {
       @include burger($hamburger-width, 7px, 5px, #000);
       pointer-events: none;
+      &:global(.is-active) {
+        @include burger-to-cross(#fff);
+      }
   }
 
-  :global(.hamburgerActual):global(.is-active) {
-    @include burger-to-cross(#fff);
-  }
+
 }

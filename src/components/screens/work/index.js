@@ -3,6 +3,7 @@ import {
   Component
 } from 'preact';
 import style from './style';
+import Tagging from './tagging';
 
 export default class Work extends Component {
 
@@ -32,13 +33,15 @@ export default class Work extends Component {
   };
 
   render() {
-    const $workClasses = `${style.work} screen`;
     return (
-			<work className={$workClasses}>
+			<work className={`${style.work} screen`}>
         <div class="headline-wrapper">
           <h1>Work</h1>
         </div>
-        <div class="inner_content-wrapper">
+        <div class={style.taggingWrapper}>
+          <Tagging state={this.props.state} changeDropdownState={this.props.changeDropdownState} content={this.props.content.tags} / >
+        </div>
+        <div class={style.inner_contentWrapper}>
             {this.generateGridItems(16)}
         </div>
 			</work>

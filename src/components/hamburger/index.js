@@ -15,7 +15,7 @@ export default class Hamburger extends Component {
 
   render() {
     const getBurgerActivity = (this.props.state.state === 'default') ? '' : ' is-active';
-    const hamburgerActualClasses = 'hamburgerActual' + getBurgerActivity;
+    const hamburgerActualClasses = 'hamburgerActual' + getBurgerActivity + ' ' + style.hamburgerActual;
 
     return (
 			<hamburger onClick = {this.props.handleHamburgerClick} id = 'hamburger' class = {style.hamburger} >

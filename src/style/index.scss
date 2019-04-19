@@ -41,43 +41,61 @@ p {
 	letter-spacing: 0;
 }
 
-
 #app, .screen {
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 }
 
 .content-wrapper,
 .menu-wrapper {
 	position: fixed;
+	z-index: 99;
 }
 
-.visible {
-
+.enter {
 	&.menu-wrapper {
 		left: 0;
 		transform: translateX(0%);
-		transition: $menuInSpeed $easeInCubic;
+		transition: $menuInSpeed $easeOutCubic;
 	}
-
 	&.content-wrapper {
 		left: 0;
 		transform: translateX(0%);
-		transition: $contentInSpeed $easeInCubic;
+		transition: $contentInSpeed $easeOutCubic;
 	}
 }
 
-.hidden {
-
+.exit {
 	&.menu-wrapper {
 		left: -100%;
 		transform: translateX(-100%);
-		transition: $menuOutSpeed $easeInCubic;
+		transition: $menuOutSpeed $easeOutCubic;
 	}
-
 	&.content-wrapper {
 		left: 100%;
 		transform: translateX(100%);
-		transition: $contentOutSpeed $easeInCubic;
+		transition: $contentOutSpeed $easeOutCubic;
+	}
+}
+
+.tags {
+	display: flex;
+	.tag {
+		color: white;
+		font-family: 'BrandonGrotesque-Bold';
+		font-size: 12px;
+		text-transform: uppercase;
+	  position: relative;
+	  display: flex;
+	  align-items: center;
+	  justify-content: flex-end;
+		pre {
+			position: absolute;
+			z-index: 2;
+			padding-right: 20px;
+		}
+		svg {
+			z-index: 1;
+		}
 	}
 }
