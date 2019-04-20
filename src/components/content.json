@@ -12,17 +12,17 @@
     "headline" : "About",
     "bodyCopy" : "Hi! I'm Bill Pearce and I'm a Creative Technologist (WTF is a creative technologist). I've been working at creative agencies and tech companies for about thirteen years, wearing hats ranging from Art Director to Front-End Developer. Most recently, I worked at an internal creative agency inside Amazon, providing product and campaign solutions or clients. I split my time at Amazon working as the prototyping arm of a UX research team and as the technical guide in the advertising creative process. I can fit anywhere in the process of crafting user-centric products (UX, design, creative ideation, prototyping, development) but am most comfortable as the soft-technical arm of a small creative team. Whatever you're making, I can help you make it better!",
     "images" : {
-
     }
   },
   "resume" : {
     "url" : ""
   },
   "work" : {
-    "tags" : ["ui design", "development", "creative direction", "ux", "technical direction", "logo design"],
+    "tags" : ["ui design", "development", "creative direction", "ux", "technical direction", "logo design", "featured", "ideation"],
     "dunkirk" : {
       "fullName" : "Operation Dunkirk",
       "bodyCopy" : "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",
+      "thumbNail" : "https://via.placeholder.com/150",
       "images" : {
 
       },
@@ -30,8 +30,119 @@
 
       },
       "tags" : {
+        "uiDesign" : false,
         "development" : true,
-        "creativeDirection" : false
+        "creativeDirection" : true,
+        "ideation" : true,
+        "ux" : true,
+        "technicalDirection" : true,
+        "logoDesign" : false,
+        "featured" : true
+      }
+    },
+    "sample1" : {
+      "fullName" : "Whoperation Dunkirk",
+      "bodyCopy" : "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",
+      "thumbNail" : "https://via.placeholder.com/150",
+      "images" : {
+
+      },
+      "videos" : {
+
+      },
+      "tags" : {
+        "uiDesign" : true,
+        "development" : false,
+        "creativeDirection" : false,
+        "ideation" : true,
+        "ux" : true,
+        "technicalDirection" : true,
+        "logoDesign" : false,
+        "featured" : false
+      }
+    },
+    "sample2" : {
+      "fullName" : "Xhoperation Dunkirk",
+      "bodyCopy" : "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",
+      "thumbNail" : "https://via.placeholder.com/150",
+      "images" : {
+
+      },
+      "videos" : {
+
+      },
+      "tags" : {
+        "uiDesign" : true,
+        "development" : false,
+        "creativeDirection" : false,
+        "ideation" : false,
+        "ux" : true,
+        "technicalDirection" : false,
+        "logoDesign" : true,
+        "featured" : false
+      }
+    },
+    "sample3" : {
+      "fullName" : "3hoperation Dunkirk",
+      "bodyCopy" : "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",
+      "thumbNail" : "https://via.placeholder.com/150",
+      "images" : {
+
+      },
+      "videos" : {
+
+      },
+      "tags" : {
+        "uiDesign" : true,
+        "development" : false,
+        "creativeDirection" : false,
+        "ideation" : true,
+        "ux" : true,
+        "technicalDirection" : false,
+        "logoDesign" : false,
+        "featured" : false
+      }
+    },
+    "sample4" : {
+      "fullName" : "X4operation Dunkirk",
+      "bodyCopy" : "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",
+      "thumbNail" : "https://via.placeholder.com/150",
+      "images" : {
+
+      },
+      "videos" : {
+
+      },
+      "tags" : {
+        "uiDesign" : true,
+        "development" : true,
+        "creativeDirection" : false,
+        "ideation" : false,
+        "ux" : true,
+        "technicalDirection" : true,
+        "logoDesign" : false,
+        "featured" : false
+      }
+    },
+    "sample5" : {
+      "fullName" : "5hoperation Dunkirk",
+      "bodyCopy" : "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",
+      "thumbNail" : "https://via.placeholder.com/150",
+      "images" : {
+
+      },
+      "videos" : {
+
+      },
+      "tags" : {
+        "uiDesign" : false,
+        "development" : true,
+        "creativeDirection" : true,
+        "ideation" : true,
+        "ux" : false,
+        "technicalDirection" : false,
+        "logoDesign" : false,
+        "featured" : false
       }
     }
   }

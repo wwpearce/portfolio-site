@@ -13,6 +13,8 @@ import {addListener, addListeners, removeListener, removeListeners} from './util
 
 import * as content from './content.json';
 
+import bill from './images/bill.jpg';
+
 const randomColor = require('randomcolor'); // import the script
 
 // Code-splitting is automated for routes
@@ -28,7 +30,8 @@ export default class App extends Component {
       scrollPos: 0,
       state: 'default',
       previousState: 'default',
-      dropdownOptions : content.work.tags
+      dropdownOptions : content.work.tags,
+      filters : []
     });
   };
 
@@ -102,8 +105,8 @@ export default class App extends Component {
   render(props, state) {
     let $screen = <div class="screens">
       <Splash props={this.props} changeColors={this.changeColors} / >
-      <About content={content.about} / >
-      <Work props={this.props} state={this.state} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
+      <About image={bill} content={content.about} / >
+      <Work props={this.props} state={this.state} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
     </div>
 
     let $menu =

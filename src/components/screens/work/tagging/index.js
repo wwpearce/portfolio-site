@@ -26,10 +26,10 @@ export default class Tagging extends Component {
   addTags = (tag) => {
     let _changeDropdownState = this.props.changeDropdownState;
     let _dropdownOptions = this.props.state.dropdownOptions;
+    let _setState = this.setState;
     let tagStringLength = tag.length;
     let tagLength = tagStringLength * 10 > 50 ? tagStringLength * 10 : 50;
     let tagHeight = 30;
-    console.log(this.tagStringLength);
     this.$div = document.createElement('div');
     this.$div.className = `${tag} tag`;
     this.$div.innerHTML = `
@@ -60,6 +60,11 @@ export default class Tagging extends Component {
     }
     this.addTags(tag);
     this.removeTagFromDropdowns(tag);
+
+    let filters = this.props.state.filters;
+    filters.push(tag);
+
+    this.setState({filters: filters});
   };
 
   render() {

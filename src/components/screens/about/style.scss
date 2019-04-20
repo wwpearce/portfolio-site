@@ -17,14 +17,15 @@
 
 		div {
 	    height: 100%;
-	    margin-top: 70px;
 		}
 		:global(.inner_content-wrapper_left) {
 	    padding: 0 45px 0 70px;
-			width: 66.66%;
+			width: 50%;
+			margin-top: 70px;
 		}
 		:global(.inner_content-wrapper_right) {
-			width: 33.33%;
+			width: 50%;
+			margin-top: 70px;
 			:global(.inner_content-wrapper_right_images) {
 
 			}

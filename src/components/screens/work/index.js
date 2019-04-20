@@ -16,6 +16,13 @@ export default class Work extends Component {
   };
 
   generateGridItems = (number) => {
+    console.log(this.props.state);
+    if(this.props.state.filters.length > 0) {
+      console.log("we got filters");
+    }
+    else {
+      console.log("no filters");
+    }
     let gridItems = [];
     for (let i = 0; i < number; i++) {
       gridItems.push(<div className="grid-item" key={i}></div>);
@@ -39,7 +46,7 @@ export default class Work extends Component {
           <h1>Work</h1>
         </div>
         <div class={style.taggingWrapper}>
-          <Tagging state={this.props.state} changeDropdownState={this.props.changeDropdownState} content={this.props.content.tags} / >
+          <Tagging state={this.props.state} setState={this.props.setState} changeDropdownState={this.props.changeDropdownState} content={this.props.content.tags} / >
         </div>
         <div class={style.inner_contentWrapper}>
             {this.generateGridItems(16)}

@@ -31,7 +31,9 @@ export default class About extends Component {
             <p>{this.props.content.bodyCopy}</p>
           </div>
           <div class="inner_content-wrapper_right">
-            <div class="inner_content-wrapper_right_images"></div>
+            <div class="inner_content-wrapper_right_images">
+              <img src={this.props.image} />
+            </div>
             <div class="inner_content-wrapper_right-tags"></div>
           </div>
         </div>
