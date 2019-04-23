@@ -22,7 +22,7 @@ export default class Dropdown extends Component {
 			<dropdown class = {style.dropdown} >
       <select onChange = {this.handleSelectChange}>
         {this.props.generateDropdownOptions()}
-        <option selected>*******</option>
+        <option selected>{this.props.addTagCopy}</option>
       </select>
       </dropdown>
     );

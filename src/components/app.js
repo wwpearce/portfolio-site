@@ -9,7 +9,7 @@ import Menu from './screens/menu';
 import About from './screens/about';
 import Work from './screens/work';
 import Content from './screens/content';
-import {addListener, addListeners, removeListener, removeListeners} from './utils';
+import {addListener, addListeners, removeListener, removeListeners, normalizeString} from './utils';
 
 import * as content from './content.json';
 
@@ -51,7 +51,6 @@ export default class App extends Component {
   };
 
   changeDropdownState = (array) => {
-    console.log(array);
     this.setState({dropdownOptions: array});
   };
 
@@ -106,7 +105,7 @@ export default class App extends Component {
     let $screen = <div class="screens">
       <Splash props={this.props} changeColors={this.changeColors} / >
       <About image={bill} content={content.about} / >
-      <Work props={this.props} state={this.state} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
+      <Work props={this.props} state={this.state} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
     </div>
 
     let $menu =

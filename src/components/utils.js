@@ -32,3 +32,11 @@ export const removeListeners = (elmArray, type, func) => {
     elmArray[i].removeEventListener(type, func, false);
   }
 };
+
+export const normalizeString = (string) => {
+  return string.replace(/_/g, ' ');
+};
+
+export const checkArraysForIntersection = (array1, array2) => {
+  array1.filter(person => person.age > 18);
+};
