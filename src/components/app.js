@@ -9,7 +9,7 @@ import Menu from './screens/menu';
 import About from './screens/about';
 import Work from './screens/work';
 import Content from './screens/content';
-import {addListener, addListeners, removeListener, removeListeners, normalizeString} from './utils';
+import {addListener, addListeners, removeListener, removeListeners, normalizeString, arraysEqual} from './utils';
 
 import * as content from './content.json';
 
@@ -31,7 +31,8 @@ export default class App extends Component {
       state: 'default',
       previousState: 'default',
       dropdownOptions : content.work.tags,
-      filters : []
+      filters : [],
+      filteredContentIndicies : []
     });
   };
 
@@ -58,7 +59,6 @@ export default class App extends Component {
     let $state = state;
     let $previousState = this.state.state;
     this.setState({state: $state, previousState: $previousState});
-    console.log(`Changed state from ${$previousState} to ${$state}`);
   };
 
   changeScrollPosition = (section, speed, number) => {
@@ -105,7 +105,7 @@ export default class App extends Component {
     let $screen = <div class="screens">
       <Splash props={this.props} changeColors={this.changeColors} / >
       <About image={bill} content={content.about} / >
-      <Work props={this.props} state={this.state} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
+      <Work props={this.props} state={this.state} arraysEqual={arraysEqual} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
     </div>
 
     let $menu =

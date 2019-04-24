@@ -19,6 +19,7 @@
   "work": {
     "tags": ["ui_design", "development", "creative_direction", "ux", "technical_direction", "logo_design", "featured", "ideation"],
     "projects": [{
+      "visible" : true,
         "name": "dunkirk",
         "fullName": "Operation Dunkirk",
         "bodyCopy": "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",
@@ -39,6 +40,7 @@
         ]
       },
       {
+        "visible" : true,
         "name": "dunkirk",
         "fullName": "Whoperation Dunkirk",
         "bodyCopy": "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",
@@ -57,6 +59,7 @@
         ]
       },
       {
+        "visible" : true,
         "name": "dunkirk",
         "fullName": "Xhoperation Dunkirk",
         "bodyCopy": "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",
@@ -73,6 +76,7 @@
         ]
       },
       {
+        "visible" : true,
         "name": "dunkirk",
         "fullName": "3hoperation Dunkirk",
         "bodyCopy": "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",
@@ -94,6 +98,7 @@
         ]
       },
       {
+        "visible" : true,
         "name": "dunkirk",
         "fullName": "X4operation Dunkirk",
         "bodyCopy": "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",
@@ -114,6 +119,7 @@
         ]
       },
       {
+        "visible" : true,
         "name": "dunkirk",
         "fullName": "5hoperation Dunkirk",
         "bodyCopy": "a;skljas;dflkasdf;lsdjf;lsakdjf;alskdjsad;flkj",

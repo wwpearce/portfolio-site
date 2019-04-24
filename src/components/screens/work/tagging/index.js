@@ -44,7 +44,7 @@ export default class Tagging extends Component {
       _setOrUnsetTag(tag, 'unset');
       this.parentElement.removeChild(this);
     };
-    this.$tags.appendChild(this.$div)
+    this.$tags.appendChild(this.$div);
   };
 
   addTagCopy = "add tag";
@@ -57,10 +57,7 @@ export default class Tagging extends Component {
     this.props.setOrUnsetTag(tag, 'set');
   };
 
-
-
   render() {
-
     return (
 			<tagging class = {style.tagging} >
         <Dropdown state={this.props.state} addTagCopy={this.addTagCopy} changeDropdownState={this.props.changeDropdownState} generateDropdownOptions={this.generateDropdownOptions} dropdownOptions={this.dropdownOptions} handleTagUpdate={this.handleTagUpdate} content={this.props.content} / >

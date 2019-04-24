@@ -20,59 +20,64 @@ export default class Work extends Component {
   setOrUnsetTag = (tag, setOrUnset) => {
     let dropDownArray = this.props.state.dropdownOptions;
     let filtersArray = this.props.state.filters;
-
     if (setOrUnset === 'set') {
       dropDownArray.splice(dropDownArray.indexOf(tag), 1);
       filtersArray.push(tag);
     }
-    else if (setOrUnset === 'unset') {
-      filtersArray.splice(dropDownArray.indexOf(tag), 1);
+    if (setOrUnset === 'unset') {
+      filtersArray.splice(filtersArray.indexOf(tag), 1);
       dropDownArray.push(tag);
     }
-
+    dropDownArray.sort();
+    filtersArray.sort();
+    console.log(`***** \n ${setOrUnset}ting tag: ${tag} \n dropDownArray: ${dropDownArray} \n filtersArray: ${filtersArray} \n*****`);
     this.setState({
       dropDownOptions: dropDownArray,
       filters: filtersArray
     });
-
-    // console.log(setOrUnset, this.props.state);
+    console.log("Dropdown Options State: \n" + this.props.state.dropdownOptions);
+    console.log("Filters State: \n" + this.props.state.filters);
   };
 
   generateGridItems = () => {
-    let number;
     let array;
-    if(this.props.state.filters.length < 1) {
-      console.log("Display these projects: " + this.props.state.dropdownOptions);
-      number = this.props.state.dropdownOptions.length;
-      array = this.props.state.dropdownOptions;
+    if(this.props.state.filters.length <= 0) {
+      // console.log("Display these projects (unfiltered): " + this.props.state.dropdownOptions);
+      array = this.props.content.projects;
     }
-    else if(this.props.state.filters.length > 0){
-      console.log("Display these projects (filtered): " + this.props.state.filters);
-      number = this.props.state.filters.length;
-      array = this.props.state.filters;
+    else {
+      // console.log("Display these projects (filtered): " + this.props.state.filters);
+      // console.log(this.filterProjects(this.props.state.filters));
+      array=this.props.content.projects;
     }
-    this.filterProjects(array);
 
     let gridItems = [];
-    for (let i = 0; i < number; i++) {
-      gridItems.push(<div className="grid-item" key={i}></div>);
+    for (let i = 0; i < array.length; i++) {
+      gridItems.push(
+        <div className="grid-item">{array[i]}</div>
+      );
     }
     return gridItems;
   };
 
   filterProjects = (array) => {
+    let output = [];
     for (let i = 0; i < this.props.content.projects.length; i++) {
       let intersection = this.props.content.projects[i].tags.filter(x => array.includes(x));
-      console.log(intersection);
+      if (this.props.arraysEqual(intersection, this.props.state.filters)) {
+        console.log("Adding the following project: " + this.props.content.projects[i].fullName);
+        output.push(this.props.content.projects[i]);
+      }
+      if (this.props.state.filters.length < 1) {
+       output = this.props.content.projects;
+      }
     }
+    return output;
   };
 
   componentDidMount() {
     this.grid_items = document.querySelectorAll('div.grid-item');
     this.props.addListeners(this.grid_items, 'click', this.handleLinkClick);
-
-
-    console.log(this.numberOfGridItems);
 
   };
 
