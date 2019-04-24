@@ -10,7 +10,6 @@ export default class Work extends Component {
   constructor(props) {
     super(props)
     this.numberOfGridItems = this.props.state.filters.length < 1 ? this.props.state.dropdownOptions.length : this.props.state.filters.length;
-
   };
 
   handleLinkClick = (e) => {
@@ -35,8 +34,8 @@ export default class Work extends Component {
       dropDownOptions: dropDownArray,
       filters: filtersArray
     });
-    console.log("Dropdown Options State: \n" + this.props.state.dropdownOptions);
-    console.log("Filters State: \n" + this.props.state.filters);
+    // console.log("Dropdown Options State: \n" + this.props.state.dropdownOptions);
+    // console.log("Filters State: \n" + this.props.state.filters);
   };
 
   generateGridItems = () => {
@@ -47,14 +46,16 @@ export default class Work extends Component {
     }
     else {
       // console.log("Display these projects (filtered): " + this.props.state.filters);
-      // console.log(this.filterProjects(this.props.state.filters));
-      array=this.props.content.projects;
+      array = this.filterProjects(this.props.state.filters);
     }
 
     let gridItems = [];
     for (let i = 0; i < array.length; i++) {
+      // console.log(array[i]);
       gridItems.push(
-        <div className="grid-item">{array[i]}</div>
+        <div onClick = {this.handleLinkClick} className={array[i].name + " grid-item"}>
+        <h3>{array[i].fullName}</h3>
+        </div>
       );
     }
     return gridItems;
@@ -65,24 +66,14 @@ export default class Work extends Component {
     for (let i = 0; i < this.props.content.projects.length; i++) {
       let intersection = this.props.content.projects[i].tags.filter(x => array.includes(x));
       if (this.props.arraysEqual(intersection, this.props.state.filters)) {
-        console.log("Adding the following project: " + this.props.content.projects[i].fullName);
+        // console.log("Adding the following project: " + this.props.content.projects[i].fullName);
         output.push(this.props.content.projects[i]);
-      }
-      if (this.props.state.filters.length < 1) {
-       output = this.props.content.projects;
       }
     }
     return output;
   };
 
   componentDidMount() {
-    this.grid_items = document.querySelectorAll('div.grid-item');
-    this.props.addListeners(this.grid_items, 'click', this.handleLinkClick);
-
-  };
-
-  componentWillUnmount() {
-    this.props.removeListeners(this.grid_items, 'click', this.handleLinkClick);
   };
 
   render() {
