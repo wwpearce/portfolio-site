@@ -11,6 +11,7 @@ export default class Content extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props);
   };
 
   componentWillUnmount() {
@@ -21,6 +22,7 @@ export default class Content extends Component {
 
     return (
 			<content class={$contentClasses}>
+        <h1>{this.props.state.activeContent}</h1>
 			</content>
     );
   }

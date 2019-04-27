@@ -13,7 +13,11 @@ export default class Work extends Component {
   };
 
   handleLinkClick = (e) => {
+    console.log(e.target.id);
     this.props.toggleState('content');
+    this.setState({
+      activeContent : e.target.id
+    });
   };
 
   setOrUnsetTag = (tag, setOrUnset) => {
@@ -29,7 +33,7 @@ export default class Work extends Component {
     }
     dropDownArray.sort();
     filtersArray.sort();
-    console.log(`***** \n ${setOrUnset}ting tag: ${tag} \n dropDownArray: ${dropDownArray} \n filtersArray: ${filtersArray} \n*****`);
+    // console.log(`***** \n ${setOrUnset}ting tag: ${tag} \n dropDownArray: ${dropDownArray} \n filtersArray: ${filtersArray} \n*****`);
     this.setState({
       dropDownOptions: dropDownArray,
       filters: filtersArray
@@ -53,7 +57,7 @@ export default class Work extends Component {
     for (let i = 0; i < array.length; i++) {
       // console.log(array[i]);
       gridItems.push(
-        <div onClick = {this.handleLinkClick} className={array[i].name + " grid-item"}>
+        <div onClick = {this.handleLinkClick} className={array[i].name + " grid-item"} id={array[i].name}>
         <h3>{array[i].fullName}</h3>
         </div>
       );

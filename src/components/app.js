@@ -32,6 +32,7 @@ export default class App extends Component {
       previousState: 'default',
       dropdownOptions : content.work.tags,
       filters : [],
+      activeContent : '',
       filteredContentIndicies : []
     });
   };
@@ -115,7 +116,7 @@ export default class App extends Component {
 
       let $content =
       <div className={`${this.getVisibility('content')} content-wrapper`}>
-        <Content props={this.props} toggleState={this.toggleState} />
+        <Content props={this.props} state={this.state} toggleState={this.toggleState} />
       </div>
 
       return (
