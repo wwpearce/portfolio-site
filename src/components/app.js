@@ -24,18 +24,29 @@ const randomColor = require('randomcolor'); // import the script
 export default class App extends Component {
 
   constructor(props) {
+    console.log("Im the app");
     super(props);
     this.setState({
       section: 'splash',
       scrollPos: 0,
       state: 'default',
-      previousState: 'default',
       dropdownOptions : content.work.tags,
       filters : [],
-      activeContent : '',
+      activeContentName: 'dunkirk', // default
       filteredContentIndicies : []
     });
   };
+
+  getContentFromShortName = (shortName) => {
+    for(let i = 0; i < content.work.projects.length; i++) {
+        if (content.work.projects[i].name.includes(shortName)) {
+          return content.work.projects[i];
+        };
+    };
+  };
+
+  activeContent = content.work.projects;
+  // let intersection = this.content.projects[i].tags.filter(x => array.includes(x));
 
   setSessionStorage = () => {
     if (!window.localStorage.bpHasVisited) {
@@ -66,6 +77,11 @@ export default class App extends Component {
     let scrollTo = section ? section : number;
     TweenMax.to(window, speed, {scrollTo: scrollTo});
     this.toggleState('menu');
+  };
+
+  setContentState = (content) => {
+    this.setState({activeContentName: content});
+    console.log(this.state);
   };
 
   toggleState = (state) => {
@@ -100,13 +116,14 @@ export default class App extends Component {
 
   componentDidMount() {
     this.getSessionStorage();
+    console.log(this.getContentFromShortName('dunkirk'));
   };
 
   render(props, state) {
     let $screen = <div class="screens">
       <Splash props={this.props} changeColors={this.changeColors} / >
       <About image={bill} content={content.about} / >
-      <Work props={this.props} state={this.state} arraysEqual={arraysEqual} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
+      <Work props={this.props} state={this.state} setContentState={this.setContentState} arraysEqual={arraysEqual} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
     </div>
 
     let $menu =
@@ -116,7 +133,7 @@ export default class App extends Component {
 
       let $content =
       <div className={`${this.getVisibility('content')} content-wrapper`}>
-        <Content props={this.props} state={this.state} toggleState={this.toggleState} />
+        <Content props={this.props} state={this.state} getContentFromShortName={this.getContentFromShortName} toggleState={this.toggleState} />
       </div>
 
       return (

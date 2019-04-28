@@ -15,9 +15,7 @@ export default class Work extends Component {
   handleLinkClick = (e) => {
     console.log(e.target.id);
     this.props.toggleState('content');
-    this.setState({
-      activeContent : e.target.id
-    });
+    this.props.setContentState(e.target.id);
   };
 
   setOrUnsetTag = (tag, setOrUnset) => {

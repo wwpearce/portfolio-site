@@ -40,7 +40,7 @@
       "mobile_development"
     ],
     "projects": [{
-      "visible" : true,
+        "visible" : true,
         "name": "dunkirk",
         "fullName": "Operation Dunkirk",
         "client": "Warner Brothers",
