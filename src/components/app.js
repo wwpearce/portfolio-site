@@ -114,9 +114,32 @@ export default class App extends Component {
     };
   };
 
+  escFunction = (event) => {
+    if(event.keyCode === 27) {
+      if(this.state.state === 'menu' || this.state.state === 'content') {
+        this.handleHamburgerClick();
+      }
+    }
+  }
+
   componentDidMount() {
     this.getSessionStorage();
     console.log(this.getContentFromShortName('dunkirk'));
+    // if(this.state.state === 'menu') {
+      document.addEventListener('keydown', this.escFunction, false);
+    // };
+    // if(this.state.state === 'content') {
+    //   document.addEventListener("keydown", this.escFunction, false);
+    // };
+  };
+
+  componentWillUnMount() {
+    // if(this.state.state === 'menu') {
+    //   document.removeEventListener("keydown", this.handleHamburgerClick, false);
+    // };
+    // if(this.state.state === 'content') {
+    //   document.removeEventListener("keydown", this.escFunction, false);
+    // };
   };
 
   render(props, state) {
