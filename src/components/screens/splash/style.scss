@@ -8,9 +8,8 @@
 	svg {
 		transition: fill .4s ease;
 		fill: black;
-		width: 55vw;
+		width: 25vw;
+		max-width: 300px;
+		min-width: 200px;
 	}
-}
-
-.DesktopLayout {
 }

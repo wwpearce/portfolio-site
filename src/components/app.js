@@ -145,7 +145,6 @@ export default class App extends Component {
   render(props, state) {
     let $screen = <div class="screens">
       <Splash props={this.props} changeColors={this.changeColors} / >
-      <About image={bill} content={content.about} / >
       <Work props={this.props} state={this.state} setContentState={this.setContentState} arraysEqual={arraysEqual} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
     </div>
 
@@ -161,10 +160,8 @@ export default class App extends Component {
 
       return (
       <app>
-        <Hamburger state={this.state} props={this.props} handleHamburgerClick={this.handleHamburgerClick} />
-        {$menu}
-        {$content}
         {$screen}
+        {$content}
       </app>
       );
   }
