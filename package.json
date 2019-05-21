@@ -38,7 +38,8 @@
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
     "preact-router": "^2.5.7",
-    "randomcolor": "^0.5.3"
+    "randomcolor": "^0.5.3",
+    "react-device-detect": "^1.6.2"
   },
   "jest": {
     "verbose": true,

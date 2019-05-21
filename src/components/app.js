@@ -4,14 +4,14 @@ import {TweenMax, ScrollToPlugin} from "gsap/all";
 
 import Hamburger from './hamburger';
 
-import Splash from './screens/splash';
+import Splash from './splash';
 import Menu from './screens/menu';
-import About from './screens/about';
-import Work from './screens/work';
-import Content from './screens/content';
+import About from './about';
+import Work from './work';
+import Content from './content';
 import {addListener, addListeners, removeListener, removeListeners, normalizeString, arraysEqual} from './utils';
 
-import * as content from './content.json';
+import * as content from './site-contents.json';
 
 import bill from './images/bill.jpg';
 
@@ -46,7 +46,6 @@ export default class App extends Component {
   };
 
   activeContent = content.work.projects;
-  // let intersection = this.content.projects[i].tags.filter(x => array.includes(x));
 
   setSessionStorage = () => {
     if (!window.localStorage.bpHasVisited) {
@@ -73,12 +72,6 @@ export default class App extends Component {
     this.setState({state: $state, previousState: $previousState});
   };
 
-  changeScrollPosition = (section, speed, number) => {
-    let scrollTo = section ? section : number;
-    TweenMax.to(window, speed, {scrollTo: scrollTo});
-    this.toggleState('menu');
-  };
-
   setContentState = (content) => {
     this.setState({activeContentName: content});
     console.log(this.state);
@@ -97,6 +90,16 @@ export default class App extends Component {
     }
   };
 
+  changeScrollPosition = (section) => {
+    console.log(section);
+    TweenMax.to(window, 1, {scrollTo: section});
+  };
+
+  setContentState = (content) => {
+    this.setState({activeContentName: content});
+    console.log(this.state);
+  };
+
   handleHamburgerClick = (e) => {
     this.toggleState('menu');
   };
@@ -110,52 +113,28 @@ export default class App extends Component {
     if (this.state.state === state) {
       return 'enter';
     } else {
-      return 'exit';
+      return 'enter';
     };
   };
-
-  escFunction = (event) => {
-    if(event.keyCode === 27) {
-      if(this.state.state === 'menu' || this.state.state === 'content') {
-        this.handleHamburgerClick();
-      }
-    }
-  }
 
   componentDidMount() {
     this.getSessionStorage();
     console.log(this.getContentFromShortName('dunkirk'));
-    // if(this.state.state === 'menu') {
-      document.addEventListener('keydown', this.escFunction, false);
-    // };
-    // if(this.state.state === 'content') {
-    //   document.addEventListener("keydown", this.escFunction, false);
-    // };
   };
 
   componentWillUnMount() {
-    // if(this.state.state === 'menu') {
-    //   document.removeEventListener("keydown", this.handleHamburgerClick, false);
-    // };
-    // if(this.state.state === 'content') {
-    //   document.removeEventListener("keydown", this.escFunction, false);
-    // };
   };
 
   render(props, state) {
     let $screen = <div class="screens">
-      <Splash props={this.props} changeColors={this.changeColors} / >
-      <Work props={this.props} state={this.state} setContentState={this.setContentState} arraysEqual={arraysEqual} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
-    </div>
-
-    let $menu =
-    <div className={`${this.getVisibility('menu')} menu-wrapper`}>
-      <Menu props={this.props} state={this.state} content={content.menu} addListeners={addListeners} removeListeners={removeListeners} changeScrollPosition={this.changeScrollPosition} />
+      <Splash props={this.props} changeColors={this.changeColors} changeScrollPosition={this.changeScrollPosition} / >
+      <About changeScrollPosition={this.changeScrollPosition} / >
+      <Work props={this.props} state={this.state} changeScrollPosition={this.changeScrollPosition} setContentState={this.setContentState} arraysEqual={arraysEqual} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
     </div>
 
       let $content =
       <div className={`${this.getVisibility('content')} content-wrapper`}>
-        <Content props={this.props} state={this.state} getContentFromShortName={this.getContentFromShortName} toggleState={this.toggleState} />
+        <Content props={this.props} state={this.state} changeScrollPosition={this.changeScrollPosition} getContentFromShortName={this.getContentFromShortName} toggleState={this.toggleState} />
       </div>
 
       return (

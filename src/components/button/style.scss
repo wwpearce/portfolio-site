@@ -1,7 +1,7 @@
 .scroll {
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: 20px;
 	width: 100%;
 	padding: 0;
 	z-index: 50;
@@ -11,7 +11,30 @@
 	font-family: 'BrandonGrotesque-Regular';
 	font-size: 1.2rem;
 	transition: color 0.4s ease;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
 	&:active {
 		border: none;
 	}
+}
+
+.arrowDown {
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 7px solid black;
+	margin: 10px 0 0;
+}
+
+.arrowUp {
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-bottom: 7px solid black;
+	margin: 10px 0 0;
 }

@@ -147,8 +147,37 @@ button {
   cursor: pointer;
 }
 
+a {
+  color: unset;
+  font-weight: bold;
+  text-decoration: none;
+  /* no underline */
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 li,
 ol,
 ul {
   list-style: none;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+select,
+textarea {
+  font-size: 16px;
 }
