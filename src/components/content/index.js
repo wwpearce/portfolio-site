@@ -3,8 +3,51 @@ import {
   Component
 } from 'preact';
 import Button from '../button';
+import Plx from 'react-plx';
 
 import style from './style';
+
+const headlineParallaxData = [
+  {
+    start: '.content-wrapper',
+    duration: '100vh',
+    properties: [
+      {
+        startValue: .5,
+        endValue: 1,
+        property: 'scale',
+      },
+    ],
+  },
+];
+
+const contentParallaxData = [
+  {
+    start: '.content-wrapper',
+    duration: '100vh',
+    properties: [
+      {
+        startValue: 0,
+        endValue: 1,
+        property: 'opacity',
+      },
+    ],
+  },
+];
+
+const mediaParallaxData = [
+  {
+    start: '.content-wrapper',
+    duration: '100vh',
+    properties: [
+      {
+        startValue: 500,
+        endValue: 0,
+        property: 'translateX',
+      },
+    ],
+  },
+];
 
 export default class Content extends Component {
 
@@ -62,25 +105,31 @@ export default class Content extends Component {
 
     return (
 			<content class={$contentClasses}>
-        <h1 class={style.contentHeader}>{content.fullName}</h1>
-        <div class={style.flexWrapper}>
-          <div class={style.flexLeft}>
-            <p>
-              Client: {content.client}
-              <br />
-              Agency: {content.agency}
-              <br />
-              Links: {this.getLinks(content.links)}
-            </p>
+        <Plx parallaxData={headlineParallaxData}>
+          <h1 class={style.contentHeader}>{content.fullName}</h1>
+        </Plx>
+        <Plx parallaxData={contentParallaxData}>
+          <div class={style.flexWrapper}>
+            <div class={style.flexLeft}>
+              <p>
+                Client: {content.client}
+                <br />
+                Agency: {content.agency}
+                <br />
+                Links: {this.getLinks(content.links)}
+              </p>
 
+            </div>
+            <div class={style.flexRight}>
+              <p>{content.bodyCopy}</p>
+            </div>
           </div>
-          <div class={style.flexRight}>
-            <p>{content.bodyCopy}</p>
+        </Plx>
+        <Plx parallaxData={mediaParallaxData}>
+          <div class={style.mediaWrapper + ' mediaWrapper'}>
+            {this.getMedia(content.images, 'img')}
           </div>
-        </div>
-        <div class={style.mediaWrapper}>
-          {this.getMedia(content.images, 'img')}
-        </div>
+        </Plx>
         <Button text='scroll back up to work' onButtonClick={() => this.props.changeScrollPosition('work')} direction='up' / >
 			</content>
     );

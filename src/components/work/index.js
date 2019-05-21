@@ -5,7 +5,21 @@ import {
 import style from './style';
 import Tagging from './tagging';
 import {TweenMax, ScrollToPlugin} from "gsap/all";
+import Plx from 'react-plx';
 
+const headlineParallaxData = [
+  {
+    start: 'work',
+    duration: '100vh',
+    properties: [
+      {
+        startValue: .5,
+        endValue: 1,
+        property: 'scale',
+      },
+    ],
+  },
+];
 
 export default class Work extends Component {
 
@@ -84,7 +98,9 @@ export default class Work extends Component {
     return (
 			<work className={`${style.work} screen`}>
         <div class={style.headlineWrapper}>
-          <h1>Work</h1>
+          <Plx parallaxData={ headlineParallaxData }>
+            <h1>Work</h1>
+          </Plx>
         </div>
         <div class={style.taggingWrapper}>
           <Tagging setOrUnsetTag={this.setOrUnsetTag} state={this.props.state} normalizeString={this.props.normalizeString} setState={this.props.setState} changeDropdownState={this.props.changeDropdownState} content={this.props.content.tags} / >

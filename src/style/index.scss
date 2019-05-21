@@ -5,6 +5,10 @@
 @import 'fonts/Brandon-Regular/stylesheet.css';
 @import 'fonts/Brandon-Bold/stylesheet.css';
 
+html {
+  touch-action: manipulation;
+}
+
 body,
 html {
 	height: 100%;
@@ -69,6 +73,7 @@ p {
 .content-wrapper,
 .menu-wrapper {
 	// position: fixed;
+	min-height: 100vh;
 	z-index: 99;
 }
 

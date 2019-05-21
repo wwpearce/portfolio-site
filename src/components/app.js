@@ -1,19 +1,22 @@
 import {h, render, Component} from 'preact';
 // import {Router} from 'preact-router';
 import {TweenMax, ScrollToPlugin} from "gsap/all";
-
-import Hamburger from './hamburger';
+import {isIOS} from 'react-device-detect';
 
 import Splash from './splash';
-import Menu from './screens/menu';
 import About from './about';
 import Work from './work';
 import Content from './content';
-import {addListener, addListeners, removeListener, removeListeners, normalizeString, arraysEqual} from './utils';
+import {
+  addListener,
+  addListeners,
+  removeListener,
+  removeListeners,
+  normalizeString,
+  arraysEqual
+} from './utils';
 
 import * as content from './site-contents.json';
-
-import bill from './images/bill.jpg';
 
 const randomColor = require('randomcolor'); // import the script
 
@@ -30,18 +33,18 @@ export default class App extends Component {
       section: 'splash',
       scrollPos: 0,
       state: 'default',
-      dropdownOptions : content.work.tags,
-      filters : [],
+      dropdownOptions: content.work.tags,
+      filters: [],
       activeContentName: 'dunkirk', // default
-      filteredContentIndicies : []
+      filteredContentIndicies: []
     });
   };
 
   getContentFromShortName = (shortName) => {
-    for(let i = 0; i < content.work.projects.length; i++) {
-        if (content.work.projects[i].name.includes(shortName)) {
-          return content.work.projects[i];
-        };
+    for (let i = 0; i < content.work.projects.length; i++) {
+      if (content.work.projects[i].name.includes(shortName)) {
+        return content.work.projects[i];
+      };
     };
   };
 
@@ -118,30 +121,36 @@ export default class App extends Component {
   };
 
   componentDidMount() {
+    // if (isIOS) {
+    // setTimeout(function () {
+      console.log("sup");
+      window.scrollTo(0, 1);
+    // }, 1000);
+    // }
     this.getSessionStorage();
     console.log(this.getContentFromShortName('dunkirk'));
   };
 
-  componentWillUnMount() {
-  };
+  componentWillUnMount() {};
 
   render(props, state) {
     let $screen = <div class="screens">
-      <Splash props={this.props} changeColors={this.changeColors} changeScrollPosition={this.changeScrollPosition} / >
-      <About changeScrollPosition={this.changeScrollPosition} / >
-      <Work props={this.props} state={this.state} changeScrollPosition={this.changeScrollPosition} setContentState={this.setContentState} arraysEqual={arraysEqual} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState} />
+      <Splash props={this.props} changeColors={this.changeColors} changeScrollPosition={this.changeScrollPosition}/>
+      <About changeScrollPosition={this.changeScrollPosition}/>
+      <Work props={this.props} state={this.state} changeScrollPosition={this.changeScrollPosition} setContentState={this.setContentState} arraysEqual={arraysEqual} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState}/>
     </div>
 
-      let $content =
-      <div className={`${this.getVisibility('content')} content-wrapper`}>
-        <Content props={this.props} state={this.state} changeScrollPosition={this.changeScrollPosition} getContentFromShortName={this.getContentFromShortName} toggleState={this.toggleState} />
-      </div>
+    let $content =
+    <div className={`${this.getVisibility('content')} content-wrapper`}>
+      <Content props={this.props} state={this.state} changeScrollPosition={this.changeScrollPosition} getContentFromShortName={this.getContentFromShortName} toggleState={this.toggleState}/>
+    </div>
 
-      return (
-      <app>
-        {$screen}
-        {$content}
-      </app>
-      );
+    return (
+        <app>
+          {$screen}
+          {$content}
+        </app>
+
+    );
   }
 }
