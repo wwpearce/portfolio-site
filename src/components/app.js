@@ -2,6 +2,7 @@ import {h, render, Component} from 'preact';
 // import {Router} from 'preact-router';
 import {TweenMax, ScrollToPlugin} from "gsap/all";
 import {isIOS} from 'react-device-detect';
+import ScrollTrigger from 'react-scroll-trigger';
 
 import Splash from './splash';
 import About from './about';
@@ -120,22 +121,12 @@ export default class App extends Component {
     };
   };
 
-  handleScroll = (event) => {
-    let boundaries = [
-      ['splash', 'about'],
-      ['about', 'content']
-    ]
-    console.log(scroll);
-  }
-
   componentDidMount() {
     this.getSessionStorage();
-    window.addEventListener('scroll', this.handleScroll);
 
   };
 
   componentWillUnMount() {
-    window.removeEventListener('scroll', this.handleScroll);
   };
 
   render(props, state) {

@@ -31,6 +31,21 @@ const contentParallaxData = [
   },
 ];
 
+const buttonParallaxData = [
+  {
+    start: 'self',
+    startOffset: 100,
+    end: 'work',
+    properties: [
+      {
+        startValue: 0,
+        endValue: 500,
+        property: 'translateY',
+      },
+    ],
+  },
+];
+
 export default class About extends Component {
 
   constructor(props) {
@@ -72,7 +87,9 @@ export default class About extends Component {
           </div>
         </div>
       </Plx>
-      <Button text='ok, let&rsquo;s see some work' onButtonClick={() => this.props.changeScrollPosition('work')} direction='down' name='goToWork' / >
+      <Plx parallaxData={ buttonParallaxData } className='buttonWrapper'>
+        <Button text='ok, let&rsquo;s see some work' onButtonClick={() => this.props.changeScrollPosition('work')} direction='down' name='goToWork' / >
+      </Plx>
     </about>);
   }
 }

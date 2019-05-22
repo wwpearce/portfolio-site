@@ -65,12 +65,12 @@ const parallaxData = [
 
 const parallaxDataButton = [
   {
-    start: 'splash',
+    start: 'self',
     end: 'about',
     properties: [
       {
         startValue: 0,
-        endValue: 1000,
+        endValue: 500,
          property: 'translateY',
 
       },
@@ -117,7 +117,9 @@ export default class Splash extends Component {
           <SvgBottom/>
         </Plx>
       </Plx>
+      <Plx parallaxData={parallaxDataButton} className='buttonWrapper'>
         <Button text='hi! how are you?' name="goToAbout" onButtonClick={() => this.props.changeScrollPosition('about')} direction='down'/>
+      </Plx>
     </splash>
     );
   }

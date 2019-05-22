@@ -68,7 +68,7 @@ p {
 	position: relative;
 	margin-bottom: 100vh;
 	@media (max-width: 599px) {
-		margin-bottom: 50vh;
+		margin-bottom: 100vh;
 	}
 }
 
@@ -109,6 +109,11 @@ p {
 
 .grid-item {
   animation: gridIn .5s $easeOutExpo;
+}
+
+.buttonWrapper {
+  position: absolute;
+  bottom: 20px;
 }
 
 .tags {
