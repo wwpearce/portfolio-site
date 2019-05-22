@@ -21,6 +21,20 @@ const headlineParallaxData = [
   },
 ];
 
+const contentParallaxData = [
+  {
+    start: 'work',
+    duration: '100vh',
+    properties: [
+      {
+        startValue: 300,
+        endValue: 0,
+        property: 'translateY',
+      },
+    ],
+  },
+];
+
 export default class Work extends Component {
 
   constructor(props) {
@@ -70,9 +84,12 @@ export default class Work extends Component {
 
     let gridItems = [];
     for (let i = 0; i < array.length; i++) {
-      let bgr = `background-image: url("${array[i].thumbNail}")`;
+      let bgr = `background-image: url("${array[i].thumbNail}");`;
+      let animation_delay = `animation-delay:${i/100}s;`;
+      let styles = bgr + animation_delay;
+
       gridItems.push(
-        <div style={bgr} title={array[i].fullName} onClick = {this.handleLinkClick} className={array[i].name + " grid-item"} id={array[i].name}>
+        <div style={styles} title={array[i].fullName} onClick = {this.handleLinkClick} className={array[i].name + " grid-item"} id={array[i].name}>
         </div>
       );
     }
@@ -105,9 +122,11 @@ export default class Work extends Component {
         <div class={style.taggingWrapper}>
           <Tagging setOrUnsetTag={this.setOrUnsetTag} state={this.props.state} normalizeString={this.props.normalizeString} setState={this.props.setState} changeDropdownState={this.props.changeDropdownState} content={this.props.content.tags} / >
         </div>
+        <Plx parallaxData={ contentParallaxData }>
         <div class={style.inner_contentWrapper}>
             {this.generateGridItems()}
         </div>
+        </Plx>
 			</work>
     );
   }

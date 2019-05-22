@@ -72,7 +72,7 @@ export default class About extends Component {
           </div>
         </div>
       </Plx>
-      <Button text='ok, let&rsquo;s see some work' onButtonClick={() => this.props.changeScrollPosition('work')} direction='down' / >
+      <Button text='ok, let&rsquo;s see some work' onButtonClick={() => this.props.changeScrollPosition('work')} direction='down' name='goToWork' / >
     </about>);
   }
 }

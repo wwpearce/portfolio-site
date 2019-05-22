@@ -95,7 +95,7 @@ export default class App extends Component {
 
   changeScrollPosition = (section) => {
     console.log(section);
-    TweenMax.to(window, 1, {scrollTo: section});
+    TweenMax.to(window, 1, {scrollTo: section, ease: Sine.easeOut,});
   };
 
   setContentState = (content) => {
@@ -120,18 +120,23 @@ export default class App extends Component {
     };
   };
 
+  handleScroll = (event) => {
+    let boundaries = [
+      ['splash', 'about'],
+      ['about', 'content']
+    ]
+    console.log(scroll);
+  }
+
   componentDidMount() {
-    // if (isIOS) {
-    // setTimeout(function () {
-      console.log("sup");
-      window.scrollTo(0, 1);
-    // }, 1000);
-    // }
     this.getSessionStorage();
-    console.log(this.getContentFromShortName('dunkirk'));
+    window.addEventListener('scroll', this.handleScroll);
+
   };
 
-  componentWillUnMount() {};
+  componentWillUnMount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  };
 
   render(props, state) {
     let $screen = <div class="screens">

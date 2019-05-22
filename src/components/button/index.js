@@ -8,6 +8,7 @@ export default class Button extends Component {
 
   constructor(props) {
     super(props)
+    console.log(this.props.name);
     this.arrowDirection = this.props.direction;
   };
 
@@ -25,7 +26,7 @@ export default class Button extends Component {
 
   render() {
     return (
-			<button onClick = {this.props.onButtonClick} id = 'scrollButton' className = {style.scroll} >
+			<button onClick = {this.props.onButtonClick} id = {this.props.name} className = {style.scroll} >
       <div class='buttonText'>{this.props.text}</div>
       <div className={this.getArrowDirection()}></div>
       </button>

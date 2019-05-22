@@ -2,11 +2,13 @@
 @import 'variables';
 @import 'easings';
 @import 'breakpoints';
+@import 'animations';
 @import 'fonts/Brandon-Regular/stylesheet.css';
 @import 'fonts/Brandon-Bold/stylesheet.css';
 
 html {
   touch-action: manipulation;
+  overflow-x: hidden;
 }
 
 body,
@@ -103,6 +105,10 @@ p {
 		transform: translateX(100%);
 		transition: $contentOutSpeed $easeOutCubic;
 	}
+}
+
+.grid-item {
+  animation: gridIn .5s $easeOutExpo;
 }
 
 .tags {
