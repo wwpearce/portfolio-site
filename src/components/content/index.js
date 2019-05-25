@@ -80,13 +80,26 @@ export default class Content extends Component {
     let media = [];
     for (let i = 0; i < array.length; i++) {
       if(type === 'img') {
-        media.push(
-          <img class="contentImage" src={array[i].url} alt={array[i].text} / >
-        )
+        if(!array[i].cropped) {
+          media.push(
+            <a class="contentImageLink" href={array[i].url} target="_blank">
+              <img class="contentImage" src={array[i].url} alt={array[i].text}/>
+            </a>
+          )
+        }
+        else {
+          media.push(
+            <a class="contentImageLink" href={array[i].url} target="_blank">
+              <img class="contentImage" src={array[i].cropped} alt={array[i].text}/>
+            </a>
+          )
+        }
       }
       if(type === 'vid') {
         media.push(
-          <video class="contentImage" src={array[i].url} alt={array[i].text} / >
+          <video class="contentImage" data-alt={array[i].text} controls>
+            <source src={array[i].url} type="video/mp4"/>
+          </video>
         )
       }
     }
@@ -115,6 +128,16 @@ export default class Content extends Component {
                 Client: {content.client}
                 <br />
                 Agency: {content.agency}
+                <br/>
+                Role(s):
+                  {content.roles.map(function(name, index){
+                    if (index < content.roles.length - 1) {
+                      return <span key={ index }> {name},</span>;
+                    }
+                    else {
+                      return <span key={ index }> {name}</span>;
+                    }
+                  })}
                 <br />
                 Links: {this.getLinks(content.links)}
               </p>
@@ -128,6 +151,7 @@ export default class Content extends Component {
         <Plx parallaxData={mediaParallaxData}>
           <div class={style.mediaWrapper + ' mediaWrapper'}>
             {this.getMedia(content.images, 'img')}
+            {this.getMedia(content.videos, 'vid')}
           </div>
         </Plx>
         <Button text='scroll back up to work' onButtonClick={() => this.props.changeScrollPosition('work')} direction='up' / >

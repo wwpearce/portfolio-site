@@ -90,6 +90,10 @@ export default class Work extends Component {
 
       gridItems.push(
         <div style={styles} title={array[i].fullName} onClick = {this.handleLinkClick} className={array[i].name + " grid-item"} id={array[i].name}>
+        <div class="backside">
+          <h3>{array[i].fullName}</h3>
+          <h3>{array[i].type}</h3>
+        </div>
         </div>
       );
     }
@@ -120,7 +124,6 @@ export default class Work extends Component {
           </Plx>
         </div>
         <div class={style.taggingWrapper}>
-          <Tagging setOrUnsetTag={this.setOrUnsetTag} state={this.props.state} normalizeString={this.props.normalizeString} setState={this.props.setState} changeDropdownState={this.props.changeDropdownState} content={this.props.content.tags} / >
         </div>
         <Plx parallaxData={ contentParallaxData }>
         <div class={style.inner_contentWrapper}>

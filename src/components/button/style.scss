@@ -19,6 +19,14 @@
 	&:active {
 		border: none;
 	}
+	@media (min-width: 599px) {
+		&:hover,
+		.pulse {
+			.arrowDown {
+				margin: 5px 0 0;
+			}
+		}
+	}
 }
 
 .arrowDown {
@@ -28,6 +36,7 @@
 	border-right: 7px solid transparent;
 	border-top: 7px solid black;
 	margin: 10px 0 0;
+	transition: margin 0.5s ease;
 }
 
 .arrowUp {

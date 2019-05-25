@@ -1,7 +1,6 @@
 import {h, Component} from 'preact';
 import {TweenMax, TimelineMax, ScrollToPlugin} from "gsap/all";
 import Plx from 'react-plx';
-import Sticky from 'react-stickynode';
 
 import style from './style';
 import Button from '../button';
@@ -105,22 +104,22 @@ export default class Splash extends Component {
   render() {
     const $splashClasses = `${style.splash} screen`;
     return (
-    <splash className={$splashClasses}>
-      <Plx parallaxData={parallaxData}>
-        <Plx parallaxData={parallaxDataTop}>
-          <SvgTop/>
-        </Plx>
-        <Plx parallaxData={parallaxDataMiddle}>
-          <SvgMiddle/>
-        </Plx>
-        <Plx parallaxData={parallaxDataBottom}>
-          <SvgBottom/>
-        </Plx>
-      </Plx>
-      <Plx parallaxData={parallaxDataButton} className='buttonWrapper'>
-        <Button text='hi! how are you?' name="goToAbout" onButtonClick={() => this.props.changeScrollPosition('about')} direction='down'/>
-      </Plx>
-    </splash>
+        <splash className={$splashClasses}>
+          <Plx parallaxData={parallaxData}>
+            <Plx parallaxData={parallaxDataTop}>
+              <SvgTop/>
+            </Plx>
+            <Plx parallaxData={parallaxDataMiddle}>
+              <SvgMiddle/>
+            </Plx>
+            <Plx parallaxData={parallaxDataBottom}>
+              <SvgBottom/>
+            </Plx>
+          </Plx>
+          <Plx parallaxData={parallaxDataButton} className='buttonWrapper'>
+            <Button text='hi! how are you?' name="goToAbout" onButtonClick={() => this.props.changeScrollPosition('about')} direction='down'/>
+          </Plx>
+        </splash>
     );
   }
 }

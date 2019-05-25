@@ -1,8 +1,7 @@
 import {h, render, Component} from 'preact';
 // import {Router} from 'preact-router';
 import {TweenMax, ScrollToPlugin} from "gsap/all";
-import {isIOS} from 'react-device-detect';
-import ScrollTrigger from 'react-scroll-trigger';
+import {isIOS, osVersion, mobileModel, deviceDetect, isMobileSafari, isSafari} from 'react-device-detect';
 
 import Splash from './splash';
 import About from './about';
@@ -28,7 +27,6 @@ const randomColor = require('randomcolor'); // import the script
 export default class App extends Component {
 
   constructor(props) {
-    console.log("Im the app");
     super(props);
     this.setState({
       section: 'splash',
@@ -78,7 +76,6 @@ export default class App extends Component {
 
   setContentState = (content) => {
     this.setState({activeContentName: content});
-    console.log(this.state);
   };
 
   toggleState = (state) => {
@@ -96,12 +93,11 @@ export default class App extends Component {
 
   changeScrollPosition = (section) => {
     console.log(section);
-    TweenMax.to(window, 1, {scrollTo: section, ease: Sine.easeOut,});
+    TweenMax.to(window, 1, {scrollTo: section, ease: Sine.easeOut, autoKill:false});
   };
 
   setContentState = (content) => {
     this.setState({activeContentName: content});
-    console.log(this.state);
   };
 
   handleHamburgerClick = (e) => {
@@ -123,7 +119,18 @@ export default class App extends Component {
 
   componentDidMount() {
     this.getSessionStorage();
-
+    if(isIOS) {
+      document.querySelector('html').classList.add('iOS');
+      document.querySelector('html').classList.add(osVersion);
+      document.querySelector('html').classList.add(mobileModel);
+      console.log(deviceDetect());
+    };
+    if(isMobileSafari) {
+      document.querySelector('html').classList.add('MobileSafari');
+    };
+    if(isSafari) {
+      document.querySelector('html').classList.add('Safari');
+    };
   };
 
   componentWillUnMount() {

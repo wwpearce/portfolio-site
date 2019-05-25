@@ -40,32 +40,32 @@
     "projects": [{
         "visible" : true,
         "name": "dunkirk",
-        "fullName": "Operation Dunkirk",
+        "fullName": "Destination: Dunkirk",
         "client": "Warner Brothers",
         "agency": "Amazon Advertising",
         "bodyCopy": "Destination Dunkirk is (was) a series of three choose-your-own-adventure-style episodic Alexa games. I was part of a team of three creatives / technologists and we:1)Were presented with a business problem: How do we educated users about the buildup to the story of the film Dunkirk 2) Ideated, pitched ideas to Christopher Nolan's direct team 3) Built user flow diagrams, (the copywriter) wrote the script, and oversaw the production (including illustrations, choosing voice talent, and technical direction)",
-        "thumbNail": "https://via.placeholder.com/300",
+        "thumbNail": "assets/media/work/thumbnails/dunkirk.jpg",
         "images": [
           {
-            "text" : "This is a caption",
-            "url" : "https://via.placeholder.com/1024x768"
+            "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
+            "url" : "assets/media/content/dunkirk/dunkirk-01.jpg"
           },
           {
-            "text" : "This is a caption",
-            "url" : "https://via.placeholder.com/1024x768"
-          },
-          {
-            "text" : "This is a caption",
-            "url" : "https://via.placeholder.com/1024x768"
+            "text" : "A Voice User Interface doc from production.",
+            "url" : "assets/media/content/dunkirk/dunkirk-02.jpg",
+            "cropped" : "assets/media/content/dunkirk/dunkirk-02-cropped.jpg"
           }
         ],
-        "videos": {
-
-        },
+        "videos": [
+          {
+            "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
+            "url" : "assets/media/content/dunkirk/dunkirk-01.mp4"
+          }
+          ],
         "links" : [
           {
-            "text" : "product",
-            "link" : "https://www.producthunt.com/posts/destination-dunkirk"
+            "text" : "press",
+            "link" : "https://www.makeuseof.com/tag/interactive-stories-amazon-echo/"
           },
           {
             "text" : "press",
@@ -75,6 +75,15 @@
             "text" : "interview",
             "link" : "https://soundcloud.com/richard-john-wolfenden/transmedia-storytelling-destination-dunkirk-the-alexa-skill"
           }
+        ],
+        "roles": [
+          "ideation",
+          "ux",
+          "technical consulting",
+          "prototyping"
+        ],
+        "type": [
+          "Alexa Skill"
         ],
         "tags": [
           "ideation",
@@ -89,22 +98,42 @@
       {
         "visible" : true,
         "name": "spiderman",
-        "fullName": "Spiderman Homecoming",
+        "fullName": "Spider-Man Homecoming",
         "client" : "Sony",
         "agency" : "Amazon Advertising",
         "bodyCopy": "Spiderman Homecoming is(was) an Alexa Skill to build buzz for the film Spiderman Homecoming. Pointed at superfans, the skill dropped a new piece of content daily. The content could be a behind the scenes interview, a joke, or a trivia fact. A simple skill with a simple goal of bringing users back every day and getting them to think Spiderman.",
-        "thumbNail": "https://via.placeholder.com/150",
-        "images": {
-
-        },
+        "thumbNail": "assets/media/work/thumbnails/spiderman.jpg",
+        "images":  [
+          {
+            "text" : "Spiderman was available on all Alexa enabled devices.",
+            "url" : "assets/media/content/spiderman/spiderman-01.jpg"
+          },
+          {
+            "text" : "A Voice User Interface doc from production.",
+            "url" : "assets/media/content/spiderman/spiderman-03.jpg"
+          }
+        ],
         "videos": {
 
         },
         "links" : [
           {
-            "text" : "product",
+            "text" : "skill",
             "link" : "https://www.amazon.com/Sony-Pictures-Entertainment-Spider-Man/dp/B0711M1Z4B"
+          },
+          {
+            "text" : "press",
+            "link" : "https://mikeshouts.com/get-spider-man-skill-on-alexa-enabled-devices/"
           }
+        ],
+        "roles": [
+          "ideation",
+          "ux",
+          "technical consulting",
+          "prototyping"
+        ],
+        "type": [
+          "Alexa Skill"
         ],
         "tags": [
           "ideation",
@@ -120,18 +149,40 @@
         "client" : "Fox",
         "agency" : "Amazon Advertising",
         "bodyCopy": "24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.",
-        "thumbNail": "https://via.placeholder.com/150",
-        "images": {
-
-        },
-        "videos": {
-
-        },
+        "thumbNail": "assets/media/work/thumbnails/twentyfour.png",
+        "images": [
+          {
+            "text" : "twentyfour",
+            "url" : "assets/media/content/twentyfour/twentyfour-01.jpg"
+          },
+          {
+            "text" : "twentyfour",
+            "url" : "assets/media/content/twentyfour/twentyfour-02.jpg"
+          }
+        ],
+        "videos": [
+          {
+            "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
+            "url" : "assets/media/content/twentyfour/twentyfour-01.mp4"
+          }
+          ],
         "links" : [
           {
-            "text" : "product",
-            "link" : "https://www.amazon.com/Sony-Pictures-Entertainment-Spider-Man/dp/B0711M1Z4B"
+            "text" : "skill",
+            "link" : "https://www.amazon.com/Fox-Home-Ent-24-Mission/dp/B01N2ATPJZ"
+          },
+          {
+            "text" : "press",
+            "link" : "https://variety.com/2017/digital/news/fox-24-legacy-amazons-alexa-alarm-1201972472/"
           }
+        ],
+        "type": [
+          "Alexa Skill"
+        ],
+        "roles": [
+          "ideation",
+          "ux",
+          "development"
         ],
         "tags": [
           "voice",
@@ -147,10 +198,13 @@
         "client" : "WWE",
         "agency" : "Code & Theory",
         "bodyCopy": "I was part of a small team that re-did the WWE website. I did most of the front-end development of this site, mobile and desktop.",
-        "thumbNail": "https://via.placeholder.com/150",
-        "images": {
-
-        },
+        "thumbNail": "assets/media/work/thumbnails/wwe.jpg",
+        "images": [
+          {
+          "text" : "wwe",
+          "url" : "assets/media/content/wwe/wwe-01.jpg"
+        }
+        ],
         "videos": {
 
         },
@@ -159,6 +213,12 @@
             "text" : "site",
             "link" : "https://www.wwe.com/"
           }
+        ],
+        "roles": [
+          "front-end development"
+        ],
+        "type": [
+          "website"
         ],
         "tags": [
           "development",
@@ -169,22 +229,35 @@
       {
         "visible" : true,
         "name": "spg",
-        "fullName": "SPG Points Redemption Site",
+        "fullName": "SPG.com",
         "client" : "Starwood Hotels",
         "agency" : "Code & Theory",
         "bodyCopy": "I was part of a small team that re-did the SPG Rewards redemption website. I did most of the front-end development of this site, mobile and desktop.",
-        "thumbNail": "https://via.placeholder.com/150",
-        "images": {
-
-        },
+        "thumbNail": "assets/media/work/thumbnails/spg.jpg",
+        "images": [
+          {
+          "text" : "spg",
+          "url" : "assets/media/content/spg/spg-01.jpg"
+        }
+        ],
         "videos": {
 
         },
         "links" : [
           {
+            "text" : "waybacklink",
+            "link" : "http://web.archive.org/web/20170601003220/http://www.starwoodhotels.com/preferredguest/index.html"
+          },
+          {
             "text" : "press",
             "link" : "https://www.codeandtheory.com/things-we-make/starwood-preferred-guest-rewards-redemption-website"
           }
+        ],
+        "roles": [
+          "front-end development"
+        ],
+        "type": [
+          "website"
         ],
         "tags": [
           "development",
@@ -195,14 +268,29 @@
       {
         "visible" : true,
         "name": "bernadettes",
-        "fullName": "Bernadette's Logo",
+        "fullName": "Bernadette's",
         "client" : "Bernadette's",
         "agency" : "Freelance",
         "bodyCopy": "Logo for a bar. The uppercase 'B' is hand lettered, the rest is type.",
-        "thumbNail": "https://via.placeholder.com/150",
-        "images": {
-
-        },
+        "thumbNail": "assets/media/work/thumbnails/bernadettes.jpg",
+        "images": [
+          {
+          "text" : "spg",
+          "url" : "assets/media/content/bernadettes/bernadettes-01.jpg"
+          },
+          {
+          "text" : "spg",
+          "url" : "assets/media/content/bernadettes/bernadettes-02.jpg"
+          },
+          {
+          "text" : "spg",
+          "url" : "assets/media/content/bernadettes/bernadettes-03.jpg"
+          },
+          {
+          "text" : "spg",
+          "url" : "assets/media/content/bernadettes/bernadettes-04.jpg"
+          }
+        ],
         "videos": {
 
         },
@@ -211,6 +299,13 @@
             "text" : "site",
             "link" : "https://www.bernadettesla.com/"
           }
+        ],
+        "roles": [
+          "logo design",
+          "hand lettering"
+        ],
+        "type": [
+          "logo"
         ],
         "tags": [
           "ideation",
@@ -222,11 +317,11 @@
       {
         "visible" : true,
         "name": "wickman",
-        "fullName": "Wickman House Logo",
+        "fullName": "Wickman House",
         "client" : "Wickman House",
         "agency" : "Freelance",
         "bodyCopy": "Logo for a restaurant",
-        "thumbNail": "https://via.placeholder.com/150",
+        "thumbNail": "assets/media/work/thumbnails/wickman.jpg",
         "images": {
 
         },
@@ -239,6 +334,12 @@
             "link" : "http://www.wickmanhouse.com/"
           }
         ],
+        "roles": [
+          "logo design"
+        ],
+        "type": [
+          "logo"
+        ],
         "tags": [
           "ideation",
           "design",
@@ -248,22 +349,36 @@
       {
         "visible" : true,
         "name": "tgs",
-        "fullName": "The Greatest Showman: Mobile 360 Video",
+        "fullName": "The Greatest Showman: Amazon",
         "client" : "Fox",
         "agency" : "Amazon Advertising",
         "bodyCopy": "24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.",
-        "thumbNail": "https://via.placeholder.com/150",
-        "images": {
-
-        },
-        "videos": {
-
-        },
+        "thumbNail": "assets/media/work/thumbnails/tgs.jpg",
+        "images": [
+          {
+            "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
+            "url" : "assets/media/content/tgs/tgs-01.jpg"
+          }
+          ],
+        "videos": [
+          {
+            "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
+            "url" : "assets/media/content/tgs/tgs-01.mp4"
+          }
+          ],
         "links" : [
           {
             "text" : "press",
             "link" : "https://bernardgolden.com/the-amazon-flywheel-prime-and-the-greatest-showman/"
           }
+        ],
+        "roles" : [
+          "ideation",
+          "ux",
+          "front-end development"
+        ],
+        "type": [
+          "360 Video AR Experience"
         ],
         "tags": [
           "ideation",
@@ -280,14 +395,17 @@
       {
         "visible" : true,
         "name": "afi",
-        "fullName": "AFI Chatbot",
+        "fullName": "American Family Insurance",
         "client" : "American Family Insurance",
         "agency" : "Amazon Advertising",
         "bodyCopy": "24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.",
-        "thumbNail": "https://via.placeholder.com/150",
-        "images": {
-
-        },
+        "thumbNail": "assets/media/work/thumbnails/afi.jpg",
+        "images": [
+          {
+            "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
+            "url" : "assets/media/content/afi/afi-01.jpg"
+          }
+          ],
         "videos": {
 
         },
@@ -296,6 +414,13 @@
             "text" : "product",
             "link" : "https://www.amazon.com/adlp/amfamconnectchat"
           }
+        ],
+        "roles": [
+          "ideation",
+          "prototyping"
+        ],
+        "type": [
+          "Chatbot"
         ],
         "tags": [
           "development",
@@ -310,50 +435,31 @@
       },
       {
         "visible" : true,
-        "name": "twentyfour",
-        "fullName": "24 Legacy: Daily Mission",
-        "client" : "Fox",
-        "agency" : "Amazon Advertising",
-        "bodyCopy": "24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.",
-        "thumbNail": "https://via.placeholder.com/150",
-        "images": {
-
-        },
-        "videos": {
-
-        },
-        "links" : [
-          {
-            "text" : "product",
-            "link" : "https://www.amazon.com/Sony-Pictures-Entertainment-Spider-Man/dp/B0711M1Z4B"
-          }
-        ],
-        "tags": [
-          "voice",
-          "development",
-          "web_development",
-          "chatbot"
-        ]
-      },
-      {
-        "visible" : true,
         "name": "various",
-        "fullName": "Various Amazon Landing Pages",
+        "fullName": "Various, Amazon",
         "client" : "Various",
         "agency" : "Amazon Advertising",
         "bodyCopy": "A collection of landing pages for various clients and various platforms (web, mobile, tablet, FireTV) designed and/or devloped during my time at Amazon.",
-        "thumbNail": "https://via.placeholder.com/150",
+        "thumbNail": "https://www.fillmurray.com/640/360",
         "images": {
 
         },
         "videos": {
 
         },
+        "roles": [
+          "design",
+          "development",
+          "ux"
+        ],
         "links" : [
           {
             "text" : "Amazon Advertising",
             "link" : "https://advertising.amazon.com/"
           }
+        ],
+        "type": [
+          "landing pages"
         ],
         "tags": [
           "development",

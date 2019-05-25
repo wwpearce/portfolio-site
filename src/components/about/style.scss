@@ -12,6 +12,13 @@
 	padding-bottom: 7vh;
 	@media (max-width: 599px) {
 		padding-bottom: 0;
+		height: auto;
+	}
+
+	:global(.buttonWrapper) {
+		@media (max-width: 599px) {
+			position: static;
+		}
 	}
 
 	button {
@@ -25,7 +32,7 @@
 
 	:global(.headline-wrapper) {
 		@media (max-width: 599px) {
-			margin-top: 10vh;
+			margin-top: 5vh;
 		}
 	}
 

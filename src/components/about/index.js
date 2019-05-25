@@ -31,10 +31,24 @@ const contentParallaxData = [
   },
 ];
 
+const mobileButtonParallaxData = [
+  {
+    start: 'self',
+    end: 'work',
+    properties: [
+      {
+        startValue: 0,
+        endValue: 500,
+        property: 'translateY',
+      },
+    ],
+  },
+];
+
 const buttonParallaxData = [
   {
     start: 'self',
-    startOffset: 100,
+    startOffset: 150,
     end: 'work',
     properties: [
       {

@@ -9,7 +9,7 @@
 		position: relative;
 	}
 	svg {
-		transition: fill .4s ease;
+		transition: fill .4s easeOut;
 		fill: black;
 		width: 25vw;
 		max-width: 300px;

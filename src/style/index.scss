@@ -5,6 +5,9 @@
 @import 'animations';
 @import 'fonts/Brandon-Regular/stylesheet.css';
 @import 'fonts/Brandon-Bold/stylesheet.css';
+@import'iOS';
+@import'Safari';
+
 
 html {
   touch-action: manipulation;
@@ -45,6 +48,17 @@ h2 {
 	}
 }
 
+h3 {
+	font-family: 'BrandonGrotesque-Regular';
+	font-size: 1.25rem;
+  color: white;
+	text-transform: uppercase;
+  margin: 7px 0;
+	@media (max-width: 599px) {
+		font-size: 1.1rem;
+	}
+}
+
 p {
 	font-family: 'Bodoni';
 	font-size: 1rem;
@@ -74,7 +88,6 @@ p {
 
 .content-wrapper,
 .menu-wrapper {
-	// position: fixed;
 	min-height: 100vh;
 	z-index: 99;
 }
@@ -109,6 +122,34 @@ p {
 
 .grid-item {
   animation: gridIn .5s $easeOutExpo;
+  .backside {
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0,0,0, .5);
+    transition: opacity 2s $easeOutExpo;
+  }
+  &:hover {
+    .backside {
+      opacity: 1;
+    }
+  }
+  @media (max-width: 599px) {
+    .backside {
+      opacity: 1;
+    }
+    &:hover {
+      .backside {
+        opacity: 0;
+      }
+    }
+  }
 }
 
 .buttonWrapper {
