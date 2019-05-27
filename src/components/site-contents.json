@@ -43,15 +43,15 @@
         "fullName": "Destination: Dunkirk",
         "client": "Warner Brothers",
         "agency": "Amazon Advertising",
-        "bodyCopy": "Destination Dunkirk is (was) a series of three choose-your-own-adventure-style episodic Alexa games. I was part of a team of three creatives / technologists and we:1)Were presented with a business problem: How do we educated users about the buildup to the story of the film Dunkirk 2) Ideated, pitched ideas to Christopher Nolan's direct team 3) Built user flow diagrams, (the copywriter) wrote the script, and oversaw the production (including illustrations, choosing voice talent, and technical direction)",
+        "bodyCopy": "Destination: Dunkirk was a three-part, episodic choose-your-own-adventure style Alexa game. Part of a three person team, I was in on the entire ideation, sales, and production cycle. I helped sketch out ideas and the structure of the episodes, built prototypes, pitched the idea to Christopher Nolan's direct team, and oversaw UX and production (which included illustrations, choosing voice talent, approving sound designs, etc.).",
         "thumbNail": "assets/media/work/thumbnails/dunkirk.jpg",
         "images": [
           {
-            "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
+            "text" : "Destination: Dunkirk was available on all Alexa Enabled devices.",
             "url" : "assets/media/content/dunkirk/dunkirk-01.jpg"
           },
           {
-            "text" : "A Voice User Interface doc from production.",
+            "text" : "A voice UI doc to map out user flow.",
             "url" : "assets/media/content/dunkirk/dunkirk-02.jpg",
             "cropped" : "assets/media/content/dunkirk/dunkirk-02-cropped.jpg"
           }
@@ -96,15 +96,15 @@
         "fullName": "Spider-Man Homecoming",
         "client" : "Sony",
         "agency" : "Amazon Advertising",
-        "bodyCopy": "Spiderman Homecoming is(was) an Alexa Skill to build buzz for the film Spiderman Homecoming. Pointed at superfans, the skill dropped a new piece of content daily. The content could be a behind the scenes interview, a joke, or a trivia fact. A simple skill with a simple goal of bringing users back every day and getting them to think Spiderman.",
+        "bodyCopy": "Spiderman Homecoming is an Alexa Skill made to build buzz for the film Spider-man Homecoming. Aimed at superfans, the skill dropped a new piece of content daily for a month, leading up to the release of the film. The content could be a behind the scenes interview, a joke, or a trivia fact. I put together the initial concept, prototyped, and wrote the user flow for this skill.",
         "thumbNail": "assets/media/work/thumbnails/spiderman.jpg",
         "images":  [
           {
-            "text" : "Spiderman was available on all Alexa enabled devices.",
+            "text" : "Promo image from the campaign, which ran on the Amazon homepage.",
             "url" : "assets/media/content/spiderman/spiderman-01.jpg"
           },
           {
-            "text" : "A Voice User Interface doc from production.",
+            "text" : "A voice UI doc to map out user flow.",
             "url" : "assets/media/content/spiderman/spiderman-03.jpg",
             "cropped" : "assets/media/content/spiderman/spiderman-03-cropped.jpg"
           }
@@ -144,15 +144,15 @@
         "fullName": "24 Legacy: Daily Mission",
         "client" : "Fox",
         "agency" : "Amazon Advertising",
-        "bodyCopy": "24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.",
+        "bodyCopy": "24 Legacy Daily Mission is an (unupdated) daily content Skill made to drive awareness of the (then) new 24 Legacy TV show. The original concept for this Skill was handed to me, but I refined the user flow and coded this Skill by hand.",
         "thumbNail": "assets/media/work/thumbnails/twentyfour.png",
         "images": [
           {
-            "text" : "twentyfour",
+            "text" : "Promo image from the campaign, which ran on the Amazon homepage.",
             "url" : "assets/media/content/twentyfour/twentyfour-01.jpg"
           },
           {
-            "text" : "twentyfour",
+            "text" : "Voice UI document from production.",
             "url" : "assets/media/content/twentyfour/twentyfour-02.jpg"
           }
         ],
@@ -196,11 +196,11 @@
         "fullName": "WWe.com",
         "client" : "WWE",
         "agency" : "Code & Theory",
-        "bodyCopy": "I was part of a small team that re-did the WWE website. I did most of the front-end development of this site, mobile and desktop.",
+        "bodyCopy": "I was part of a small team that re-did the WWE website. I did most of the front-end development / theming of this site, mobile and desktop. This site was built with Drupal. No developers were body slammed during the production of this site.",
         "thumbNail": "assets/media/work/thumbnails/wwe.jpg",
         "images": [
           {
-          "text" : "wwe",
+          "text" : "wwe.com",
           "url" : "assets/media/content/wwe/wwe-01.jpg"
         }
         ],
@@ -231,7 +231,7 @@
         "fullName": "SPG.com",
         "client" : "Starwood Hotels",
         "agency" : "Code & Theory",
-        "bodyCopy": "I was part of a small team that re-did the SPG Rewards redemption website. I did most of the front-end development of this site, mobile and desktop.",
+        "bodyCopy": "I ran the front-end development for the redesign of SPG.com, which was a points redemption site for Starwood Hotels. I ran the front-end development of this site, including supervising two other developers. This site was written in Java and uses JSPs.",
         "thumbNail": "assets/media/work/thumbnails/spg.jpg",
         "images": [
           {
@@ -267,10 +267,10 @@
       {
         "visible" : true,
         "name": "bernadettes",
-        "fullName": "Bernadette's",
-        "client" : "Bernadette's",
+        "fullName": "Bernadette’s",
+        "client" : "Bernadette’s",
         "agency" : "Freelance",
-        "bodyCopy": "Logo for a bar. The uppercase 'B' is hand lettered, the rest is type.",
+        "bodyCopy": "Bernadette’s is a bar in downtown Los Angeles. The uppercase “B” is hand-lettered and the rest is type. I made a badge for square collateral needs.",
         "thumbNail": "assets/media/work/thumbnails/bernadettes.jpg",
         "images": [
           {
@@ -315,47 +315,15 @@
       },
       {
         "visible" : true,
-        "name": "wickman",
-        "fullName": "Wickman House",
-        "client" : "Wickman House",
-        "agency" : "Freelance",
-        "bodyCopy": "Logo for a restaurant",
-        "thumbNail": "assets/media/work/thumbnails/wickman.jpg",
-        "images": {
-
-        },
-        "video": {
-
-        },
-        "links" : [
-          {
-            "text" : "site",
-            "link" : "http://www.wickmanhouse.com/"
-          }
-        ],
-        "roles": [
-          "logo design"
-        ],
-        "type": [
-          "logo"
-        ],
-        "tags": [
-          "ideation",
-          "design",
-          "logo_design"
-        ]
-      },
-      {
-        "visible" : true,
         "name": "tgs",
         "fullName": "The Greatest Showman: Amazon",
         "client" : "Fox",
         "agency" : "Amazon Advertising",
-        "bodyCopy": "24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.",
+        "bodyCopy": "Fox bought the OnBox program at Amazon, which allowed them to print branding on an undisclosed (but LARGE) percentage of Amazon boxes. Included in on the box was a graphic that could be scanned using the Amazon App that pointed you to a page on Amazon.com. When asked what I thought should go on that page, I suggested we leverage the 360 behind the scenes footage that Fox shot, and we ended up making a mobile-only 360 video experience that could only be accessed by scanning a box. I coded this site by hand and oversaw the overall UX.",
         "thumbNail": "assets/media/work/thumbnails/tgs.jpg",
         "images": [
           {
-            "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
+            "text" : "User flow illustrating how the user scans the box to access the mobile site.",
             "url" : "assets/media/content/tgs/tgs-01.jpg"
           }
           ],
@@ -400,11 +368,11 @@
         "fullName": "American Family Insurance",
         "client" : "American Family Insurance",
         "agency" : "Amazon Advertising",
-        "bodyCopy": "24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.",
+        "bodyCopy": "This American Family Insurance chatbot is a great example of creative thinking from a technical POV. AFI wanted to give customers quotes on Amazon, but Amazon had very stringent rules about customer privacy. We side-stepped some of those issues by serving up a chatbot that would allow users to get a quote in a conversational manner.",
         "thumbNail": "assets/media/work/thumbnails/afi.jpg",
         "images": [
           {
-            "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
+            "text" : "The AFI chatbot lives inside of a landing page on Amazon.com",
             "url" : "assets/media/content/afi/afi-01.jpg"
           }
           ],
