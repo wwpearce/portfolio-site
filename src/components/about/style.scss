@@ -15,6 +15,10 @@
 		height: auto;
 	}
 
+	:global(.socialLinkWrapper) {
+		margin: 1.5vh 0;
+	}
+
 	:global(.buttonWrapper) {
 		@media (max-width: 599px) {
 			position: static;
@@ -47,8 +51,11 @@
 
 		h2 {
 			margin: 2vh 0;
+		}
 
-
+		h4 {
+			color: black;
+			margin: 1vh 0;
 		}
 
 		div {
@@ -60,6 +67,7 @@
 			margin-top: 40px;
 			padding-right: 20px;
 			border-right: 1px solid black;
+
 		}
 
 		:global(.inner_content-wrapper_right) {
