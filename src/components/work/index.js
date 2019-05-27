@@ -44,7 +44,9 @@ export default class Work extends Component {
 
   handleLinkClick = (e) => {
     console.log(e.target.id);
-    this.props.toggleState('content');
+    // this.props.toggleState('content');
+    console.log(document.querySelector('content').classList);
+    document.querySelector('.content-wrapper').classList.add('enter');
     this.props.setContentState(e.target.id);
     this.props.changeScrollPosition('content');
   };
@@ -105,7 +107,6 @@ export default class Work extends Component {
     for (let i = 0; i < this.props.content.projects.length; i++) {
       let intersection = this.props.content.projects[i].tags.filter(x => array.includes(x));
       if (this.props.arraysEqual(intersection, this.props.state.filters)) {
-        // console.log("Adding the following project: " + this.props.content.projects[i].fullName);
         output.push(this.props.content.projects[i]);
       }
     }

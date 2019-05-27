@@ -12597,7 +12597,6 @@ var button_Button = function (_Component) {
       }
     };
 
-    console.log(_this.props.name);
     _this.arrowDirection = _this.props.direction;
     return _this;
   }
@@ -12947,7 +12946,7 @@ var _ref2 = Object(preact_min["h"])(
         'It\'s me! I\'m a Creative Technologist! I am equally adept at the creative and production phases of a project. I can dream up a product or campaign, slap together a prototype, run a UX study, iterate on designs, and write production quality webcode all by my lonesome. I\'m comfortable in all roles along the production timeline, from UX to Art Direction to Front-End Dev. Most of my experience has been in advertising, but I\'ve spent some time at tech companies too. Here\u2019s a link to my ',
         Object(preact_min["h"])(
           'a',
-          { href: '#resume' },
+          { href: 'assets/docs/resume_bill-pearce.pdf', target: '_blank' },
           'resume'
         ),
         '.'
@@ -13238,7 +13237,7 @@ var work_Work = function (_Component) {
 
     _this.handleLinkClick = function (e) {
       console.log(e.target.id);
-      _this.props.toggleState('content');
+      // this.props.toggleState('content');
       _this.props.setContentState(e.target.id);
       _this.props.changeScrollPosition('content');
     };
@@ -13310,7 +13309,6 @@ var work_Work = function (_Component) {
           return array.includes(x);
         });
         if (_this.props.arraysEqual(intersection, _this.props.state.filters)) {
-          // console.log("Adding the following project: " + this.props.content.projects[i].fullName);
           output.push(_this.props.content.projects[i]);
         }
       }
@@ -13361,6 +13359,7 @@ function content__classCallCheck(instance, Constructor) { if (!(instance instanc
 function content__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function content__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -13441,25 +13440,51 @@ var content_Content = function (_Component) {
             media.push(Object(preact_min["h"])(
               'a',
               { 'class': 'contentImageLink', href: array[i].url, target: '_blank' },
-              Object(preact_min["h"])('img', { 'class': 'contentImage', src: array[i].url, alt: array[i].text })
+              Object(preact_min["h"])('img', { 'class': 'contentImage', src: array[i].url, alt: array[i].text }),
+              Object(preact_min["h"])(
+                'div',
+                { 'class': 'contentInfo' },
+                Object(preact_min["h"])(
+                  'h4',
+                  null,
+                  array[i].text
+                )
+              )
             ));
           } else {
             media.push(Object(preact_min["h"])(
               'a',
               { 'class': 'contentImageLink', href: array[i].url, target: '_blank' },
-              Object(preact_min["h"])('img', { 'class': 'contentImage', src: array[i].cropped, alt: array[i].text })
+              Object(preact_min["h"])('img', { 'class': 'contentImage', src: array[i].cropped, alt: array[i].text }),
+              Object(preact_min["h"])(
+                'div',
+                { 'class': 'contentInfo' },
+                Object(preact_min["h"])(
+                  'h4',
+                  null,
+                  array[i].text
+                )
+              )
             ));
           }
         }
         if (type === 'vid') {
           media.push(Object(preact_min["h"])(
             'video',
-            { 'class': 'contentImage', 'data-alt': array[i].text, controls: true },
+            { 'class': 'contentVideo', 'data-alt': array[i].text, controls: true },
             Object(preact_min["h"])('source', { src: array[i].url, type: 'video/mp4' })
           ));
         }
       }
       return media;
+    };
+
+    _this.getVideo = function (object) {
+      return Object(preact_min["h"])(
+        'video',
+        { 'class': 'contentVideo', 'data-alt': object.text, controls: true },
+        Object(preact_min["h"])('source', { src: object.url, type: 'video/mp4' })
+      );
     };
 
     _this.scrollBackToWork = function () {
@@ -13476,9 +13501,9 @@ var content_Content = function (_Component) {
   Content.prototype.render = function render() {
     var _this2 = this;
 
-    var $contentClasses = content_style_default.a.content + ' ' + this.props.state.activeContent + ' screen';
-    var content = this.props.getContentFromShortName(this.props.state.activeContentName);
-    // console.log(content.links);
+    var $contentClasses = content_style_default.a.content + ' ' + this.props.state.activeContentName + ' screen';
+    var content = this.props.state.activeContent;
+    console.log(content);
     this.getLinks(content.links);
 
     return Object(preact_min["h"])(
@@ -13552,8 +13577,13 @@ var content_Content = function (_Component) {
         Object(preact_min["h"])(
           'div',
           { 'class': content_style_default.a.mediaWrapper + ' mediaWrapper' },
-          this.getMedia(content.images, 'img'),
-          this.getMedia(content.videos, 'vid')
+          Object(preact_min["h"])(
+            'h3',
+            null,
+            dist["isMobile"] ? "Tap" : "Click",
+            ' to open in new tab'
+          ),
+          this.getMedia(content.images, 'img')
         )
       ),
       Object(preact_min["h"])(button_Button, { text: 'scroll back up to work', onButtonClick: function onButtonClick() {
@@ -13673,8 +13703,6 @@ var app_App = function (_Component) {
       };
     };
 
-    _this.activeContent = site_contents["work"].projects;
-
     _this.setSessionStorage = function () {
       if (!window.localStorage.bpHasVisited) {
         window.localStorage.bpHasVisited = true;
@@ -13700,10 +13728,6 @@ var app_App = function (_Component) {
       _this.setState({ state: $state, previousState: $previousState });
     };
 
-    _this.setContentState = function (content) {
-      _this.setState({ activeContentName: content });
-    };
-
     _this.toggleState = function (state) {
       if (_this.state.state === 'default') {
         // Changing from the default state to the menu state
@@ -13722,8 +13746,12 @@ var app_App = function (_Component) {
       TweenMaxBase_TweenMax.to(window, 1, { scrollTo: section, ease: Sine.easeOut, autoKill: false });
     };
 
-    _this.setContentState = function (content) {
-      _this.setState({ activeContentName: content });
+    _this.setContentState = function (contentName) {
+      _this.setState({
+        activeContentName: contentName,
+        activeContent: _this.getContentFromShortName(contentName)
+      });
+      console.log(_this.state);
     };
 
     _this.handleHamburgerClick = function (e) {
@@ -13750,6 +13778,7 @@ var app_App = function (_Component) {
       dropdownOptions: site_contents["work"].tags,
       filters: [],
       activeContentName: 'dunkirk', // default
+      activeContent: site_contents["work"].projects[0], // default
       filteredContentIndicies: []
     });
     return _this;
@@ -13779,7 +13808,7 @@ var app_App = function (_Component) {
       { 'class': 'screens' },
       Object(preact_min["h"])(splash_Splash, { props: this.props, changeColors: this.changeColors, changeScrollPosition: this.changeScrollPosition }),
       Object(preact_min["h"])(about_About, { changeScrollPosition: this.changeScrollPosition }),
-      Object(preact_min["h"])(work_Work, { props: this.props, state: this.state, changeScrollPosition: this.changeScrollPosition, setContentState: this.setContentState, arraysEqual: arraysEqual, normalizeString: normalizeString, setState: this.setState, content: site_contents["work"], addListeners: addListeners, changeDropdownState: this.changeDropdownState, toggleState: this.toggleState })
+      Object(preact_min["h"])(work_Work, { props: this.props, state: this.state, changeScrollPosition: this.changeScrollPosition, getContentFromShortName: this.getContentFromShortName, setContentState: this.setContentState, arraysEqual: arraysEqual, normalizeString: normalizeString, setState: this.setState, content: site_contents["work"], addListeners: addListeners, changeDropdownState: this.changeDropdownState, toggleState: this.toggleState })
     );
 
     var $content = Object(preact_min["h"])(
@@ -16160,7 +16189,7 @@ module.exports = {"splash":"splash__2UqTj"};
 /***/ "ZGUF":
 /***/ (function(module, exports) {
 
-module.exports = {"menu":{"about":"about","work":"work","contact me":"contact me","resume":"resume"},"splash":{},"about":{"headline":"About","bodyCopy":"Hi! I'm Bill Pearce and I'm a Creative Technologist (WTF is a creative technologist). I've been working at creative agencies and tech companies for about thirteen years, wearing hats ranging from Art Director to Front-End Developer. Most recently, I worked at an internal creative agency inside Amazon, providing product and campaign solutions or clients. I split my time at Amazon working as the prototyping arm of a UX research team and as the technical guide in the advertising creative process. I can fit anywhere in the process of crafting user-centric products (UX, design, creative ideation, prototyping, development) but am most comfortable as the soft-technical arm of a small creative team. Whatever you're making, I can help you make it better!","images":{}},"resume":{"url":""},"work":{"tags":["web_development","ideation","chatbot","design","voice","ux","conversational_ux","prototyping","technical_consulting","ui_design","360_video","ar","art_direction","chatbot","development","hand_lettering","logo_design","mobile_development"],"projects":[{"visible":true,"name":"dunkirk","fullName":"Destination: Dunkirk","client":"Warner Brothers","agency":"Amazon Advertising","bodyCopy":"Destination Dunkirk is (was) a series of three choose-your-own-adventure-style episodic Alexa games. I was part of a team of three creatives / technologists and we:1)Were presented with a business problem: How do we educated users about the buildup to the story of the film Dunkirk 2) Ideated, pitched ideas to Christopher Nolan's direct team 3) Built user flow diagrams, (the copywriter) wrote the script, and oversaw the production (including illustrations, choosing voice talent, and technical direction)","thumbNail":"assets/media/work/thumbnails/dunkirk.jpg","images":[{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/dunkirk/dunkirk-01.jpg"},{"text":"A Voice User Interface doc from production.","url":"assets/media/content/dunkirk/dunkirk-02.jpg","cropped":"assets/media/content/dunkirk/dunkirk-02-cropped.jpg"}],"videos":[{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/dunkirk/dunkirk-01.mp4"}],"links":[{"text":"press","link":"https://www.makeuseof.com/tag/interactive-stories-amazon-echo/"},{"text":"press","link":"https://screenrant.com/dunkirk-movie-amazon-echo-alexa-skill/"},{"text":"interview","link":"https://soundcloud.com/richard-john-wolfenden/transmedia-storytelling-destination-dunkirk-the-alexa-skill"}],"roles":["ideation","ux","technical consulting","prototyping"],"type":["Alexa Skill"],"tags":["ideation","ux","technical_consulting","prototyping","voice","conversational_ux","chatbot"]},{"visible":true,"name":"spiderman","fullName":"Spider-Man Homecoming","client":"Sony","agency":"Amazon Advertising","bodyCopy":"Spiderman Homecoming is(was) an Alexa Skill to build buzz for the film Spiderman Homecoming. Pointed at superfans, the skill dropped a new piece of content daily. The content could be a behind the scenes interview, a joke, or a trivia fact. A simple skill with a simple goal of bringing users back every day and getting them to think Spiderman.","thumbNail":"assets/media/work/thumbnails/spiderman.jpg","images":[{"text":"Spiderman was available on all Alexa enabled devices.","url":"assets/media/content/spiderman/spiderman-01.jpg"},{"text":"A Voice User Interface doc from production.","url":"assets/media/content/spiderman/spiderman-03.jpg"}],"videos":{},"links":[{"text":"skill","link":"https://www.amazon.com/Sony-Pictures-Entertainment-Spider-Man/dp/B0711M1Z4B"},{"text":"press","link":"https://mikeshouts.com/get-spider-man-skill-on-alexa-enabled-devices/"}],"roles":["ideation","ux","technical consulting","prototyping"],"type":["Alexa Skill"],"tags":["ideation","technical_consulting","voice","chatbot"]},{"visible":true,"name":"twentyfour","fullName":"24 Legacy: Daily Mission","client":"Fox","agency":"Amazon Advertising","bodyCopy":"24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.","thumbNail":"assets/media/work/thumbnails/twentyfour.png","images":[{"text":"twentyfour","url":"assets/media/content/twentyfour/twentyfour-01.jpg"},{"text":"twentyfour","url":"assets/media/content/twentyfour/twentyfour-02.jpg"}],"videos":[{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/twentyfour/twentyfour-01.mp4"}],"links":[{"text":"skill","link":"https://www.amazon.com/Fox-Home-Ent-24-Mission/dp/B01N2ATPJZ"},{"text":"press","link":"https://variety.com/2017/digital/news/fox-24-legacy-amazons-alexa-alarm-1201972472/"}],"type":["Alexa Skill"],"roles":["ideation","ux","development"],"tags":["voice","development","web_development","chatbot"]},{"visible":true,"name":"wwe","fullName":"WWe.com","client":"WWE","agency":"Code & Theory","bodyCopy":"I was part of a small team that re-did the WWE website. I did most of the front-end development of this site, mobile and desktop.","thumbNail":"assets/media/work/thumbnails/wwe.jpg","images":[{"text":"wwe","url":"assets/media/content/wwe/wwe-01.jpg"}],"videos":{},"links":[{"text":"site","link":"https://www.wwe.com/"}],"roles":["front-end development"],"type":["website"],"tags":["development","web_development","mobile_development"]},{"visible":true,"name":"spg","fullName":"SPG.com","client":"Starwood Hotels","agency":"Code & Theory","bodyCopy":"I was part of a small team that re-did the SPG Rewards redemption website. I did most of the front-end development of this site, mobile and desktop.","thumbNail":"assets/media/work/thumbnails/spg.jpg","images":[{"text":"spg","url":"assets/media/content/spg/spg-01.jpg"}],"videos":{},"links":[{"text":"waybacklink","link":"http://web.archive.org/web/20170601003220/http://www.starwoodhotels.com/preferredguest/index.html"},{"text":"press","link":"https://www.codeandtheory.com/things-we-make/starwood-preferred-guest-rewards-redemption-website"}],"roles":["front-end development"],"type":["website"],"tags":["development","web_development","mobile_development"]},{"visible":true,"name":"bernadettes","fullName":"Bernadette's","client":"Bernadette's","agency":"Freelance","bodyCopy":"Logo for a bar. The uppercase 'B' is hand lettered, the rest is type.","thumbNail":"assets/media/work/thumbnails/bernadettes.jpg","images":[{"text":"spg","url":"assets/media/content/bernadettes/bernadettes-01.jpg"},{"text":"spg","url":"assets/media/content/bernadettes/bernadettes-02.jpg"},{"text":"spg","url":"assets/media/content/bernadettes/bernadettes-03.jpg"},{"text":"spg","url":"assets/media/content/bernadettes/bernadettes-04.jpg"}],"videos":{},"links":[{"text":"site","link":"https://www.bernadettesla.com/"}],"roles":["logo design","hand lettering"],"type":["logo"],"tags":["ideation","design","logo_design","hand_lettering"]},{"visible":true,"name":"wickman","fullName":"Wickman House","client":"Wickman House","agency":"Freelance","bodyCopy":"Logo for a restaurant","thumbNail":"assets/media/work/thumbnails/wickman.jpg","images":{},"videos":{},"links":[{"text":"site","link":"http://www.wickmanhouse.com/"}],"roles":["logo design"],"type":["logo"],"tags":["ideation","design","logo_design"]},{"visible":true,"name":"tgs","fullName":"The Greatest Showman: Amazon","client":"Fox","agency":"Amazon Advertising","bodyCopy":"24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.","thumbNail":"assets/media/work/thumbnails/tgs.jpg","images":[{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/tgs/tgs-01.jpg"}],"videos":[{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/tgs/tgs-01.mp4"}],"links":[{"text":"press","link":"https://bernardgolden.com/the-amazon-flywheel-prime-and-the-greatest-showman/"}],"roles":["ideation","ux","front-end development"],"type":["360 Video AR Experience"],"tags":["ideation","ux","art_direction","design","ui_design","development","web_development","ar","360_video"]},{"visible":true,"name":"afi","fullName":"American Family Insurance","client":"American Family Insurance","agency":"Amazon Advertising","bodyCopy":"24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.","thumbNail":"assets/media/work/thumbnails/afi.jpg","images":[{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/afi/afi-01.jpg"}],"videos":{},"links":[{"text":"product","link":"https://www.amazon.com/adlp/amfamconnectchat"}],"roles":["ideation","prototyping"],"type":["Chatbot"],"tags":["development","web_development","ideation","ux","prototyping","chatbot","conversational_ux","development"]},{"visible":true,"name":"various","fullName":"Various, Amazon","client":"Various","agency":"Amazon Advertising","bodyCopy":"A collection of landing pages for various clients and various platforms (web, mobile, tablet, FireTV) designed and/or devloped during my time at Amazon.","thumbNail":"https://www.fillmurray.com/640/360","images":{},"videos":{},"roles":["design","development","ux"],"links":[{"text":"Amazon Advertising","link":"https://advertising.amazon.com/"}],"type":["landing pages"],"tags":["development","web_development","mobile_development","design","ui_design","art_direction"]}]}}
+module.exports = {"menu":{"about":"about","work":"work","contact me":"contact me","resume":"resume"},"splash":{},"about":{"headline":"About","bodyCopy":"Hi! I'm Bill Pearce and I'm a Creative Technologist (WTF is a creative technologist). I've been working at creative agencies and tech companies for about thirteen years, wearing hats ranging from Art Director to Front-End Developer. Most recently, I worked at an internal creative agency inside Amazon, providing product and campaign solutions or clients. I split my time at Amazon working as the prototyping arm of a UX research team and as the technical guide in the advertising creative process. I can fit anywhere in the process of crafting user-centric products (UX, design, creative ideation, prototyping, development) but am most comfortable as the soft-technical arm of a small creative team. Whatever you're making, I can help you make it better!","images":{}},"resume":{"url":""},"work":{"tags":["web_development","ideation","chatbot","design","voice","ux","conversational_ux","prototyping","technical_consulting","ui_design","360_video","ar","art_direction","chatbot","development","hand_lettering","logo_design","mobile_development"],"projects":[{"visible":true,"name":"dunkirk","fullName":"Destination: Dunkirk","client":"Warner Brothers","agency":"Amazon Advertising","bodyCopy":"Destination Dunkirk is (was) a series of three choose-your-own-adventure-style episodic Alexa games. I was part of a team of three creatives / technologists and we:1)Were presented with a business problem: How do we educated users about the buildup to the story of the film Dunkirk 2) Ideated, pitched ideas to Christopher Nolan's direct team 3) Built user flow diagrams, (the copywriter) wrote the script, and oversaw the production (including illustrations, choosing voice talent, and technical direction)","thumbNail":"assets/media/work/thumbnails/dunkirk.jpg","images":[{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/dunkirk/dunkirk-01.jpg"},{"text":"A Voice User Interface doc from production.","url":"assets/media/content/dunkirk/dunkirk-02.jpg","cropped":"assets/media/content/dunkirk/dunkirk-02-cropped.jpg"}],"video":{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/dunkirk/dunkirk-01.mp4"},"links":[{"text":"press","link":"https://www.makeuseof.com/tag/interactive-stories-amazon-echo/"},{"text":"press","link":"https://screenrant.com/dunkirk-movie-amazon-echo-alexa-skill/"},{"text":"interview","link":"https://soundcloud.com/richard-john-wolfenden/transmedia-storytelling-destination-dunkirk-the-alexa-skill"}],"roles":["ideation","ux","technical consulting","prototyping"],"type":["Alexa Skill"],"tags":["ideation","ux","technical_consulting","prototyping","voice","conversational_ux","chatbot"]},{"visible":true,"name":"spiderman","fullName":"Spider-Man Homecoming","client":"Sony","agency":"Amazon Advertising","bodyCopy":"Spiderman Homecoming is(was) an Alexa Skill to build buzz for the film Spiderman Homecoming. Pointed at superfans, the skill dropped a new piece of content daily. The content could be a behind the scenes interview, a joke, or a trivia fact. A simple skill with a simple goal of bringing users back every day and getting them to think Spiderman.","thumbNail":"assets/media/work/thumbnails/spiderman.jpg","images":[{"text":"Spiderman was available on all Alexa enabled devices.","url":"assets/media/content/spiderman/spiderman-01.jpg"},{"text":"A Voice User Interface doc from production.","url":"assets/media/content/spiderman/spiderman-03.jpg","cropped":"assets/media/content/spiderman/spiderman-03-cropped.jpg"}],"video":{},"links":[{"text":"skill","link":"https://www.amazon.com/Sony-Pictures-Entertainment-Spider-Man/dp/B0711M1Z4B"},{"text":"press","link":"https://mikeshouts.com/get-spider-man-skill-on-alexa-enabled-devices/"}],"roles":["ideation","ux","technical consulting","prototyping"],"type":["Alexa Skill"],"tags":["ideation","technical_consulting","voice","chatbot"]},{"visible":true,"name":"twentyfour","fullName":"24 Legacy: Daily Mission","client":"Fox","agency":"Amazon Advertising","bodyCopy":"24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.","thumbNail":"assets/media/work/thumbnails/twentyfour.png","images":[{"text":"twentyfour","url":"assets/media/content/twentyfour/twentyfour-01.jpg"},{"text":"twentyfour","url":"assets/media/content/twentyfour/twentyfour-02.jpg"}],"video":{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/twentyfour/twentyfour-01.mp4"},"links":[{"text":"skill","link":"https://www.amazon.com/Fox-Home-Ent-24-Mission/dp/B01N2ATPJZ"},{"text":"press","link":"https://variety.com/2017/digital/news/fox-24-legacy-amazons-alexa-alarm-1201972472/"}],"type":["Alexa Skill"],"roles":["ideation","ux","development"],"tags":["voice","development","web_development","chatbot"]},{"visible":true,"name":"wwe","fullName":"WWe.com","client":"WWE","agency":"Code & Theory","bodyCopy":"I was part of a small team that re-did the WWE website. I did most of the front-end development of this site, mobile and desktop.","thumbNail":"assets/media/work/thumbnails/wwe.jpg","images":[{"text":"wwe","url":"assets/media/content/wwe/wwe-01.jpg"}],"video":{},"links":[{"text":"site","link":"https://www.wwe.com/"}],"roles":["front-end development"],"type":["website"],"tags":["development","web_development","mobile_development"]},{"visible":true,"name":"spg","fullName":"SPG.com","client":"Starwood Hotels","agency":"Code & Theory","bodyCopy":"I was part of a small team that re-did the SPG Rewards redemption website. I did most of the front-end development of this site, mobile and desktop.","thumbNail":"assets/media/work/thumbnails/spg.jpg","images":[{"text":"spg","url":"assets/media/content/spg/spg-01.jpg"}],"video":{},"links":[{"text":"waybacklink","link":"http://web.archive.org/web/20170601003220/http://www.starwoodhotels.com/preferredguest/index.html"},{"text":"press","link":"https://www.codeandtheory.com/things-we-make/starwood-preferred-guest-rewards-redemption-website"}],"roles":["front-end development"],"type":["website"],"tags":["development","web_development","mobile_development"]},{"visible":true,"name":"bernadettes","fullName":"Bernadette's","client":"Bernadette's","agency":"Freelance","bodyCopy":"Logo for a bar. The uppercase 'B' is hand lettered, the rest is type.","thumbNail":"assets/media/work/thumbnails/bernadettes.jpg","images":[{"text":"spg","url":"assets/media/content/bernadettes/bernadettes-01.jpg"},{"text":"spg","url":"assets/media/content/bernadettes/bernadettes-02.jpg"},{"text":"spg","url":"assets/media/content/bernadettes/bernadettes-03.jpg"},{"text":"spg","url":"assets/media/content/bernadettes/bernadettes-04.jpg"}],"video":{},"links":[{"text":"site","link":"https://www.bernadettesla.com/"}],"roles":["logo design","hand lettering"],"type":["logo"],"tags":["ideation","design","logo_design","hand_lettering"]},{"visible":true,"name":"wickman","fullName":"Wickman House","client":"Wickman House","agency":"Freelance","bodyCopy":"Logo for a restaurant","thumbNail":"assets/media/work/thumbnails/wickman.jpg","images":{},"video":{},"links":[{"text":"site","link":"http://www.wickmanhouse.com/"}],"roles":["logo design"],"type":["logo"],"tags":["ideation","design","logo_design"]},{"visible":true,"name":"tgs","fullName":"The Greatest Showman: Amazon","client":"Fox","agency":"Amazon Advertising","bodyCopy":"24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.","thumbNail":"assets/media/work/thumbnails/tgs.jpg","images":[{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/tgs/tgs-01.jpg"}],"video":{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/tgs/tgs-01.mp4"},"links":[{"text":"press","link":"https://bernardgolden.com/the-amazon-flywheel-prime-and-the-greatest-showman/"}],"roles":["ideation","ux","front-end development"],"type":["360 Video AR Experience"],"tags":["ideation","ux","art_direction","design","ui_design","development","web_development","ar","360_video"]},{"visible":true,"name":"afi","fullName":"American Family Insurance","client":"American Family Insurance","agency":"Amazon Advertising","bodyCopy":"24 Legacy Daily Mission is(was) an Alexa Skill to build buzz for the series 24 Legacy. Pointed at superfans, the skill dropped a new daily challenge. The challenge could be to recite the alphabet backwards, or do ten push ups, all in 24 seconds.","thumbNail":"assets/media/work/thumbnails/afi.jpg","images":[{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/afi/afi-01.jpg"}],"video":{},"links":[{"text":"product","link":"https://www.amazon.com/adlp/amfamconnectchat"}],"roles":["ideation","prototyping"],"type":["Chatbot"],"tags":["development","web_development","ideation","ux","prototyping","chatbot","conversational_ux","development"]},{"visible":true,"name":"various","fullName":"Various, Amazon","client":"Various","agency":"Amazon Advertising","bodyCopy":"A collection of landing pages for various clients and various platforms (web, mobile, tablet, FireTV) designed and/or devloped during my time at Amazon.","thumbNail":"https://www.fillmurray.com/640/360","images":{},"video":{},"roles":["design","development","ux"],"links":[{"text":"Amazon Advertising","link":"https://advertising.amazon.com/"}],"type":["landing pages"],"tags":["development","web_development","mobile_development","design","ui_design","art_direction"]}]}}
 
 /***/ }),
 

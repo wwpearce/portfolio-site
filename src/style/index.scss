@@ -59,6 +59,15 @@ h3 {
 	}
 }
 
+h4 {
+  font-family: 'BrandonGrotesque-Regular';
+  font-weight: 100;
+  letter-spacing: 1px;
+	font-size: 1rem;
+  color: white;
+	text-transform: uppercase;
+}
+
 p {
 	font-family: 'Bodoni';
 	font-size: 1rem;
@@ -94,31 +103,29 @@ p {
 
 .enter {
 	&.menu-wrapper {
-		left: 0;
-		transform: translateX(0%);
+    display: initial;
+		opacity: 1;
 		transition: $menuInSpeed $easeOutCubic;
 	}
 
 	&.content-wrapper {
-		left: 0;
-		transform: translateX(0%);
+    display: initial;
+		opacity: 1;
 		transition: $contentInSpeed $easeOutCubic;
 	}
 }
 
-.exit {
-	&.menu-wrapper {
-		left: -100%;
-		transform: translateX(-100%);
-		transition: $menuOutSpeed $easeOutCubic;
+// .exit {
+	.menu-wrapper {
+    display: none;
+		opacity: 0;
 	}
 
-	&.content-wrapper {
-		left: 100%;
-		transform: translateX(100%);
-		transition: $contentOutSpeed $easeOutCubic;
+	.content-wrapper {
+    display: none;
+		opacity: 0;
 	}
-}
+// }
 
 .grid-item {
   animation: gridIn .5s $easeOutExpo;
@@ -132,8 +139,13 @@ p {
     pointer-events: none;
     display: flex;
     align-items: center;
-    background-color: rgba(0,0,0, .5);
     transition: opacity 2s $easeOutExpo;
+    h3 {
+      padding: 7px 0;
+      background-color: rgba(0,0,0,.65);
+      width: 100%;
+      margin: 0;
+    }
   }
   &:hover {
     .backside {

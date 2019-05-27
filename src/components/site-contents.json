@@ -56,24 +56,19 @@
             "cropped" : "assets/media/content/dunkirk/dunkirk-02-cropped.jpg"
           }
         ],
-        "videos": [
+        "video":
           {
             "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
             "url" : "assets/media/content/dunkirk/dunkirk-01.mp4"
-          }
-          ],
+          },
         "links" : [
           {
-            "text" : "press",
-            "link" : "https://www.makeuseof.com/tag/interactive-stories-amazon-echo/"
+            "text" : "video",
+            "link" : "assets/media/content/dunkirk/dunkirk-01.mp4"
           },
           {
             "text" : "press",
             "link": "https://screenrant.com/dunkirk-movie-amazon-echo-alexa-skill/"
-          },
-          {
-            "text" : "interview",
-            "link" : "https://soundcloud.com/richard-john-wolfenden/transmedia-storytelling-destination-dunkirk-the-alexa-skill"
           }
         ],
         "roles": [
@@ -110,10 +105,11 @@
           },
           {
             "text" : "A Voice User Interface doc from production.",
-            "url" : "assets/media/content/spiderman/spiderman-03.jpg"
+            "url" : "assets/media/content/spiderman/spiderman-03.jpg",
+            "cropped" : "assets/media/content/spiderman/spiderman-03-cropped.jpg"
           }
         ],
-        "videos": {
+        "video": {
 
         },
         "links" : [
@@ -160,16 +156,19 @@
             "url" : "assets/media/content/twentyfour/twentyfour-02.jpg"
           }
         ],
-        "videos": [
+        "video":
           {
             "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
             "url" : "assets/media/content/twentyfour/twentyfour-01.mp4"
-          }
-          ],
+          },
         "links" : [
           {
             "text" : "skill",
             "link" : "https://www.amazon.com/Fox-Home-Ent-24-Mission/dp/B01N2ATPJZ"
+          },
+          {
+            "text" : "video",
+            "url" : "assets/media/content/twentyfour/twentyfour-01.mp4"
           },
           {
             "text" : "press",
@@ -205,7 +204,7 @@
           "url" : "assets/media/content/wwe/wwe-01.jpg"
         }
         ],
-        "videos": {
+        "video": {
 
         },
         "links" : [
@@ -240,7 +239,7 @@
           "url" : "assets/media/content/spg/spg-01.jpg"
         }
         ],
-        "videos": {
+        "video": {
 
         },
         "links" : [
@@ -291,7 +290,7 @@
           "url" : "assets/media/content/bernadettes/bernadettes-04.jpg"
           }
         ],
-        "videos": {
+        "video": {
 
         },
         "links" : [
@@ -325,7 +324,7 @@
         "images": {
 
         },
-        "videos": {
+        "video": {
 
         },
         "links" : [
@@ -360,13 +359,16 @@
             "url" : "assets/media/content/tgs/tgs-01.jpg"
           }
           ],
-        "videos": [
+        "video":
           {
             "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
             "url" : "assets/media/content/tgs/tgs-01.mp4"
-          }
-          ],
+          },
         "links" : [
+          {
+            "text" : "video",
+            "url" : "assets/media/content/tgs/tgs-01.mp4"
+          },
           {
             "text" : "press",
             "link" : "https://bernardgolden.com/the-amazon-flywheel-prime-and-the-greatest-showman/"
@@ -406,7 +408,7 @@
             "url" : "assets/media/content/afi/afi-01.jpg"
           }
           ],
-        "videos": {
+        "video": {
 
         },
         "links" : [
@@ -444,7 +446,7 @@
         "images": {
 
         },
-        "videos": {
+        "video": {
 
         },
         "roles": [

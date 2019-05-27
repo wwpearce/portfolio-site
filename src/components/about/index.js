@@ -88,7 +88,7 @@ export default class About extends Component {
                 &#8230; and I'm assuming you're a hiring manager, or a creative director, or my parents, or somebody who needs a website; you know, that type of thing. You're probably looking for a designer or a developer or better yet you just read an article on Creative Technologists and Google brought you here. Which brings us to the crux of the issue.
               </p>
               <h2>WTF is a creative technologist</h2>
-              <p>It's me! I'm a Creative Technologist! I am equally adept at the creative and production phases of a project. I can dream up a product or campaign, slap together a prototype, run a UX study, iterate on designs, and write production quality webcode all by my lonesome. I'm comfortable in all roles along the production timeline, from UX to Art Direction to Front-End Dev. Most of my experience has been in advertising, but I've spent some time at tech companies too. Here’s a link to my <a href="#resume">resume</a>.</p>
+              <p>It's me! I'm a Creative Technologist! I am equally adept at the creative and production phases of a project. I can dream up a product or campaign, slap together a prototype, run a UX study, iterate on designs, and write production quality webcode all by my lonesome. I'm comfortable in all roles along the production timeline, from UX to Art Direction to Front-End Dev. Most of my experience has been in advertising, but I've spent some time at tech companies too. Here’s a link to my <a href="assets/docs/resume_bill-pearce.pdf" target="_blank">resume</a>.</p>
             </div>
           <div class="inner_content-wrapper_right">
             <p>

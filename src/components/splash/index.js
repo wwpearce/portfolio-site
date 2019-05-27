@@ -1,5 +1,5 @@
 import {h, Component} from 'preact';
-import {TweenMax, TimelineMax, ScrollToPlugin} from "gsap/all";
+import {TimelineMax} from "gsap/all";
 import Plx from 'react-plx';
 
 import style from './style';

@@ -35,6 +35,7 @@ export default class App extends Component {
       dropdownOptions: content.work.tags,
       filters: [],
       activeContentName: 'dunkirk', // default
+      activeContent: content.work.projects[0], // default
       filteredContentIndicies: []
     });
   };
@@ -46,8 +47,6 @@ export default class App extends Component {
       };
     };
   };
-
-  activeContent = content.work.projects;
 
   setSessionStorage = () => {
     if (!window.localStorage.bpHasVisited) {
@@ -74,10 +73,6 @@ export default class App extends Component {
     this.setState({state: $state, previousState: $previousState});
   };
 
-  setContentState = (content) => {
-    this.setState({activeContentName: content});
-  };
-
   toggleState = (state) => {
     if (this.state.state === 'default') {
       // Changing from the default state to the menu state
@@ -96,8 +91,12 @@ export default class App extends Component {
     TweenMax.to(window, 1, {scrollTo: section, ease: Sine.easeOut, autoKill:false});
   };
 
-  setContentState = (content) => {
-    this.setState({activeContentName: content});
+  setContentState = (contentName) => {
+    this.setState({
+      activeContentName: contentName,
+      activeContent: this.getContentFromShortName(contentName)
+    });
+    console.log(this.state);
   };
 
   handleHamburgerClick = (e) => {
@@ -109,13 +108,13 @@ export default class App extends Component {
     document.querySelector('svg').style.fill = $randomColor;
   };
 
-  getVisibility = (state) => {
-    if (this.state.state === state) {
-      return 'enter';
-    } else {
-      return 'enter';
-    };
-  };
+  // getVisibility = (state) => {
+  //   if (this.state.state === state) {
+  //     return 'enter';
+  //   } else {
+  //     return 'enter';
+  //   };
+  // };
 
   componentDidMount() {
     this.getSessionStorage();
@@ -140,11 +139,11 @@ export default class App extends Component {
     let $screen = <div class="screens">
       <Splash props={this.props} changeColors={this.changeColors} changeScrollPosition={this.changeScrollPosition}/>
       <About changeScrollPosition={this.changeScrollPosition}/>
-      <Work props={this.props} state={this.state} changeScrollPosition={this.changeScrollPosition} setContentState={this.setContentState} arraysEqual={arraysEqual} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState}/>
+      <Work props={this.props} state={this.state} changeScrollPosition={this.changeScrollPosition} getContentFromShortName={this.getContentFromShortName} setContentState={this.setContentState} arraysEqual={arraysEqual} normalizeString={normalizeString} setState={this.setState} content={content.work} addListeners={addListeners} changeDropdownState={this.changeDropdownState} toggleState={this.toggleState}/>
     </div>
 
     let $content =
-    <div className={`${this.getVisibility('content')} content-wrapper`}>
+    <div className={`content-wrapper`}>
       <Content props={this.props} state={this.state} changeScrollPosition={this.changeScrollPosition} getContentFromShortName={this.getContentFromShortName} toggleState={this.toggleState}/>
     </div>
 

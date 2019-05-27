@@ -4,6 +4,7 @@ import {
 } from 'preact';
 import Button from '../button';
 import Plx from 'react-plx';
+import {isMobile} from 'react-device-detect';
 
 import style from './style';
 
@@ -84,6 +85,9 @@ export default class Content extends Component {
           media.push(
             <a class="contentImageLink" href={array[i].url} target="_blank">
               <img class="contentImage" src={array[i].url} alt={array[i].text}/>
+              <div class="contentInfo">
+                <h4>{array[i].text}</h4>
+              </div>
             </a>
           )
         }
@@ -91,13 +95,16 @@ export default class Content extends Component {
           media.push(
             <a class="contentImageLink" href={array[i].url} target="_blank">
               <img class="contentImage" src={array[i].cropped} alt={array[i].text}/>
+              <div class="contentInfo">
+                <h4>{array[i].text}</h4>
+              </div>
             </a>
           )
         }
       }
       if(type === 'vid') {
         media.push(
-          <video class="contentImage" data-alt={array[i].text} controls>
+          <video class="contentVideo" data-alt={array[i].text} controls>
             <source src={array[i].url} type="video/mp4"/>
           </video>
         )
@@ -106,14 +113,22 @@ export default class Content extends Component {
     return media;
   };
 
+  getVideo = (object) => {
+    return (
+      <video class="contentVideo" data-alt={object.text} controls>
+        <source src={object.url} type="video/mp4"/>
+      </video>
+    )
+  };
+
   scrollBackToWork = () => {
     TweenMax.to(window, 1, {scrollTo: 'work'});
   }
 
   render() {
-    const $contentClasses = `${style.content} ${this.props.state.activeContent} screen`;
-    let content = this.props.getContentFromShortName(this.props.state.activeContentName);
-    // console.log(content.links);
+    const $contentClasses = `${style.content} ${this.props.state.activeContentName} screen`;
+    let content = this.props.state.activeContent;
+    console.log(content);
     this.getLinks(content.links);
 
     return (
@@ -141,7 +156,6 @@ export default class Content extends Component {
                 <br />
                 Links: {this.getLinks(content.links)}
               </p>
-
             </div>
             <div class={style.flexRight}>
               <p>{content.bodyCopy}</p>
@@ -150,8 +164,8 @@ export default class Content extends Component {
         </Plx>
         <Plx parallaxData={mediaParallaxData}>
           <div class={style.mediaWrapper + ' mediaWrapper'}>
-            {this.getMedia(content.images, 'img')}
-            {this.getMedia(content.videos, 'vid')}
+            <h3>{(isMobile ? "Tap" : "Click")} to open in new tab</h3>
+              {this.getMedia(content.images, 'img')}
           </div>
         </Plx>
         <Button text='scroll back up to work' onButtonClick={() => this.props.changeScrollPosition('work')} direction='up' / >

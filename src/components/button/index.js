@@ -8,7 +8,6 @@ export default class Button extends Component {
 
   constructor(props) {
     super(props)
-    console.log(this.props.name);
     this.arrowDirection = this.props.direction;
   };
 
