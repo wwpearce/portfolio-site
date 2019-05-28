@@ -59,15 +59,15 @@
         "links" : [
           {
             "text" : "user flow",
-            "link" : "assets/media/content/dunkirk/dunkirk-02.jpg"
+            "link" : "//billwpearce.com/assets/media/content/dunkirk/dunkirk-02.jpg"
           },
           {
             "text" : "video",
-            "link" : "assets/media/content/dunkirk/dunkirk-01.mp4"
+            "link" : "//billwpearce.com/assets/media/content/dunkirk/dunkirk-01.mp4"
           },
           {
             "text" : "press",
-            "link": "https://screenrant.com/dunkirk-movie-amazon-echo-alexa-skill/"
+            "link": "//screenrant.com/dunkirk-movie-amazon-echo-alexa-skill/"
           }
         ],
         "roles": [
@@ -109,15 +109,15 @@
         "links" : [
           {
             "text" : "skill",
-            "link" : "https://www.amazon.com/Sony-Pictures-Entertainment-Spider-Man/dp/B0711M1Z4B"
+            "link" : "//www.amazon.com/Sony-Pictures-Entertainment-Spider-Man/dp/B0711M1Z4B"
           },
           {
             "text" : "user flow",
-            "link" : "assets/media/content/spiderman/spiderman-03.jpg"
+            "link" : "//billwpearce.com/assets/media/content/spiderman/spiderman-03.jpg"
           },
           {
             "text" : "press",
-            "link" : "https://mikeshouts.com/get-spider-man-skill-on-alexa-enabled-devices/"
+            "link" : "//mikeshouts.com/get-spider-man-skill-on-alexa-enabled-devices/"
           }
         ],
         "roles": [
@@ -153,24 +153,24 @@
         "video":
           {
             "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
-            "url" : "assets/media/content/twentyfour/twentyfour-01.mp4"
+            "url" : "//billwpearce.com/assets/media/content/twentyfour/twentyfour-01.mp4"
           },
         "links" : [
           {
             "text" : "skill",
-            "link" : "https://www.amazon.com/Fox-Home-Ent-24-Mission/dp/B01N2ATPJZ"
+            "link" : "//www.amazon.com/Fox-Home-Ent-24-Mission/dp/B01N2ATPJZ"
           },
           {
             "text" : "user-flow",
-            "url" : "assets/media/content/twentyfour/twentyfour-02.jpg"
+            "link" : "//http:billwpearce.com/assets/media/content/twentyfour/twentyfour-02.jpg"
           },
           {
             "text" : "video",
-            "url" : "assets/media/content/twentyfour/twentyfour-01.mp4"
+            "link" : "//http:billwpearce.com/assets/media/content/twentyfour/twentyfour-01.mp4"
           },
           {
             "text" : "press",
-            "link" : "https://variety.com/2017/digital/news/fox-24-legacy-amazons-alexa-alarm-1201972472/"
+            "link" : "//variety.com/2017/digital/news/fox-24-legacy-amazons-alexa-alarm-1201972472/"
           }
         ],
         "type": [
@@ -208,7 +208,7 @@
         "links" : [
           {
             "text" : "site",
-            "link" : "https://www.wwe.com/"
+            "link" : "//www.wwe.com/"
           }
         ],
         "roles": [
@@ -243,11 +243,11 @@
         "links" : [
           {
             "text" : "waybacklink",
-            "link" : "http://web.archive.org/web/20170601003220/http://www.starwoodhotels.com/preferredguest/index.html"
+            "link" : "//web.archive.org/web/20170601003220///www.starwoodhotels.com/preferredguest/index.html"
           },
           {
             "text" : "press",
-            "link" : "https://www.codeandtheory.com/things-we-make/starwood-preferred-guest-rewards-redemption-website"
+            "link" : "//www.codeandtheory.com/things-we-make/starwood-preferred-guest-rewards-redemption-website"
           }
         ],
         "roles": [
@@ -286,7 +286,7 @@
         "links" : [
           {
             "text" : "site",
-            "link" : "https://www.bernadettesla.com/"
+            "link" : "//www.bernadettesla.com/"
           }
         ],
         "roles": [
@@ -320,16 +320,16 @@
         "video":
           {
             "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
-            "url" : "assets/media/content/tgs/tgs-01.mp4"
+            "url" : "//billwpearce.com/assets/media/content/tgs/tgs-01.mp4"
           },
         "links" : [
           {
             "text" : "video",
-            "url" : "assets/media/content/tgs/tgs-01.mp4"
+            "link" : "assets/media/content/tgs/tgs-01.mp4"
           },
           {
             "text" : "press",
-            "link" : "https://bernardgolden.com/the-amazon-flywheel-prime-and-the-greatest-showman/"
+            "link" : "//bernardgolden.com/the-amazon-flywheel-prime-and-the-greatest-showman/"
           }
         ],
         "roles" : [
@@ -372,7 +372,11 @@
         "links" : [
           {
             "text" : "product",
-            "link" : "https://www.amazon.com/adlp/amfamconnectchat"
+            "link" : "//www.amazon.com/adlp/amfamconnectchat"
+          },
+          {
+            "text" : "video",
+            "link" : "assets/media/content/afi/afi.mp4"
           }
         ],
         "roles": [
@@ -391,43 +395,6 @@
           "chatbot",
           "conversational_ux",
           "development"
-        ]
-      },
-      {
-        "visible" : true,
-        "name": "various",
-        "fullName": "Amazon",
-        "client" : "Various",
-        "agency" : "Amazon Advertising",
-        "bodyCopy": "A collection of landing pages for various clients and various platforms (web, mobile, tablet, FireTV) designed and/or devloped during my time at Amazon.",
-        "thumbNail": "assets/media/work/thumbnails/amazon.jpg",
-        "images": {
-
-        },
-        "video": {
-
-        },
-        "roles": [
-          "design",
-          "development",
-          "ux"
-        ],
-        "links" : [
-          {
-            "text" : "Amazon Advertising",
-            "link" : "https://advertising.amazon.com/"
-          }
-        ],
-        "type": [
-          "landing pages"
-        ],
-        "tags": [
-          "development",
-          "web_development",
-          "mobile_development",
-          "design",
-          "ui_design",
-          "art_direction"
         ]
       }
     ]

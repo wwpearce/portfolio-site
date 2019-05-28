@@ -56,6 +56,8 @@
 		:global(.wtf) {
 			border-bottom: 1px solid black;
 			padding-bottom: 3px;
+			display: inline-block;
+			width: auto;
 		}
 
 		h4 {

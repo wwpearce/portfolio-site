@@ -36,5 +36,12 @@
 				width: 50vw;
 			}
 		}
+		@media (min-width: 600px) and (max-width: 900px) {
+			grid-template-columns: repeat(4, 1fr);
+			:global(.grid-item) {
+				height: 25vw;
+				width: 25vw;
+			}
+		}
 	}
 }

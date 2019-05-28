@@ -92,9 +92,9 @@ export default class About extends Component {
             </div>
           <div class="inner_content-wrapper_right">
             <p>
-              I'm client friendly and I've spoken at a few conferences. Here's a video of my two of my talks: <a href="#">Guerilla-Style User Research</a> & <a href="#">Thou Shalt Not Skill Without a Build Process</a>.
+              I'm client friendly and I've spoken at a few conferences. Here's a video of my two of my talks: <a target="_blank" href="assets/media/about/videos/wdc2018-ux.mp4">Guerilla-Style User Research</a> & <a target="_blank" href="assets/media/about/videos/dtsummit2017-alexa.mp4">Thou Shalt Not Skill Without a Build Process</a>. If you're not sick of the sound of my voice yet, here's a few videos of me explaining some IoT projects I've done (I swear these were for work): <a target="_blank" href="assets/media/about/videos/ABC Prototype - Dr Pepper_1.mp4">Arduino Beverage Coozy</a> & <a target="_blank" href="assets/media/about/videos/Bill_FoodButton.mp4">The Office Food Button</a>.
               <br /><br />
-              I also have a few little side-business in which I design and illustrate logos (there's a few in the work section) and teach <a href="https://en.wikipedia.org/wiki/Muay_Thai">Muay Thai</a>. I am usually pretty good about not mixing those two up so don't feel like I'm gonna head kick you if you ask me for a logo (unless you step out on the bill (jk!)).
+              I also have a few little side-business in which I design and illustrate logos (there's a few in the work section) and teach <a href="https://en.wikipedia.org/wiki/Muay_Thai">Thai boxing</a>. I am usually pretty good about not mixing those two up so don't feel like I'm gonna head kick you if you ask me for a logo (unless you step out on the bill (jk!)).
               <br /><br />
               Don't be shy if you wanna reach out!
             </p>

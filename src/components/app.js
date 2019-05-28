@@ -1,7 +1,7 @@
 import {h, render, Component} from 'preact';
 import { animateScroll as scroll } from 'react-scroll'
-
 import {isIOS, osVersion, mobileModel, deviceDetect, isMobileSafari, isSafari} from 'react-device-detect';
+import ReactGA from 'react-ga';
 
 import Splash from './splash';
 import About from './about';
@@ -98,8 +98,14 @@ export default class App extends Component {
     this.toggleState('menu');
   };
 
+  initializeReactGA = () => {
+      ReactGA.initialize('UA-141037958-1');
+      ReactGA.pageview('/homepage');
+  };
+
   componentDidMount() {
     this.getSessionStorage();
+    this.initializeReactGA();
     if(isIOS) {
       document.querySelector('html').classList.add('iOS');
       document.querySelector('html').classList.add(osVersion);
