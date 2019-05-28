@@ -1,6 +1,6 @@
 import {h, render, Component} from 'preact';
-// import {Router} from 'preact-router';
-import {TweenMax, ScrollToPlugin} from "gsap/all";
+import { animateScroll as scroll } from 'react-scroll'
+
 import {isIOS, osVersion, mobileModel, deviceDetect, isMobileSafari, isSafari} from 'react-device-detect';
 
 import Splash from './splash';
@@ -17,12 +17,6 @@ import {
 } from './utils';
 
 import * as content from './site-contents.json';
-
-const randomColor = require('randomcolor'); // import the script
-
-// Code-splitting is automated for routes
-// import Home from '../routes/home';
-// import Profile from '../routes/profile';
 
 export default class App extends Component {
 
@@ -88,7 +82,8 @@ export default class App extends Component {
 
   changeScrollPosition = (section) => {
     console.log(section);
-    TweenMax.to(window, 1, {scrollTo: section, ease: Sine.easeOut, autoKill:false});
+    let offset = document.querySelector(section).offsetTop;
+    scroll.scrollTo(offset);
   };
 
   setContentState = (contentName) => {
@@ -102,19 +97,6 @@ export default class App extends Component {
   handleHamburgerClick = (e) => {
     this.toggleState('menu');
   };
-
-  changeColors = (e) => {
-    const $randomColor = randomColor();
-    document.querySelector('svg').style.fill = $randomColor;
-  };
-
-  // getVisibility = (state) => {
-  //   if (this.state.state === state) {
-  //     return 'enter';
-  //   } else {
-  //     return 'enter';
-  //   };
-  // };
 
   componentDidMount() {
     this.getSessionStorage();

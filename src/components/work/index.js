@@ -4,7 +4,6 @@ import {
 } from 'preact';
 import style from './style';
 import Tagging from './tagging';
-import {TweenMax, ScrollToPlugin} from "gsap/all";
 import Plx from 'react-plx';
 
 const headlineParallaxData = [

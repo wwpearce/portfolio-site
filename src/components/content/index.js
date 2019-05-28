@@ -139,7 +139,7 @@ export default class Content extends Component {
           <div class={style.flexWrapper}>
             <div class={style.flexLeft}>
               <p>
-                Client: {content.client}
+                Client(s): {content.client}
                 <br />
                 Agency: {content.agency}
                 <br/>
@@ -163,7 +163,7 @@ export default class Content extends Component {
         </Plx>
         <Plx parallaxData={mediaParallaxData}>
           <div class={style.mediaWrapper + ' mediaWrapper'}>
-            <h3>{(isMobile ? "Tap" : "Click")} to open in new tab</h3>
+            <h3>{(isMobile ? "Tap" : "Click")} to open image in new tab</h3>
               {this.getMedia(content.images, 'img')}
           </div>
         </Plx>

@@ -49,11 +49,6 @@
           {
             "text" : "Destination: Dunkirk was available on all Alexa Enabled devices.",
             "url" : "assets/media/content/dunkirk/dunkirk-01.jpg"
-          },
-          {
-            "text" : "A voice UI doc to map out user flow.",
-            "url" : "assets/media/content/dunkirk/dunkirk-02.jpg",
-            "cropped" : "assets/media/content/dunkirk/dunkirk-02-cropped.jpg"
           }
         ],
         "video":
@@ -62,6 +57,10 @@
             "url" : "assets/media/content/dunkirk/dunkirk-01.mp4"
           },
         "links" : [
+          {
+            "text" : "user flow",
+            "link" : "assets/media/content/dunkirk/dunkirk-02.jpg"
+          },
           {
             "text" : "video",
             "link" : "assets/media/content/dunkirk/dunkirk-01.mp4"
@@ -102,11 +101,6 @@
           {
             "text" : "Promo image from the campaign, which ran on the Amazon homepage.",
             "url" : "assets/media/content/spiderman/spiderman-01.jpg"
-          },
-          {
-            "text" : "A voice UI doc to map out user flow.",
-            "url" : "assets/media/content/spiderman/spiderman-03.jpg",
-            "cropped" : "assets/media/content/spiderman/spiderman-03-cropped.jpg"
           }
         ],
         "video": {
@@ -116,6 +110,10 @@
           {
             "text" : "skill",
             "link" : "https://www.amazon.com/Sony-Pictures-Entertainment-Spider-Man/dp/B0711M1Z4B"
+          },
+          {
+            "text" : "user flow",
+            "link" : "assets/media/content/spiderman/spiderman-03.jpg"
           },
           {
             "text" : "press",
@@ -150,10 +148,6 @@
           {
             "text" : "Promo image from the campaign, which ran on the Amazon homepage.",
             "url" : "assets/media/content/twentyfour/twentyfour-01.jpg"
-          },
-          {
-            "text" : "Voice UI document from production.",
-            "url" : "assets/media/content/twentyfour/twentyfour-02.jpg"
           }
         ],
         "video":
@@ -165,6 +159,10 @@
           {
             "text" : "skill",
             "link" : "https://www.amazon.com/Fox-Home-Ent-24-Mission/dp/B01N2ATPJZ"
+          },
+          {
+            "text" : "user-flow",
+            "url" : "assets/media/content/twentyfour/twentyfour-02.jpg"
           },
           {
             "text" : "video",
@@ -316,7 +314,7 @@
       {
         "visible" : true,
         "name": "tgs",
-        "fullName": "The Greatest Showman: Amazon",
+        "fullName": "The Greatest Showman",
         "client" : "Fox",
         "agency" : "Amazon Advertising",
         "bodyCopy": "Fox bought the OnBox program at Amazon, which allowed them to print branding on an undisclosed (but LARGE) percentage of Amazon boxes. Included in on the box was a graphic that could be scanned using the Amazon App that pointed you to a page on Amazon.com. When asked what I thought should go on that page, I suggested we leverage the 360 behind the scenes footage that Fox shot, and we ended up making a mobile-only 360 video experience that could only be accessed by scanning a box. I coded this site by hand and oversaw the overall UX.",
@@ -406,7 +404,7 @@
       {
         "visible" : true,
         "name": "various",
-        "fullName": "Various, Amazon",
+        "fullName": "Amazon",
         "client" : "Various",
         "agency" : "Amazon Advertising",
         "bodyCopy": "A collection of landing pages for various clients and various platforms (web, mobile, tablet, FireTV) designed and/or devloped during my time at Amazon.",

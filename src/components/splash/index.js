@@ -1,5 +1,4 @@
 import {h, Component} from 'preact';
-import {TimelineMax} from "gsap/all";
 import Plx from 'react-plx';
 
 import style from './style';
@@ -84,15 +83,12 @@ export default class Splash extends Component {
 
   handleClick = (e) => {
     let contours = document.querySelectorAll('.ContoursMiddle');
-    let randomSpeed = this.getRandomInt(5) + 1;
-    console.log(randomSpeed);
     for(let i = 0; i < contours.length; i++) {
       if(contours[i].style.animationPlayState == 'running') {
         contours[i].style.animationPlayState = 'paused';
       }
       else {
         contours[i].style.animationPlayState = 'running';
-        // contours[i].style.animationDuration = `${randomSpeed}s`;
       }
     }
   };
@@ -102,21 +98,6 @@ export default class Splash extends Component {
   };
 
   componentDidMount() {
-    // let speed = '8';
-    // let timeline = new TimelineMax({repeat: -1});
-    //
-    // timeline.fromTo('#zigzag1', speed, {
-    //   x: '0%'
-    // }, {
-    //   x: '100%',
-    //   ease: Linear.easeNone
-    // }, 'playTogether');
-    // timeline.fromTo('#zigzag2', speed, {
-    //   x: '-100%'
-    // }, {
-    //   x: '0%',
-    //   ease: Linear.easeNone
-    // }, 'playTogether');
   };
 
   render() {
@@ -127,7 +108,7 @@ export default class Splash extends Component {
             <Plx parallaxData={parallaxDataTop}>
               <SvgTop/>
             </Plx>
-            <Plx parallaxData={parallaxDataMiddle} className='squiggleWrapper' onClick={this.handleClick}>
+            <Plx parallaxData={parallaxDataMiddle} className='squiggleWrapper' onClick={this.handleClick} title="Is this annoying? You can click to toggle animation on/off.">
               <SvgMiddle/>
               <SvgMiddle/>
             </Plx>
