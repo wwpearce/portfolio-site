@@ -87,7 +87,7 @@ export default class About extends Component {
               <p>
                 &#8230;and I'm assuming you're a technical director, or a creative director, or somebody who needs a website; you know, that type of thing. You're probably looking for a designer or a developer or both or better yet you just read an article on Creative Technologists and Google brought you here. Which brings us what may be your first question&#8230;
               </p>
-              <h2>WTF is a creative technologist???</h2>
+              <h2 class="wtf">WTF is a creative technologist???</h2>
               <p>It's me! I'm a Creative Technologist! I am a creative thinker from a technical POV. Equally adept at the creative and production phases of a project, I can dream up a product or campaign, slap together a prototype, run a UX study, iterate on designs, and write production quality webcode all by my lonesome. I'm comfortable in all roles along the production timeline, from UXer to Art Director to Front-End Developer. Most of my experience has been in advertising, but I've spent some time at a certain big tech company too. Here’s a link to my <a href="assets/docs/resume_bill-pearce.pdf" target="_blank">resume</a>.</p>
             </div>
           <div class="inner_content-wrapper_right">
@@ -102,8 +102,6 @@ export default class About extends Component {
             <div class="socialLinkWrapper">
               <a href="https://www.linkedin.com/in/billwpearce/" target="_blank">linkedin</a> | <a href="https://github.com/wwpearce" target="_blank">github</a>
             </div>
-            <h4>TL ; DR – I'm a designer / developer</h4>
-
           </div>
         </div>
       </Plx>

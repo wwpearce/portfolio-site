@@ -104,17 +104,13 @@ export default class Splash extends Component {
     const $splashClasses = `${style.splash} screen`;
     return (
         <splash className={$splashClasses}>
-          <Plx parallaxData={parallaxData}>
-            <Plx parallaxData={parallaxDataTop}>
+          <Plx parallaxData={parallaxData} className='splashParallaxWrapper'>
               <SvgTop/>
-            </Plx>
-            <Plx parallaxData={parallaxDataMiddle} className='squiggleWrapper' onClick={this.handleClick} title="Is this annoying? You can click to toggle animation on/off.">
+            <div class='squiggleWrapper' onClick={this.handleClick} title="Is this annoying? You can click to toggle animation on/off.">
               <SvgMiddle/>
               <SvgMiddle/>
-            </Plx>
-            <Plx parallaxData={parallaxDataBottom}>
+            </div>
               <SvgBottom/>
-            </Plx>
           </Plx>
           <Plx parallaxData={parallaxDataButton} className='buttonWrapper'>
             <Button text='hi! how are you?' name="goToAbout" onButtonClick={() => this.props.changeScrollPosition('about')} direction='down'/>

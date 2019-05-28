@@ -44,7 +44,7 @@ h2 {
 	font-size: 1.25rem;
 	text-transform: uppercase;
 	@media (max-width: 599px) {
-		font-size: 1.1rem;
+		font-size: 1rem;
 	}
 }
 
@@ -99,6 +99,16 @@ p {
 .menu-wrapper {
 	min-height: 100vh;
 	z-index: 99;
+}
+
+.contentInfo {
+  transition: opacity 2s $easeOutExpo;
+  @media (max-width: 599px) {
+    display: none;
+    &:hover {
+      display: none;
+    }
+  }
 }
 
 .enter {

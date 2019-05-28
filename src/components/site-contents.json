@@ -272,20 +272,12 @@
         "thumbNail": "assets/media/work/thumbnails/bernadettes.jpg",
         "images": [
           {
-          "text" : "spg",
-          "url" : "assets/media/content/bernadettes/bernadettes-01.jpg"
-          },
-          {
-          "text" : "spg",
+          "text" : "In the wild.",
           "url" : "assets/media/content/bernadettes/bernadettes-02.jpg"
           },
           {
-          "text" : "spg",
-          "url" : "assets/media/content/bernadettes/bernadettes-03.jpg"
-          },
-          {
-          "text" : "spg",
-          "url" : "assets/media/content/bernadettes/bernadettes-04.jpg"
+          "text" : "",
+          "url" : "assets/media/content/bernadettes/bernadettes-01.jpg"
           }
         ],
         "video": {

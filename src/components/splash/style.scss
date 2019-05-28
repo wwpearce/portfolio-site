@@ -19,6 +19,12 @@
 			width: 65vw;
 		}
 	}
+	:global(.splashParallaxWrapper) {
+		display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	}
 	:global(.ContoursMiddle) {
 		animation: ticker linear infinite;
 	}
