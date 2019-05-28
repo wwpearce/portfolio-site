@@ -92,11 +92,11 @@ export default class About extends Component {
             </div>
           <div class="inner_content-wrapper_right">
             <p>
-              I'm client friendly and I've spoken at a few conferences. Here's a video of my two of my talks:<a href="#">Guerilla-Style User Research</a> to <a href="#">Thou Shalt Not Skill Without a Build Process</a>.
+              I'm client friendly and I've spoken at a few conferences. Here's a video of my two of my talks: <a href="#">Guerilla-Style User Research</a> & <a href="#">Thou Shalt Not Skill Without a Build Process</a>.
               <br /><br />
               I also have a few little side-business in which I design and illustrate logos (there's a few in the work section) and teach <a href="https://en.wikipedia.org/wiki/Muay_Thai">Muay Thai</a>. I am usually pretty good about not mixing those two up so don't feel like I'm gonna head kick you if you ask me for a logo (unless you step out on the bill).
               <br /><br />
-              Thanks for stopping by. Don't be shy if you wanna reach out!
+              Don't be shy if you wanna reach out!
             </p>
             <h4 class="selectable-text">billwpearce at gmail dot com</h4>
             <div class="socialLinkWrapper">
@@ -108,7 +108,7 @@ export default class About extends Component {
         </div>
       </Plx>
       <Plx parallaxData={ buttonParallaxData } className='buttonWrapper'>
-        <Button text='ok, let&rsquo;s see some work' onButtonClick={() => this.props.changeScrollPosition('work')} direction='down' name='goToWork' / >
+        <Button text='ok bill, let&rsquo;s see some work' onButtonClick={() => this.props.changeScrollPosition('work')} direction='down' name='goToWork' / >
       </Plx>
     </about>);
   }

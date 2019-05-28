@@ -103,29 +103,23 @@ p {
 
 .enter {
 	&.menu-wrapper {
-    display: initial;
 		opacity: 1;
 		transition: $menuInSpeed $easeOutCubic;
 	}
 
 	&.content-wrapper {
-    display: initial;
 		opacity: 1;
 		transition: $contentInSpeed $easeOutCubic;
 	}
 }
 
-// .exit {
 	.menu-wrapper {
-    display: none;
 		opacity: 0;
 	}
 
 	.content-wrapper {
-    display: none;
 		opacity: 0;
 	}
-// }
 
 .grid-item {
   animation: gridIn .5s $easeOutExpo;

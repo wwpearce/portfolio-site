@@ -128,7 +128,6 @@ export default class Content extends Component {
   render() {
     const $contentClasses = `${style.content} ${this.props.state.activeContentName} screen`;
     let content = this.props.state.activeContent;
-    console.log(content);
     this.getLinks(content.links);
 
     return (
