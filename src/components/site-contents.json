@@ -43,7 +43,11 @@
         "fullName": "Destination: Dunkirk",
         "client": "Warner Brothers",
         "agency": "Amazon Advertising",
-        "bodyCopy": "Destination: Dunkirk was a three-part, episodic choose-your-own-adventure style Alexa game. Part of a three person team, I was in on the entire ideation, sales, and production cycle. I helped sketch out ideas and the structure of the episodes, built prototypes, pitched the idea to Christopher Nolan's direct team, and oversaw UX and production (which included illustrations, choosing voice talent, approving sound designs, etc.).",
+        "bodyCopy" : [
+          "Users of Destination: Dunkirk were given three episodic, choose-your-own-adventure-style audio games. This Alexa Skill  told the story leading up to the film Dunkirk, giving user the option of playing as a foot soldier, tank-commander, or pilot. Users chose from a list of possible actions to navigate the story tree.",
+          "I was part of a three person team who ideated, wrote outlines and scripts, built prototypes, pitched, evaluated voice-over, sounds, illustrations, and oversaw technical production.",
+          "First episodic game for Alexa, worked directly with Christopher Nolan's team"
+        ],
         "thumbNail": "assets/media/work/thumbnails/dunkirk.jpg",
         "images": [
           {
@@ -91,11 +95,68 @@
       },
       {
         "visible" : true,
+        "name": "tgs",
+        "fullName": "The Greatest Showman",
+        "client" : "Fox",
+        "agency" : "Amazon Advertising",
+        "bodyCopy" : [
+          "Lucky users who received a branded The Greatest Showman box from their regular Amazon orders were invited to scan the box using the Amazon app. Scanning the box takes users to a custom, mobile-only 360 video experience accessible only via scan.",
+          "I was the creative lead of a two person team who tackled the mobile 360 experience. We came up with the idea to leverage scanning on boxes, connected the 360 experience, and made all creative assets save for the 360 video. I wrote the front-end code for the mobile site.",
+          "First mobile-only site to come out of Amazon Advertising, first use of scanning on boxes"
+        ],
+        "thumbNail": "assets/media/work/thumbnails/tgs.jpg",
+        "images": [
+          {
+            "text" : "User flow illustrating how the user scans the box to access the mobile site.",
+            "url" : "assets/media/content/tgs/tgs-01.jpg"
+          }
+          ],
+        "video":
+          {
+            "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
+            "url" : "//billwpearce.com/assets/media/content/tgs/tgs-01.mp4"
+          },
+        "links" : [
+          {
+            "text" : "video",
+            "link" : "assets/media/content/tgs/tgs-01.mp4"
+          },
+          {
+            "text" : "press",
+            "link" : "//bernardgolden.com/the-amazon-flywheel-prime-and-the-greatest-showman/"
+          }
+        ],
+        "roles" : [
+          "ideation",
+          "ux",
+          "front-end development"
+        ],
+        "type": [
+          "360 Video AR Experience"
+        ],
+        "tags": [
+          "ideation",
+          "ux",
+          "art_direction",
+          "design",
+          "ui_design",
+          "development",
+          "web_development",
+          "ar",
+          "360_video"
+        ]
+      },
+      {
+        "visible" : true,
         "name": "spiderman",
         "fullName": "Spider-Man Homecoming",
         "client" : "Sony",
         "agency" : "Amazon Advertising",
-        "bodyCopy": "Spiderman Homecoming is an Alexa Skill made to build buzz for the film Spider-man Homecoming. Aimed at superfans, the skill dropped a new piece of content daily for a month, leading up to the release of the film. The content could be a behind the scenes interview, a joke, or a trivia fact. I put together the initial concept, prototyped, and wrote the user flow for this skill.",
+        "bodyCopy" : [
+          "Spider-man superfans are invited to add this Alexa Skill to their daily schedule and are rewarded with a unique piece of content, every day, for thirty days, leading up to the release of Spider-man: Homecoming. Content varied from jokes and Spider-man facts (as told by Alexa), cast interviews, and more!",
+          "I was the creative lead and ran ideation, UX, pitched the idea, and oversaw technical production.",
+          "4/5 stars"
+        ],
         "thumbNail": "assets/media/work/thumbnails/spiderman.jpg",
         "images":  [
           {
@@ -138,12 +199,64 @@
       },
       {
         "visible" : true,
+        "name": "afi",
+        "fullName": "American Family Insurance",
+        "client" : "American Family Insurance",
+        "agency" : "Amazon Advertising",
+        "bodyCopy" : [
+          "Amazon users are presented with a quick and easy way to get an insurance quote online. Leveraging a chatbot and our access to internal Amazon data, users can get a quote for renters insurance in a snap.",
+          "I led a two person creative tech team that come up with the concept, built a prototype, pitched, and won the business.",
+          "The idea came out of the creative tech team and was pushed through to sale without being touched by a creative director. Due to internal Amazon rules and regulations, the chatbot was created to exploit a loophole and take the conversation off of Amazon.com property, while still being on an Amazon page."
+        ],
+        "thumbNail": "assets/media/work/thumbnails/afi.jpg",
+        "images": [
+          {
+            "text" : "The AFI chatbot lives inside of a landing page on Amazon.com",
+            "url" : "assets/media/content/afi/afi-01.jpg"
+          }
+          ],
+        "video": {
+
+        },
+        "links" : [
+          {
+            "text" : "product",
+            "link" : "//www.amazon.com/adlp/amfamconnectchat"
+          },
+          {
+            "text" : "video",
+            "link" : "assets/media/content/afi/afi.mp4"
+          }
+        ],
+        "roles": [
+          "ideation",
+          "prototyping"
+        ],
+        "type": [
+          "Chatbot"
+        ],
+        "tags": [
+          "development",
+          "web_development",
+          "ideation",
+          "ux",
+          "prototyping",
+          "chatbot",
+          "conversational_ux",
+          "development"
+        ]
+      },
+      {
+        "visible" : true,
         "name": "twentyfour",
         "fullName": "24 Legacy: Daily Mission",
         "client" : "Fox",
         "agency" : "Amazon Advertising",
-        "bodyCopy": "24 Legacy Daily Mission is an (unupdated) daily content Skill made to drive awareness of the (then) new 24 Legacy TV show. The original concept for this Skill was handed to me, but I refined the user flow and coded this Skill by hand.",
-        "thumbNail": "assets/media/work/thumbnails/twentyfour.png",
+        "bodyCopy" : [
+          "Fans of the show 24 were invited to use this daily content skill and receive a different 24 second challenge every day. These challenges had a tounge-in-cheek quality to them and could range from reciting the alphabet in 24 seconds to brushing your teeth in 24 seconds.",
+          "I sketched out the UX and coded the skill. All content was provided.",
+          "3.5/5 stars, first daily content skill from Amazon Advertising"
+        ],        "thumbNail": "assets/media/work/thumbnails/twentyfour.png",
         "images": [
           {
             "text" : "Promo image from the campaign, which ran on the Amazon homepage.",
@@ -301,100 +414,6 @@
           "design",
           "logo_design",
           "hand_lettering"
-        ]
-      },
-      {
-        "visible" : true,
-        "name": "tgs",
-        "fullName": "The Greatest Showman",
-        "client" : "Fox",
-        "agency" : "Amazon Advertising",
-        "bodyCopy": "Fox bought the OnBox program at Amazon, which allowed them to print branding on an undisclosed (but LARGE) percentage of Amazon boxes. Included in on the box was a graphic that could be scanned using the Amazon App that pointed you to a page on Amazon.com. When asked what I thought should go on that page, I suggested we leverage the 360 behind the scenes footage that Fox shot, and we ended up making a mobile-only 360 video experience that could only be accessed by scanning a box. I coded this site by hand and oversaw the overall UX.",
-        "thumbNail": "assets/media/work/thumbnails/tgs.jpg",
-        "images": [
-          {
-            "text" : "User flow illustrating how the user scans the box to access the mobile site.",
-            "url" : "assets/media/content/tgs/tgs-01.jpg"
-          }
-          ],
-        "video":
-          {
-            "text" : "Destination Dunkirk was available on all Alexa enabled devices.",
-            "url" : "//billwpearce.com/assets/media/content/tgs/tgs-01.mp4"
-          },
-        "links" : [
-          {
-            "text" : "video",
-            "link" : "assets/media/content/tgs/tgs-01.mp4"
-          },
-          {
-            "text" : "press",
-            "link" : "//bernardgolden.com/the-amazon-flywheel-prime-and-the-greatest-showman/"
-          }
-        ],
-        "roles" : [
-          "ideation",
-          "ux",
-          "front-end development"
-        ],
-        "type": [
-          "360 Video AR Experience"
-        ],
-        "tags": [
-          "ideation",
-          "ux",
-          "art_direction",
-          "design",
-          "ui_design",
-          "development",
-          "web_development",
-          "ar",
-          "360_video"
-        ]
-      },
-      {
-        "visible" : true,
-        "name": "afi",
-        "fullName": "American Family Insurance",
-        "client" : "American Family Insurance",
-        "agency" : "Amazon Advertising",
-        "bodyCopy": "This American Family Insurance chatbot is a great example of creative thinking from a technical POV. AFI wanted to give customers quotes on Amazon, but Amazon had very stringent rules about customer privacy. We side-stepped some of those issues by serving up a chatbot that would allow users to get a quote in a conversational manner.",
-        "thumbNail": "assets/media/work/thumbnails/afi.jpg",
-        "images": [
-          {
-            "text" : "The AFI chatbot lives inside of a landing page on Amazon.com",
-            "url" : "assets/media/content/afi/afi-01.jpg"
-          }
-          ],
-        "video": {
-
-        },
-        "links" : [
-          {
-            "text" : "product",
-            "link" : "//www.amazon.com/adlp/amfamconnectchat"
-          },
-          {
-            "text" : "video",
-            "link" : "assets/media/content/afi/afi.mp4"
-          }
-        ],
-        "roles": [
-          "ideation",
-          "prototyping"
-        ],
-        "type": [
-          "Chatbot"
-        ],
-        "tags": [
-          "development",
-          "web_development",
-          "ideation",
-          "ux",
-          "prototyping",
-          "chatbot",
-          "conversational_ux",
-          "development"
         ]
       }
     ]

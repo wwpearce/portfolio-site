@@ -121,6 +121,27 @@ export default class Content extends Component {
     )
   };
 
+  getBodyCopy = (bodyCopy) => {
+    let html = [];
+    let headers = ['The UX:', 'My Part:', 'Of Note:'];
+    if(Array.isArray(bodyCopy)) {
+      for (let i = 0; i < bodyCopy.length; i++) {
+        html.push(
+          <div>
+            <h5>{headers[i]}</h5>
+            <p>{bodyCopy[i]}</p>
+          </div>
+        )
+      }
+    }
+    else {
+      html.push(
+        <p>{bodyCopy}</p>
+      )
+    }
+    return (html);
+  };
+
   scrollBackToWork = () => {
     TweenMax.to(window, 1, {scrollTo: 'work'});
   }
@@ -138,12 +159,14 @@ export default class Content extends Component {
         <Plx parallaxData={contentParallaxData}>
           <div class={style.flexWrapper}>
             <div class={style.flexLeft}>
-              <p>
-                Client(s): {content.client}
-                <br />
-                Agency: {content.agency}
-                <br/>
-                Role(s):
+              <div>
+                <h5>Client(s):</h5> {content.client}
+              </div>
+              <div>
+                <h5>Agency:</h5> {content.agency}
+              </div>
+              <div>
+                <h5>Role(s):</h5>
                   {content.roles.map(function(name, index){
                     if (index < content.roles.length - 1) {
                       return <span key={ index }> {name},</span>;
@@ -152,12 +175,13 @@ export default class Content extends Component {
                       return <span key={ index }> {name}</span>;
                     }
                   })}
-                <br />
-                Links: {this.getLinks(content.links)}
-              </p>
+                </div>
+                <div>
+                  <h5>Links:</h5> {this.getLinks(content.links)}
+                </div>
             </div>
             <div class={style.flexRight}>
-              <p>{content.bodyCopy}</p>
+              {this.getBodyCopy(content.bodyCopy)}
             </div>
           </div>
         </Plx>

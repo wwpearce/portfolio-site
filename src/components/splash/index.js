@@ -1,5 +1,6 @@
 import {h, Component} from 'preact';
 import Plx from 'react-plx';
+import windowSize from 'react-window-size';
 
 import style from './style';
 import Button from '../button';
@@ -7,6 +8,8 @@ import Button from '../button';
 import SvgTop from './svg/SvgTop.js';
 import SvgMiddle from './svg/SvgMiddle.js';
 import SvgBottom from './svg/SvgBottom.js';
+
+let height = 500; // default
 
 const parallaxDataTop = [
   {
@@ -68,7 +71,7 @@ const parallaxDataButton = [
     properties: [
       {
         startValue: 0,
-        endValue: 500,
+        endValue: height,
          property: 'translateY',
 
       },
@@ -98,6 +101,7 @@ export default class Splash extends Component {
   };
 
   componentDidMount() {
+    height = (this.windowHeight / 2);
   };
 
   render() {

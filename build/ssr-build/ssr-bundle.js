@@ -74,6 +74,13 @@ module.exports = {"tagging":"tagging__1o__T"};
 
 /***/ }),
 
+/***/ "0wvK":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("69Gj");
+
+/***/ }),
+
 /***/ "3CUW":
 /***/ (function(module, exports) {
 
@@ -231,6 +238,173 @@ if (false) {
   // http://fb.me/prop-types-in-prod
   module.exports = __webpack_require__("wVGV")();
 }
+
+/***/ }),
+
+/***/ "69Gj":
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__("eW0v")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(exports, require('react'));
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod.exports, global.react);
+    global.index = mod.exports;
+  }
+})(this, function (exports, _react) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _react2 = _interopRequireDefault(_react);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  var _createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
+
+  function _possibleConstructorReturn(self, call) {
+    if (!self) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+
+    return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }
+
+  function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    }
+
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+      constructor: {
+        value: subClass,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+  }
+
+  exports.default = function (ComposedComponent) {
+    var windowSize = function (_Component) {
+      _inherits(windowSize, _Component);
+
+      function windowSize() {
+        _classCallCheck(this, windowSize);
+
+        var _this = _possibleConstructorReturn(this, (windowSize.__proto__ || Object.getPrototypeOf(windowSize)).call(this));
+
+        _this.state = {
+          width: document.body.clientWidth,
+          height: document.body.clientHeight
+        };
+        return _this;
+      }
+
+      _createClass(windowSize, [{
+        key: 'handleResize',
+        value: function handleResize() {
+          // set initial state
+          this.setState({
+            width: document.body.clientWidth,
+            height: document.body.clientHeight
+          });
+        }
+      }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+          // bind window resize listeners
+          this._handleResize = this.handleResize.bind(this);
+          window.addEventListener('resize', this._handleResize);
+          setTimeout(this._handleResize, 1000);
+        }
+      }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+          // clean up listeners
+          window.removeEventListener('resize', this._handleResize);
+        }
+      }, {
+        key: 'getWrappedInstance',
+        value: function getWrappedInstance() {
+          return this.wrappedInstance;
+        }
+      }, {
+        key: 'render',
+        value: function render() {
+          var _this2 = this;
+
+          // pass window dimensions as props to wrapped component
+          return _react2.default.createElement(ComposedComponent, _extends({}, this.props, {
+            ref: function ref(c) {
+              _this2.wrappedInstance = c;
+            },
+            windowWidth: this.state.width,
+            windowHeight: this.state.height
+          }));
+        }
+      }]);
+
+      return windowSize;
+    }(_react.Component);
+
+    var composedComponentName = ComposedComponent.displayName || ComposedComponent.name || 'Component';
+
+    windowSize.displayName = 'windowSize(' + composedComponentName + ')';
+    return windowSize;
+  };
+});
 
 /***/ }),
 
@@ -2035,9 +2209,976 @@ var modules_default = /*#__PURE__*/__webpack_require__.n(modules);
 var dist = __webpack_require__("JZ8C");
 var dist_default = /*#__PURE__*/__webpack_require__.n(dist);
 
+// CONCATENATED MODULE: ../node_modules/react-ga/dist/esm/utils/mightBeEmail.js
+// See if s could be an email address. We don't want to send personal data like email.
+// https://support.google.com/analytics/answer/2795983?hl=en
+function mightBeEmail(s) {
+  // There's no point trying to validate rfc822 fully, just look for ...@...
+  return (/[^@]+@[^@]+/.test(s)
+  );
+}
+// CONCATENATED MODULE: ../node_modules/react-ga/dist/esm/utils/trim.js
+// GA strings need to have leading/trailing whitespace trimmed, and not all
+// browsers have String.prototoype.trim().
+function trim(s) {
+  return s.replace(/^\s+|\s+$/g, '');
+}
+// CONCATENATED MODULE: ../node_modules/react-ga/dist/esm/utils/toTitleCase.js
+/**
+ * To Title Case 2.1 - http://individed.com/code/to-title-case/
+ * Copyright 2008-2013 David Gouch. Licensed under the MIT License.
+ * https://github.com/gouch/to-title-case
+ */
+
+var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
+function toTitleCase(string) {
+  return trim(string).replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function (match, index, title) {
+    if (index > 0 && index + match.length !== title.length && match.search(smallWords) > -1 && title.charAt(index - 2) !== ':' && (title.charAt(index + match.length) !== '-' || title.charAt(index - 1) === '-') && title.charAt(index - 1).search(/[^\s-]/) < 0) {
+      return match.toLowerCase();
+    }
+
+    if (match.substr(1).search(/[A-Z]|\../) > -1) {
+      return match;
+    }
+
+    return match.charAt(0).toUpperCase() + match.substr(1);
+  });
+}
+// CONCATENATED MODULE: ../node_modules/react-ga/dist/esm/utils/console/warn.js
+function warn(s) {
+  console.warn('[react-ga]', s);
+}
+// CONCATENATED MODULE: ../node_modules/react-ga/dist/esm/utils/format.js
+
+
+
+var redacted = 'REDACTED (Potential Email Address)';
+function format(s, titleCase) {
+  if (mightBeEmail(s)) {
+    warn('This arg looks like an email address, redacting.');
+    return redacted;
+  }
+
+  if (titleCase) {
+    return toTitleCase(s);
+  }
+
+  return s;
+}
+// CONCATENATED MODULE: ../node_modules/react-ga/dist/esm/utils/removeLeadingSlash.js
+function removeLeadingSlash(string) {
+  if (string.substring(0, 1) === '/') {
+    return string.substring(1);
+  }
+
+  return string;
+}
+// CONCATENATED MODULE: ../node_modules/react-ga/dist/esm/utils/loadGA.js
+/* harmony default export */ var loadGA = (function (options) {
+  var gaAddress = 'https://www.google-analytics.com/analytics.js';
+
+  if (options && options.gaAddress) {
+    gaAddress = options.gaAddress;
+  } else if (options && options.debug) {
+    gaAddress = 'https://www.google-analytics.com/analytics_debug.js';
+  } // https://developers.google.com/analytics/devguides/collection/analyticsjs/
+
+  /* eslint-disable */
+
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments);
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(window, document, 'script', gaAddress, 'ga');
+  /* eslint-enable */
+});
+// CONCATENATED MODULE: ../node_modules/react-ga/dist/esm/utils/console/log.js
+function log(s) {
+  console.info('[react-ga]', s);
+}
+// CONCATENATED MODULE: ../node_modules/react-ga/dist/esm/utils/testModeAPI.js
+var gaCalls = [];
+/* harmony default export */ var testModeAPI = ({
+  calls: gaCalls,
+  ga: function ga() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    gaCalls.push(args.concat());
+  },
+  resetCalls: function resetCalls() {
+    gaCalls.length = 0;
+  }
+});
+// EXTERNAL MODULE: ../node_modules/preact-compat/dist/preact-compat.es.js
+var preact_compat_es = __webpack_require__("eW0v");
+
+// EXTERNAL MODULE: ../node_modules/prop-types/index.js
+var prop_types = __webpack_require__("5D9O");
+var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
+
+// CONCATENATED MODULE: ../node_modules/react-ga/dist/esm/components/OutboundLink.js
+function _typeof(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }return _typeof(obj);
+}
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {
+      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+      }));
+    }ownKeys.forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    });
+  }return target;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};var target = _objectWithoutPropertiesLoose(source, excluded);var key, i;if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];if (excluded.indexOf(key) >= 0) continue;if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;target[key] = source[key];
+    }
+  }return target;
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};var target = {};var sourceKeys = Object.keys(source);var key, i;for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];if (excluded.indexOf(key) >= 0) continue;target[key] = source[key];
+  }return target;
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }return _assertThisInitialized(self);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };return _getPrototypeOf(o);
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;return o;
+  };return _setPrototypeOf(o, p);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return self;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+  } else {
+    obj[key] = value;
+  }return obj;
+}
+
+
+
+
+var NEWTAB = '_blank';
+var MIDDLECLICK = 1;
+
+var OutboundLink_OutboundLink =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(OutboundLink, _Component);
+
+  function OutboundLink() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, OutboundLink);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(OutboundLink)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function (event) {
+      var _this$props = _this.props,
+          target = _this$props.target,
+          eventLabel = _this$props.eventLabel,
+          to = _this$props.to,
+          onClick = _this$props.onClick;
+      var eventMeta = {
+        label: eventLabel
+      };
+      var sameTarget = target !== NEWTAB;
+      var normalClick = !(event.ctrlKey || event.shiftKey || event.metaKey || event.button === MIDDLECLICK);
+
+      if (sameTarget && normalClick) {
+        event.preventDefault();
+        OutboundLink.trackLink(eventMeta, function () {
+          window.location.href = to;
+        });
+      } else {
+        OutboundLink.trackLink(eventMeta, function () {});
+      }
+
+      if (onClick) {
+        onClick(event);
+      }
+    });
+
+    return _this;
+  }
+
+  _createClass(OutboundLink, [{
+    key: "render",
+    value: function render() {
+      var _this$props2 = this.props,
+          href = _this$props2.to,
+          oldProps = _objectWithoutProperties(_this$props2, ["to"]);
+
+      var props = _objectSpread({}, oldProps, {
+        href: href,
+        onClick: this.handleClick
+      });
+
+      if (this.props.target === NEWTAB) {
+        props.rel = 'noopener noreferrer';
+      }
+
+      delete props.eventLabel;
+      return preact_compat_es["default"].createElement('a', props);
+    }
+  }]);
+
+  return OutboundLink;
+}(preact_compat_es["Component"]);
+
+_defineProperty(OutboundLink_OutboundLink, "trackLink", function () {
+  warn('ga tracking not enabled');
+});
+
+_defineProperty(OutboundLink_OutboundLink, "propTypes", {
+  eventLabel: prop_types_default.a.string.isRequired,
+  target: prop_types_default.a.string,
+  to: prop_types_default.a.string,
+  onClick: prop_types_default.a.func
+});
+
+_defineProperty(OutboundLink_OutboundLink, "defaultProps", {
+  target: null,
+  to: null,
+  onClick: null
+});
+
+
+// CONCATENATED MODULE: ../node_modules/react-ga/dist/esm/index.js
+function esm__objectWithoutProperties(source, excluded) {
+  if (source == null) return {};var target = esm__objectWithoutPropertiesLoose(source, excluded);var key, i;if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];if (excluded.indexOf(key) >= 0) continue;if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;target[key] = source[key];
+    }
+  }return target;
+}
+
+function esm__objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};var target = {};var sourceKeys = Object.keys(source);var key, i;for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];if (excluded.indexOf(key) >= 0) continue;target[key] = source[key];
+  }return target;
+}
+
+function esm__objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {
+      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+      }));
+    }ownKeys.forEach(function (key) {
+      esm__defineProperty(target, key, source[key]);
+    });
+  }return target;
+}
+
+function esm__defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+  } else {
+    obj[key] = value;
+  }return obj;
+}
+
+function esm__typeof(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    esm__typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    esm__typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }return esm__typeof(obj);
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }return arr2;
+  }
+}
+
+/**
+ * React Google Analytics Module
+ *
+ * @package react-ga
+ * @author  Adam Lofting <adam@mozillafoundation.org>
+ *          Atul Varma <atul@mozillafoundation.org>
+ */
+
+/**
+ * Utilities
+ */
+
+
+
+
+
+
+
+
+var _debug = false;
+var _titleCase = true;
+var _testMode = false;
+var _alwaysSendToDefaultTracker = true;
+
+var esm_internalGa = function internalGa() {
+  var _window;
+
+  if (_testMode) return testModeAPI.ga.apply(testModeAPI, arguments);
+  if (typeof window === 'undefined') return false;
+  if (!window.ga) return warn('ReactGA.initialize must be called first or GoogleAnalytics should be loaded manually');
+  return (_window = window).ga.apply(_window, arguments);
+};
+
+function _format(s) {
+  return format(s, _titleCase);
+}
+
+function _gaCommand(trackerNames) {
+  for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    args[_key - 1] = arguments[_key];
+  }
+
+  var command = args[0];
+
+  if (typeof esm_internalGa === 'function') {
+    if (typeof command !== 'string') {
+      warn('ga command must be a string');
+      return;
+    }
+
+    if (_alwaysSendToDefaultTracker || !Array.isArray(trackerNames)) esm_internalGa.apply(void 0, args);
+
+    if (Array.isArray(trackerNames)) {
+      trackerNames.forEach(function (name) {
+        esm_internalGa.apply(void 0, _toConsumableArray(["".concat(name, ".").concat(command)].concat(args.slice(1))));
+      });
+    }
+  }
+}
+
+function _initialize(gaTrackingID, options) {
+  if (!gaTrackingID) {
+    warn('gaTrackingID is required in initialize()');
+    return;
+  }
+
+  if (options) {
+    if (options.debug && options.debug === true) {
+      _debug = true;
+    }
+
+    if (options.titleCase === false) {
+      _titleCase = false;
+    }
+  }
+
+  if (options && options.gaOptions) {
+    esm_internalGa('create', gaTrackingID, options.gaOptions);
+  } else {
+    esm_internalGa('create', gaTrackingID, 'auto');
+  }
+}
+
+function initialize(configsOrTrackingId, options) {
+  if (options && options.testMode === true) {
+    _testMode = true;
+  } else {
+    if (typeof window === 'undefined') {
+      return false;
+    }
+
+    if (!options || options.standardImplementation !== true) loadGA(options);
+  }
+
+  _alwaysSendToDefaultTracker = options && typeof options.alwaysSendToDefaultTracker === 'boolean' ? options.alwaysSendToDefaultTracker : true;
+
+  if (Array.isArray(configsOrTrackingId)) {
+    configsOrTrackingId.forEach(function (config) {
+      if (esm__typeof(config) !== 'object') {
+        warn('All configs must be an object');
+        return;
+      }
+
+      _initialize(config.trackingId, config);
+    });
+  } else {
+    _initialize(configsOrTrackingId, options);
+  }
+
+  return true;
+}
+/**
+ * ga:
+ * Returns the original GA object.
+ */
+
+function ga() {
+  for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+    args[_key2] = arguments[_key2];
+  }
+
+  if (args.length > 0) {
+    esm_internalGa.apply(void 0, args);
+
+    if (_debug) {
+      log('called ga(\'arguments\');');
+      log("with arguments: ".concat(JSON.stringify(args)));
+    }
+  }
+
+  return window.ga;
+}
+/**
+ * set:
+ * GA tracker set method
+ * @param {Object} fieldsObject - a field/value pair or a group of field/value pairs on the tracker
+ * @param {Array} trackerNames - (optional) a list of extra trackers to run the command on
+ */
+
+function set(fieldsObject, trackerNames) {
+  if (!fieldsObject) {
+    warn('`fieldsObject` is required in .set()');
+    return;
+  }
+
+  if (esm__typeof(fieldsObject) !== 'object') {
+    warn('Expected `fieldsObject` arg to be an Object');
+    return;
+  }
+
+  if (Object.keys(fieldsObject).length === 0) {
+    warn('empty `fieldsObject` given to .set()');
+  }
+
+  _gaCommand(trackerNames, 'set', fieldsObject);
+
+  if (_debug) {
+    log('called ga(\'set\', fieldsObject);');
+    log("with fieldsObject: ".concat(JSON.stringify(fieldsObject)));
+  }
+}
+/**
+ * send:
+ * Clone of the low level `ga.send` method
+ * WARNING: No validations will be applied to this
+ * @param  {Object} fieldObject - field object for tracking different analytics
+ * @param  {Array} trackerNames - trackers to send the command to
+ * @param {Array} trackerNames - (optional) a list of extra trackers to run the command on
+ */
+
+function send(fieldObject, trackerNames) {
+  _gaCommand(trackerNames, 'send', fieldObject);
+
+  if (_debug) {
+    log('called ga(\'send\', fieldObject);');
+    log("with fieldObject: ".concat(JSON.stringify(fieldObject)));
+    log("with trackers: ".concat(JSON.stringify(trackerNames)));
+  }
+}
+/**
+ * pageview:
+ * Basic GA pageview tracking
+ * @param  {String} path - the current page page e.g. '/about'
+ * @param {Array} trackerNames - (optional) a list of extra trackers to run the command on
+ * @param {String} title - (optional) the page title e. g. 'My Website'
+ */
+
+function pageview(rawPath, trackerNames, title) {
+  if (!rawPath) {
+    warn('path is required in .pageview()');
+    return;
+  }
+
+  var path = trim(rawPath);
+
+  if (path === '') {
+    warn('path cannot be an empty string in .pageview()');
+    return;
+  }
+
+  var extraFields = {};
+
+  if (title) {
+    extraFields.title = title;
+  }
+
+  if (typeof ga === 'function') {
+    _gaCommand(trackerNames, 'send', esm__objectSpread({
+      hitType: 'pageview',
+      page: path
+    }, extraFields));
+
+    if (_debug) {
+      log('called ga(\'send\', \'pageview\', path);');
+      var extraLog = '';
+
+      if (title) {
+        extraLog = " and title: ".concat(title);
+      }
+
+      log("with path: ".concat(path).concat(extraLog));
+    }
+  }
+}
+/**
+ * modalview:
+ * a proxy to basic GA pageview tracking to consistently track
+ * modal views that are an equivalent UX to a traditional pageview
+ * @param  {String} modalName e.g. 'add-or-edit-club'
+ * @param {Array} trackerNames - (optional) a list of extra trackers to run the command on
+ */
+
+function modalview(rawModalName, trackerNames) {
+  if (!rawModalName) {
+    warn('modalName is required in .modalview(modalName)');
+    return;
+  }
+
+  var modalName = removeLeadingSlash(trim(rawModalName));
+
+  if (modalName === '') {
+    warn('modalName cannot be an empty string or a single / in .modalview()');
+    return;
+  }
+
+  if (typeof ga === 'function') {
+    var path = "/modal/".concat(modalName);
+
+    _gaCommand(trackerNames, 'send', 'pageview', path);
+
+    if (_debug) {
+      log('called ga(\'send\', \'pageview\', path);');
+      log("with path: ".concat(path));
+    }
+  }
+}
+/**
+ * timing:
+ * GA timing
+ * @param args.category {String} required
+ * @param args.variable {String} required
+ * @param args.value  {Int}  required
+ * @param args.label  {String} required
+ * @param {Array} trackerNames - (optional) a list of extra trackers to run the command on
+ */
+
+function timing() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      category = _ref.category,
+      variable = _ref.variable,
+      value = _ref.value,
+      label = _ref.label;
+
+  var trackerNames = arguments.length > 1 ? arguments[1] : undefined;
+
+  if (typeof ga === 'function') {
+    if (!category || !variable || !value || typeof value !== 'number') {
+      warn('args.category, args.variable ' + 'AND args.value are required in timing() ' + 'AND args.value has to be a number');
+      return;
+    } // Required Fields
+
+
+    var fieldObject = {
+      hitType: 'timing',
+      timingCategory: _format(category),
+      timingVar: _format(variable),
+      timingValue: value
+    };
+
+    if (label) {
+      fieldObject.timingLabel = _format(label);
+    }
+
+    send(fieldObject, trackerNames);
+  }
+}
+/**
+ * event:
+ * GA event tracking
+ * @param args.category {String} required
+ * @param args.action {String} required
+ * @param args.label {String} optional
+ * @param args.value {Int} optional
+ * @param args.nonInteraction {boolean} optional
+ * @param args.transport {string} optional
+ * @param {Array} trackerNames - (optional) a list of extra trackers to run the command on
+ */
+
+function esm_event() {
+  var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      category = _ref2.category,
+      action = _ref2.action,
+      label = _ref2.label,
+      value = _ref2.value,
+      nonInteraction = _ref2.nonInteraction,
+      transport = _ref2.transport,
+      args = esm__objectWithoutProperties(_ref2, ["category", "action", "label", "value", "nonInteraction", "transport"]);
+
+  var trackerNames = arguments.length > 1 ? arguments[1] : undefined;
+
+  if (typeof ga === 'function') {
+    // Simple Validation
+    if (!category || !action) {
+      warn('args.category AND args.action are required in event()');
+      return;
+    } // Required Fields
+
+
+    var fieldObject = {
+      hitType: 'event',
+      eventCategory: _format(category),
+      eventAction: _format(action)
+    }; // Optional Fields
+
+    if (label) {
+      fieldObject.eventLabel = _format(label);
+    }
+
+    if (typeof value !== 'undefined') {
+      if (typeof value !== 'number') {
+        warn('Expected `args.value` arg to be a Number.');
+      } else {
+        fieldObject.eventValue = value;
+      }
+    }
+
+    if (typeof nonInteraction !== 'undefined') {
+      if (typeof nonInteraction !== 'boolean') {
+        warn('`args.nonInteraction` must be a boolean.');
+      } else {
+        fieldObject.nonInteraction = nonInteraction;
+      }
+    }
+
+    if (typeof transport !== 'undefined') {
+      if (typeof transport !== 'string') {
+        warn('`args.transport` must be a string.');
+      } else {
+        if (['beacon', 'xhr', 'image'].indexOf(transport) === -1) {
+          warn('`args.transport` must be either one of these values: `beacon`, `xhr` or `image`');
+        }
+
+        fieldObject.transport = transport;
+      }
+    }
+
+    Object.keys(args).filter(function (key) {
+      return key.substr(0, 'dimension'.length) === 'dimension';
+    }).forEach(function (key) {
+      fieldObject[key] = args[key];
+    });
+    Object.keys(args).filter(function (key) {
+      return key.substr(0, 'metric'.length) === 'metric';
+    }).forEach(function (key) {
+      fieldObject[key] = args[key];
+    }); // Send to GA
+
+    send(fieldObject, trackerNames);
+  }
+}
+/**
+ * exception:
+ * GA exception tracking
+ * @param args.description {String} optional
+ * @param args.fatal {boolean} optional
+ * @param {Array} trackerNames - (optional) a list of extra trackers to run the command on
+ */
+
+function exception(_ref3, trackerNames) {
+  var description = _ref3.description,
+      fatal = _ref3.fatal;
+
+  if (typeof ga === 'function') {
+    // Required Fields
+    var fieldObject = {
+      hitType: 'exception'
+    }; // Optional Fields
+
+    if (description) {
+      fieldObject.exDescription = _format(description);
+    }
+
+    if (typeof fatal !== 'undefined') {
+      if (typeof fatal !== 'boolean') {
+        warn('`args.fatal` must be a boolean.');
+      } else {
+        fieldObject.exFatal = fatal;
+      }
+    } // Send to GA
+
+
+    send(fieldObject, trackerNames);
+  }
+}
+var esm_plugin = {
+  /**
+   * require:
+   * GA requires a plugin
+   * @param name {String} e.g. 'ecommerce' or 'myplugin'
+   * @param options {Object} optional e.g {path: '/log', debug: true}
+   */
+  require: function require(rawName, options) {
+    if (typeof ga === 'function') {
+      // Required Fields
+      if (!rawName) {
+        warn('`name` is required in .require()');
+        return;
+      }
+
+      var name = trim(rawName);
+
+      if (name === '') {
+        warn('`name` cannot be an empty string in .require()');
+        return;
+      } // Optional Fields
+
+
+      if (options) {
+        if (esm__typeof(options) !== 'object') {
+          warn('Expected `options` arg to be an Object');
+          return;
+        }
+
+        if (Object.keys(options).length === 0) {
+          warn('Empty `options` given to .require()');
+        }
+
+        ga('require', name, options);
+
+        if (_debug) {
+          log("called ga('require', '".concat(name, "', ").concat(JSON.stringify(options)));
+        }
+      } else {
+        ga('require', name);
+
+        if (_debug) {
+          log("called ga('require', '".concat(name, "');"));
+        }
+      }
+    }
+  },
+
+  /**
+   * execute:
+   * GA execute action for plugin
+   * Takes variable number of arguments
+   * @param pluginName {String} e.g. 'ecommerce' or 'myplugin'
+   * @param action {String} e.g. 'addItem' or 'myCustomAction'
+   * @param actionType {String} optional e.g. 'detail'
+   * @param payload {Object} optional e.g { id: '1x5e', name : 'My product to track' }
+   */
+  execute: function execute(pluginName, action) {
+    var payload;
+    var actionType;
+
+    if ((arguments.length <= 2 ? 0 : arguments.length - 2) === 1) {
+      payload = arguments.length <= 2 ? undefined : arguments[2];
+    } else {
+      actionType = arguments.length <= 2 ? undefined : arguments[2];
+      payload = arguments.length <= 3 ? undefined : arguments[3];
+    }
+
+    if (typeof ga === 'function') {
+      if (typeof pluginName !== 'string') {
+        warn('Expected `pluginName` arg to be a String.');
+      } else if (typeof action !== 'string') {
+        warn('Expected `action` arg to be a String.');
+      } else {
+        var command = "".concat(pluginName, ":").concat(action);
+        payload = payload || null;
+
+        if (actionType && payload) {
+          ga(command, actionType, payload);
+
+          if (_debug) {
+            log("called ga('".concat(command, "');"));
+            log("actionType: \"".concat(actionType, "\" with payload: ").concat(JSON.stringify(payload)));
+          }
+        } else if (payload) {
+          ga(command, payload);
+
+          if (_debug) {
+            log("called ga('".concat(command, "');"));
+            log("with payload: ".concat(JSON.stringify(payload)));
+          }
+        } else {
+          ga(command);
+
+          if (_debug) {
+            log("called ga('".concat(command, "');"));
+          }
+        }
+      }
+    }
+  }
+};
+/**
+ * outboundLink:
+ * GA outboundLink tracking
+ * @param args.label {String} e.g. url, or 'Create an Account'
+ * @param {function} hitCallback - Called after processing a hit.
+ */
+
+function outboundLink(args, hitCallback, trackerNames) {
+  if (typeof hitCallback !== 'function') {
+    warn('hitCallback function is required');
+    return;
+  }
+
+  if (typeof ga === 'function') {
+    // Simple Validation
+    if (!args || !args.label) {
+      warn('args.label is required in outboundLink()');
+      return;
+    } // Required Fields
+
+
+    var fieldObject = {
+      hitType: 'event',
+      eventCategory: 'Outbound',
+      eventAction: 'Click',
+      eventLabel: _format(args.label)
+    };
+    var safetyCallbackCalled = false;
+
+    var safetyCallback = function safetyCallback() {
+      // This prevents a delayed response from GA
+      // causing hitCallback from being fired twice
+      safetyCallbackCalled = true;
+      hitCallback();
+    }; // Using a timeout to ensure the execution of critical application code
+    // in the case when the GA server might be down
+    // or an ad blocker prevents sending the data
+    // register safety net timeout:
+
+
+    var t = setTimeout(safetyCallback, 250);
+
+    var clearableCallbackForGA = function clearableCallbackForGA() {
+      clearTimeout(t);
+
+      if (!safetyCallbackCalled) {
+        hitCallback();
+      }
+    };
+
+    fieldObject.hitCallback = clearableCallbackForGA; // Send to GA
+
+    send(fieldObject, trackerNames);
+  } else {
+    // if ga is not defined, return the callback so the application
+    // continues to work as expected
+    setTimeout(hitCallback, 0);
+  }
+}
+OutboundLink_OutboundLink.origTrackLink = OutboundLink_OutboundLink.trackLink;
+OutboundLink_OutboundLink.trackLink = outboundLink;
+var esm_OutboundLink = OutboundLink_OutboundLink;
+var esm_testModeAPI = testModeAPI;
+/* harmony default export */ var esm = ({
+  initialize: initialize,
+  ga: ga,
+  set: set,
+  send: send,
+  pageview: pageview,
+  modalview: modalview,
+  timing: timing,
+  event: esm_event,
+  exception: exception,
+  plugin: esm_plugin,
+  outboundLink: outboundLink,
+  OutboundLink: esm_OutboundLink,
+  testModeAPI: testModeAPI
+});
 // EXTERNAL MODULE: ../node_modules/react-plx/lib/index.js
 var lib = __webpack_require__("XbF1");
 var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
+
+// EXTERNAL MODULE: ../node_modules/react-window-size/index.js
+var react_window_size = __webpack_require__("0wvK");
+var react_window_size_default = /*#__PURE__*/__webpack_require__.n(react_window_size);
 
 // EXTERNAL MODULE: ./components/splash/style.scss
 var splash_style = __webpack_require__("YkeT");
@@ -2050,22 +3191,22 @@ var button_style_default = /*#__PURE__*/__webpack_require__.n(button_style);
 // CONCATENATED MODULE: ./components/button/index.js
 
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function button__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function button__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function button__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
 
 
 var button_Button = function (_Component) {
-  _inherits(Button, _Component);
+  button__inherits(Button, _Component);
 
   function Button(props) {
-    _classCallCheck(this, Button);
+    button__classCallCheck(this, Button);
 
-    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+    var _this = button__possibleConstructorReturn(this, _Component.call(this, props));
 
     _this.getArrowDirection = function () {
       if (_this.props.direction === 'up') {
@@ -2099,14 +3240,11 @@ var button_Button = function (_Component) {
 }(preact_min["Component"]);
 
 
-// EXTERNAL MODULE: ../node_modules/preact-compat/dist/preact-compat.es.js
-var preact_compat_es = __webpack_require__("eW0v");
-
 // CONCATENATED MODULE: ./components/splash/svg/SvgTop.js
 
 
 
-var _ref = Object(preact_min["h"])(
+var SvgTop__ref = Object(preact_min["h"])(
 	"svg",
 	{ version: "1.1", id: "Contours", x: "0px", y: "0px", viewBox: "0 0 805 41" },
 	Object(preact_min["h"])(
@@ -2130,7 +3268,7 @@ var _ref = Object(preact_min["h"])(
 );
 
 var SvgTop = function SvgTop(props) {
-	return _ref;
+	return SvgTop__ref;
 };
 
 /* harmony default export */ var svg_SvgTop = (SvgTop);
@@ -2156,32 +3294,29 @@ var Svg = function Svg(props) {
 
 var SvgBottom__ref = Object(preact_min["h"])(
 	"svg",
-	{ version: "1.1", id: "Contours", x: "0px", y: "0px", viewBox: "0 0 805.7 42.8" },
+	{ version: "1.1", id: "Contours", x: "0px", y: "0px", viewBox: "0 0 701.3 42.6" },
 	Object(preact_min["h"])(
 		"g",
 		null,
-		Object(preact_min["h"])("path", { d: "M0.3,34.3c0.5-0.7,1-1.6,1.5-2.3s1.3-1,1.9-0.4c0.3,0.3,4.7,3.9,9,3.9c3.9,0,6.4-2.4,6.4-5.2c0-3.4-2.9-5.6-8.5-7.9 C4.8,20,0.3,16.9,0.3,10.4C0.3,6,3.7-0.1,12.7,0c5.7,0,9.9,3,10.5,3.4c0.5,0.3,0.9,1.1,0.3,1.9c-0.5,0.7-1,1.5-1.4,2.1 c-0.5,0.7-1.2,1.1-2,0.6c-0.4-0.2-4.3-2.8-7.6-2.8c-4.8,0-6.4,3-6.4,5.1c0,3.2,2.5,5.2,7.2,7.1c6.6,2.7,12.1,5.8,12.1,12.7 c0,5.9-5.3,10.7-12.6,10.7c-6.9,0-11.2-3.7-12.2-4.5C0.1,35.7-0.3,35.3,0.3,34.3z" }),
-		Object(preact_min["h"])("path", { d: "M36.1,1.6c0-0.6,0.5-1.1,1.1-1.1h15.4c6.8,0,12.3,5.4,12.3,12.1c0,5.2-3.5,9.5-8.4,11.5l7.7,14.4c0.4,0.7,0,1.6-1,1.6h-4.4 c-0.5,0-0.8-0.3-0.9-0.5l-7.5-15h-8.5V39c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1L36.1,1.6z M52.1,19.8 c3.7,0,6.9-3.1,6.9-7c0-3.7-3.2-6.7-6.9-6.8H42v13.7L52.1,19.8z" }),
-		Object(preact_min["h"])("path", { d: "M77.1,32.9c2.2,0,4,1.8,3.9,4c0,2.1-1.8,3.9-4,3.9c-2.1,0-3.9-1.8-3.9-3.9C73.2,34.7,75,32.9,77.1,32.9z" }),
-		Object(preact_min["h"])("path", { d: "M124.9,0.2c5.7,0,9.8,2,13.7,5.3c0.5,0.5,0.5,1.1,0.1,1.6l-2.5,2.5c-0.4,0.5-0.9,0.5-1.4,0c-2.7-2.3-6.3-3.8-9.8-3.8 c-8.1,0-14.2,6.7-14.2,14.7c0,7.9,6.1,14.7,14.2,14.7c4.1,0,7-1.6,9.7-3.7c0.5-0.4,1-0.3,1.4-0.1l2.6,2.6c0.5,0.4,0.3,1.1-0.1,1.5 c-3.9,3.7-8.7,5.5-13.8,5.4c-11.3,0-20.4-9.1-20.4-20.4C104.4,9.3,113.5,0.2,124.9,0.2z" }),
-		Object(preact_min["h"])("path", { d: "M149.5,1.9c0-0.6,0.5-1.1,1.1-1.1H166c6.8,0,12.3,5.4,12.3,12.1c0,5.2-3.5,9.5-8.4,11.5l7.7,14.4c0.4,0.7,0,1.6-1,1.6h-4.4 c-0.5,0-0.8-0.3-0.9-0.5l-7.5-15h-8.5v14.4c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1L149.5,1.9z M165.5,20.1 c3.7,0,6.9-3.1,6.9-7c0-3.7-3.2-6.7-6.9-6.8h-10.1V20L165.5,20.1z" }),
-		Object(preact_min["h"])("path", { d: "M190,2c0-0.6,0.5-1.1,1.1-1.1L213.7,1c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1l-17.9-0.1v11.5h15.1 c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1h-15.1v12.2l17.9,0.1c0.6,0,1.1,0.5,1.1,1.1v3.1c0,0.6-0.5,1.1-1.1,1.1l-22.6-0.1 c-0.6,0-1.1-0.5-1.1-1.1V2z" }),
-		Object(preact_min["h"])("path", { d: "M220.7,39.2l17.5-38c0.2-0.3,0.7-0.6,1-0.6h0.6c0.3,0,0.8,0.3,1,0.6l17.1,38.1c0.3,0.7-0.1,1.5-1,1.5h-3.6 c-0.7,0-1.1-0.3-1.3-0.8l-3.5-7.8L230,32.1c-1.1,2.6-2.3,5.1-3.5,7.7c-0.2,0.4-0.6,0.8-1.3,0.8h-3.6 C220.8,40.7,220.4,39.9,220.7,39.2z M246.4,27.3l-6.9-15.5h-0.3l-6.9,15.5H246.4z" }),
-		Object(preact_min["h"])("path", { d: "M269.8,6.5h-9.2c-0.6,0-1.1-0.5-1.1-1.1V2.2c0-0.6,0.5-1.1,1.1-1.1l24.3,0.1c0.6,0,1.1,0.5,1.1,1.1v3.2 c0,0.6-0.5,1.1-1.1,1.1h-9.2l-0.1,33.2c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1L269.8,6.5z" }),
-		Object(preact_min["h"])("path", { d: "M294.9,2.3c0-0.6,0.5-1.1,1.1-1.1h3.7c0.6,0,1.1,0.5,1.1,1.1l-0.1,37.5c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1 L294.9,2.3z" }),
-		Object(preact_min["h"])("path", { d: "M309.3,2.8c-0.3-0.7,0.1-1.5,1-1.5h4c0.5,0,0.8,0.3,1,0.6l12.4,28h0.3l12.5-28c0.1-0.3,0.5-0.6,1-0.6h4 c0.8,0,1.3,0.7,1,1.5l-17.5,38c-0.2,0.3-0.5,0.6-1,0.6h-0.6c-0.4,0-0.8-0.3-1-0.6L309.3,2.8z" }),
-		Object(preact_min["h"])("path", { d: "M355,2.5c0-0.6,0.5-1.1,1.1-1.1l22.6,0.1c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1h-17.9v11.5h15.1 c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1h-15.1V36h17.9c0.6,0,1.1,0.5,1.1,1.1v3.1c0,0.6-0.5,1.1-1.1,1.1l-22.6-0.1 c-0.6,0-1.1-0.5-1.1-1.1V2.5z" }),
-		Object(preact_min["h"])("path", { d: "M411.8,6.9h-9.2c-0.6,0-1.1-0.5-1.1-1.1V2.6c0-0.6,0.5-1.1,1.1-1.1l24.3,0.1c0.6,0,1.1,0.5,1.1,1.1v3.2 c0,0.6-0.5,1.1-1.1,1.1h-9.2l-0.1,33.2c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1L411.8,6.9z" }),
-		Object(preact_min["h"])("path", { d: "M437,2.7c0-0.6,0.5-1.1,1.1-1.1l22.6,0.1c0.6,0,1.1,0.5,1.1,1.1V6c0,0.6-0.5,1.1-1.1,1.1L442.8,7v11.5h15.1 c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1h-15.1v12.2h17.9c0.6,0,1.1,0.5,1.1,1.1v3.1c0,0.6-0.5,1.1-1.1,1.1l-22.6-0.1 c-0.6,0-1.1-0.5-1.1-1.1V2.7z" }),
-		Object(preact_min["h"])("path", { d: "M490.5,1.3c5.7,0,9.8,2,13.7,5.3c0.5,0.5,0.5,1.1,0.1,1.6l-2.5,2.5c-0.4,0.5-0.9,0.5-1.4,0c-2.7-2.3-6.3-3.8-9.8-3.8 c-8.1,0-14.2,6.7-14.2,14.7c0,7.9,6.1,14.7,14.2,14.7c4.1,0,7-1.6,9.7-3.7c0.5-0.4,1-0.3,1.4-0.1l2.6,2.6c0.5,0.4,0.3,1.1-0.1,1.5 c-3.9,3.7-8.7,5.5-13.8,5.4c-11.3,0-20.4-9.1-20.4-20.4C470,10.3,479.2,1.2,490.5,1.3z" }),
-		Object(preact_min["h"])("path", { d: "M515.2,3c0-0.6,0.5-1.1,1.1-1.1h3.7c0.6,0,1.1,0.5,1.1,1.1v15.8l20.7,0.1V3.1c0-0.6,0.5-1.1,1.1-1.1h3.7 c0.6,0,1.1,0.5,1.1,1.1l-0.1,37.5c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1V24.2L521,24.1v16.3c0,0.6-0.5,1.1-1.1,1.1 h-3.7c-0.6,0-1.1-0.5-1.1-1.1L515.2,3z" }),
-		Object(preact_min["h"])("path", { d: "M561.5,2.5c0-0.6,0.5-1,1.1-1h1.4L588.5,30h0.1l0.1-26.8c0-0.6,0.5-1.1,1.1-1.1h3.6c0.6,0,1.1,0.5,1.1,1.1l-0.1,38.1 c0,0.6-0.5,1-1.1,1h-1.5L567.3,13h-0.1l-0.1,27.6c0,0.6-0.5,1.1-1.1,1.1h-3.6c-0.6,0-1.1-0.5-1.1-1.1L561.5,2.5z" }),
-		Object(preact_min["h"])("path", { d: "M625.6,1.6c11.3,0,20.3,9.2,20.3,20.5s-9.1,20.3-20.4,20.3c-11.3,0-20.3-9.1-20.3-20.4C605.2,10.7,614.2,1.6,625.6,1.6z M625.5,36.7c8.1,0,14.7-6.5,14.8-14.6c0-8-6.6-14.8-14.7-14.8c-8,0-14.7,6.7-14.7,14.7C610.8,30.1,617.4,36.7,625.5,36.7z" }),
-		Object(preact_min["h"])("path", { d: "M656.9,3.4c0-0.6,0.5-1.1,1.1-1.1h3.7c0.6,0,1.1,0.5,1.1,1.1l-0.1,33.3H678c0.6,0,1.1,0.5,1.1,1.1v3.1 c0,0.6-0.5,1.1-1.1,1.1l-20.1-0.1c-0.6,0-1.1-0.5-1.1-1.1L656.9,3.4z" }),
-		Object(preact_min["h"])("path", { d: "M705,1.9c5.4,0,9.9,2,13.7,5.3c0.4,0.5,0.5,1.1,0.1,1.6c-0.9,0.9-1.7,1.7-2.6,2.7c-0.5,0.5-0.9,0.4-1.5-0.1 c-2.7-2.3-6.2-3.9-9.6-3.9c-8,0-14.2,6.7-14.2,14.7c0,7.9,6.1,14.7,14.2,14.7c4.7,0,7.9-1.7,8.5-1.9v-6.3h-5.5 c-0.6,0-1.1-0.5-1.1-1v-3.3c0-0.6,0.5-1.1,1.1-1.1h10.3c0.6,0,1,0.5,1,1.1c0,4.5,0,9.2,0,13.7c0,0.3-0.2,0.7-0.5,0.9 c0,0-5.8,3.7-14,3.7c-11.3,0-20.3-9.1-20.3-20.4C684.6,10.9,693.8,1.8,705,1.9z" }),
-		Object(preact_min["h"])("path", { d: "M731.2,3.6c0-0.6,0.5-1.1,1.1-1.1h3.7c0.6,0,1.1,0.5,1.1,1.1L737,41.1c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1 L731.2,3.6z" }),
-		Object(preact_min["h"])("path", { d: "M748.3,36.4c0.5-0.7,1-1.6,1.5-2.3s1.3-1,1.9-0.4c0.3,0.3,4.7,3.9,9,3.9c3.9,0,6.4-2.4,6.4-5.2c0-3.4-2.9-5.6-8.5-7.9 c-5.8-2.4-10.3-5.5-10.3-12c0-4.4,3.4-10.5,12.4-10.4c5.7,0,9.9,3,10.5,3.4c0.4,0.3,0.9,1.1,0.3,1.9c-0.5,0.7-1,1.5-1.4,2.1 c-0.5,0.7-1.2,1.1-2,0.6c-0.4-0.2-4.3-2.8-7.6-2.9c-4.8,0-6.4,3-6.4,5.1c0,3.2,2.5,5.2,7.2,7.1c6.6,2.7,12.1,5.8,12.1,12.7 c0,5.9-5.3,10.7-12.6,10.7c-6.9,0-11.2-3.7-12.2-4.5C748.1,37.8,747.7,37.4,748.3,36.4z" }),
-		Object(preact_min["h"])("path", { d: "M789.5,8h-9.2c-0.6,0-1.1-0.5-1.1-1.1V3.7c0-0.6,0.5-1.1,1.1-1.1l24.3,0.1c0.6,0,1.1,0.5,1.1,1.1V7c0,0.6-0.5,1.1-1.1,1.1 h-9.2l-0.1,33.2c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1L789.5,8z" })
+		Object(preact_min["h"])("path", { d: "M20.5,0c5.7,0,9.8,2,13.7,5.3c0.5,0.5,0.5,1.1,0.1,1.6l-2.5,2.5c-0.4,0.5-0.9,0.5-1.4,0c-2.7-2.3-6.3-3.8-9.8-3.8 c-8.1,0-14.2,6.7-14.2,14.7c0,7.9,6.1,14.7,14.2,14.7c4.1,0,7-1.6,9.7-3.7c0.5-0.4,1-0.3,1.4-0.1l2.6,2.6c0.5,0.4,0.3,1.1-0.1,1.5 c-3.9,3.7-8.7,5.5-13.8,5.4C9.1,40.7,0,31.6,0,20.3C0,9.1,9.1,0,20.5,0z" }),
+		Object(preact_min["h"])("path", { d: "M45.1,1.7c0-0.6,0.5-1.1,1.1-1.1h15.4c6.8,0,12.3,5.4,12.3,12.1c0,5.2-3.5,9.5-8.4,11.5l7.7,14.4c0.4,0.7,0,1.6-1,1.6h-4.4 c-0.5,0-0.8-0.3-0.9-0.5l-7.5-15h-8.5v14.4c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1L45.1,1.7z M61.1,19.9 c3.7,0,6.9-3.1,6.9-7c0-3.7-3.2-6.7-6.9-6.8H51v13.7L61.1,19.9z" }),
+		Object(preact_min["h"])("path", { d: "M85.6,1.8c0-0.6,0.5-1.1,1.1-1.1l22.6,0.1c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1L91.4,6.1v11.5h15.1 c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1H91.4v12.2l17.9,0.1c0.6,0,1.1,0.5,1.1,1.1v3.1c0,0.6-0.5,1.1-1.1,1.1l-22.6-0.1 c-0.6,0-1.1-0.5-1.1-1.1L85.6,1.8L85.6,1.8z" }),
+		Object(preact_min["h"])("path", { d: "M116.3,39l17.5-38c0.2-0.3,0.7-0.6,1-0.6h0.6c0.3,0,0.8,0.3,1,0.6l17.1,38.1c0.3,0.7-0.1,1.5-1,1.5h-3.6 c-0.7,0-1.1-0.3-1.3-0.8l-3.5-7.8l-18.5-0.1c-1.1,2.6-2.3,5.1-3.5,7.7c-0.2,0.4-0.6,0.8-1.3,0.8h-3.6C116.4,40.5,116,39.7,116.3,39 z M142,27.1l-6.9-15.5h-0.3l-6.9,15.5H142z" }),
+		Object(preact_min["h"])("path", { d: "M165.4,6.3h-9.2c-0.6,0-1.1-0.5-1.1-1.1V2c0-0.6,0.5-1.1,1.1-1.1L180.5,1c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1 h-9.2l-0.1,33.2c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1L165.4,6.3z" }),
+		Object(preact_min["h"])("path", { d: "M190.5,2.1c0-0.6,0.5-1.1,1.1-1.1h3.7c0.6,0,1.1,0.5,1.1,1.1l-0.1,37.5c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1 L190.5,2.1z" }),
+		Object(preact_min["h"])("path", { d: "M204.9,2.6c-0.3-0.7,0.1-1.5,1-1.5h4c0.5,0,0.8,0.3,1,0.6l12.4,28h0.3l12.5-28c0.1-0.3,0.5-0.6,1-0.6h4 c0.8,0,1.3,0.7,1,1.5l-17.5,38c-0.2,0.3-0.5,0.6-1,0.6H223c-0.4,0-0.8-0.3-1-0.6L204.9,2.6z" }),
+		Object(preact_min["h"])("path", { d: "M250.6,2.3c0-0.6,0.5-1.1,1.1-1.1l22.6,0.1c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1h-17.9v11.5h15.1 c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1h-15.1v12.2h17.9c0.6,0,1.1,0.5,1.1,1.1V40c0,0.6-0.5,1.1-1.1,1.1L251.7,41 c-0.6,0-1.1-0.5-1.1-1.1V2.3z" }),
+		Object(preact_min["h"])("path", { d: "M307.4,6.7h-9.2c-0.6,0-1.1-0.5-1.1-1.1V2.4c0-0.6,0.5-1.1,1.1-1.1l24.3,0.1c0.6,0,1.1,0.5,1.1,1.1v3.2 c0,0.6-0.5,1.1-1.1,1.1h-9.2L313.2,40c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1L307.4,6.7z" }),
+		Object(preact_min["h"])("path", { d: "M332.6,2.5c0-0.6,0.5-1.1,1.1-1.1l22.6,0.1c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1l-17.9-0.1v11.5h15.1 c0.6,0,1.1,0.5,1.1,1.1v3.2c0,0.6-0.5,1.1-1.1,1.1h-15.1v12.2h17.9c0.6,0,1.1,0.5,1.1,1.1v3.1c0,0.6-0.5,1.1-1.1,1.1l-22.6-0.1 c-0.6,0-1.1-0.5-1.1-1.1L332.6,2.5L332.6,2.5z" }),
+		Object(preact_min["h"])("path", { d: "M386.1,1.1c5.7,0,9.8,2,13.7,5.3c0.5,0.5,0.5,1.1,0.1,1.6l-2.5,2.5c-0.4,0.5-0.9,0.5-1.4,0c-2.7-2.3-6.3-3.8-9.8-3.8 c-8.1,0-14.2,6.7-14.2,14.7c0,7.9,6.1,14.7,14.2,14.7c4.1,0,7-1.6,9.7-3.7c0.5-0.4,1-0.3,1.4-0.1l2.6,2.6c0.5,0.4,0.3,1.1-0.1,1.5 c-3.9,3.7-8.7,5.5-13.8,5.4c-11.3,0-20.4-9.1-20.4-20.4C365.6,10.1,374.8,1,386.1,1.1z" }),
+		Object(preact_min["h"])("path", { d: "M410.8,2.8c0-0.6,0.5-1.1,1.1-1.1h3.7c0.6,0,1.1,0.5,1.1,1.1v15.8l20.7,0.1V2.9c0-0.6,0.5-1.1,1.1-1.1h3.7 c0.6,0,1.1,0.5,1.1,1.1l-0.1,37.5c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1V24l-20.7-0.1v16.3c0,0.6-0.5,1.1-1.1,1.1 h-3.7c-0.6,0-1.1-0.5-1.1-1.1L410.8,2.8z" }),
+		Object(preact_min["h"])("path", { d: "M457.1,2.3c0-0.6,0.5-1,1.1-1h1.4l24.5,28.5h0.1L484.3,3c0-0.6,0.5-1.1,1.1-1.1h3.6c0.6,0,1.1,0.5,1.1,1.1L490,41.1 c0,0.6-0.5,1-1.1,1h-1.5l-24.5-29.3h-0.1l-0.1,27.6c0,0.6-0.5,1.1-1.1,1.1H458c-0.6,0-1.1-0.5-1.1-1.1L457.1,2.3z" }),
+		Object(preact_min["h"])("path", { d: "M521.2,1.4c11.3,0,20.3,9.2,20.3,20.5s-9.1,20.3-20.4,20.3c-11.3,0-20.3-9.1-20.3-20.4C500.8,10.5,509.8,1.4,521.2,1.4z M521.1,36.5c8.1,0,14.7-6.5,14.8-14.6c0-8-6.6-14.8-14.7-14.8c-8,0-14.7,6.7-14.7,14.7C506.4,29.9,513,36.5,521.1,36.5z" }),
+		Object(preact_min["h"])("path", { d: "M552.5,3.2c0-0.6,0.5-1.1,1.1-1.1h3.7c0.6,0,1.1,0.5,1.1,1.1l-0.1,33.3h15.3c0.6,0,1.1,0.5,1.1,1.1v3.1 c0,0.6-0.5,1.1-1.1,1.1l-20.1-0.1c-0.6,0-1.1-0.5-1.1-1.1L552.5,3.2z" }),
+		Object(preact_min["h"])("path", { d: "M600.6,1.7c5.4,0,9.9,2,13.7,5.3c0.4,0.5,0.5,1.1,0.1,1.6c-0.9,0.9-1.7,1.7-2.6,2.7c-0.5,0.5-0.9,0.4-1.5-0.1 c-2.7-2.3-6.2-3.9-9.6-3.9c-8,0-14.2,6.7-14.2,14.7c0,7.9,6.1,14.7,14.2,14.7c4.7,0,7.9-1.7,8.5-1.9v-6.3h-5.5 c-0.6,0-1.1-0.5-1.1-1v-3.3c0-0.6,0.5-1.1,1.1-1.1H614c0.6,0,1,0.5,1,1.1c0,4.5,0,9.2,0,13.7c0,0.3-0.2,0.7-0.5,0.9 c0,0-5.8,3.7-14,3.7c-11.3,0-20.3-9.1-20.3-20.4C580.2,10.7,589.4,1.6,600.6,1.7z" }),
+		Object(preact_min["h"])("path", { d: "M626.8,3.4c0-0.6,0.5-1.1,1.1-1.1h3.7c0.6,0,1.1,0.5,1.1,1.1l-0.1,37.5c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1 L626.8,3.4z" }),
+		Object(preact_min["h"])("path", { d: "M643.9,36.2c0.5-0.7,1-1.6,1.5-2.3s1.3-1,1.9-0.4c0.3,0.3,4.7,3.9,9,3.9c3.9,0,6.4-2.4,6.4-5.2c0-3.4-2.9-5.6-8.5-7.9 c-5.8-2.4-10.3-5.5-10.3-12c0-4.4,3.4-10.5,12.4-10.4c5.7,0,9.9,3,10.5,3.4c0.4,0.3,0.9,1.1,0.3,1.9c-0.5,0.7-1,1.5-1.4,2.1 c-0.5,0.7-1.2,1.1-2,0.6c-0.4-0.2-4.3-2.8-7.6-2.9c-4.8,0-6.4,3-6.4,5.1c0,3.2,2.5,5.2,7.2,7.1c6.6,2.7,12.1,5.8,12.1,12.7 c0,5.9-5.3,10.7-12.6,10.7c-6.9,0-11.2-3.7-12.2-4.5C643.7,37.6,643.3,37.2,643.9,36.2z" }),
+		Object(preact_min["h"])("path", { d: "M685.1,7.8h-9.2c-0.6,0-1.1-0.5-1.1-1.1V3.5c0-0.6,0.5-1.1,1.1-1.1l24.3,0.1c0.6,0,1.1,0.5,1.1,1.1v3.2 c0,0.6-0.5,1.1-1.1,1.1H691l-0.1,33.2c0,0.6-0.5,1.1-1.1,1.1h-3.7c-0.6,0-1.1-0.5-1.1-1.1L685.1,7.8z" })
 	)
 );
 
@@ -2208,6 +3343,9 @@ function splash__inherits(subClass, superClass) { if (typeof superClass !== "fun
 
 
 
+
+
+var height = 500; // default
 
 var parallaxDataTop = [{
   start: 0,
@@ -2251,7 +3389,7 @@ var parallaxDataButton = [{
   end: 'about',
   properties: [{
     startValue: 0,
-    endValue: 500,
+    endValue: height,
     property: 'translateY'
 
   }]
@@ -2259,9 +3397,9 @@ var parallaxDataButton = [{
 
 var splash__ref = Object(preact_min["h"])(svg_SvgTop, null);
 
-var _ref2 = Object(preact_min["h"])(SvgMiddle, null);
+var splash__ref2 = Object(preact_min["h"])(SvgMiddle, null);
 
-var _ref3 = Object(preact_min["h"])(SvgMiddle, null);
+var splash__ref3 = Object(preact_min["h"])(SvgMiddle, null);
 
 var _ref4 = Object(preact_min["h"])(SvgBottom, null);
 
@@ -2291,7 +3429,9 @@ var splash_Splash = function (_Component) {
     return _this;
   }
 
-  Splash.prototype.componentDidMount = function componentDidMount() {};
+  Splash.prototype.componentDidMount = function componentDidMount() {
+    height = this.windowHeight / 2;
+  };
 
   Splash.prototype.render = function render() {
     var _this2 = this;
@@ -2307,8 +3447,8 @@ var splash_Splash = function (_Component) {
         Object(preact_min["h"])(
           'div',
           { 'class': 'squiggleWrapper', onClick: this.handleClick, title: 'Is this annoying? You can click to toggle animation on/off.' },
-          _ref2,
-          _ref3
+          splash__ref2,
+          splash__ref3
         ),
         _ref4
       ),
@@ -2344,6 +3484,10 @@ function about__inherits(subClass, superClass) { if (typeof superClass !== "func
 
 
 
+
+
+var about_height = 500; // default
+
 var headlineParallaxData = [{
   start: 'about',
   end: 'work',
@@ -2364,23 +3508,13 @@ var contentParallaxData = [{
   }]
 }];
 
-var mobileButtonParallaxData = [{
-  start: 'self',
-  end: 'work',
-  properties: [{
-    startValue: 0,
-    endValue: 500,
-    property: 'translateY'
-  }]
-}];
-
 var buttonParallaxData = [{
   start: 'self',
   startOffset: 150,
   end: 'work',
   properties: [{
     startValue: 0,
-    endValue: 500,
+    endValue: about_height,
     property: 'translateY'
   }]
 }];
@@ -2411,7 +3545,7 @@ var about__ref2 = Object(preact_min["h"])(
       Object(preact_min["h"])(
         'p',
         null,
-        '\u2026and I\'m assuming you\'re a technical director, or a creative director, or somebody who needs a website; you know, that type of thing. You\'re probably looking for a designer or a developer or both or better yet you just read an article on Creative Technologists and Google brought you here. Which brings us what may be your first question\u2026'
+        '\u2026and I\'m assuming you\'re a technical director, or a creative director, or somebody who needs a website; you know, that type of thing. You\'re probably looking for a designer or a developer or both or better yet, you just read an article on Creative Technologists and Google brought you here. Which brings us to what may be your first question\u2026'
       ),
       Object(preact_min["h"])(
         'h2',
@@ -2421,7 +3555,7 @@ var about__ref2 = Object(preact_min["h"])(
       Object(preact_min["h"])(
         'p',
         null,
-        'It\'s me! I\'m a Creative Technologist! I am a creative thinker from a technical POV. Equally adept at the creative and production phases of a project, I can dream up a product or campaign, slap together a prototype, run a UX study, iterate on designs, and write production quality webcode all by my lonesome. I\'m comfortable in all roles along the production timeline, from UXer to Art Director to Front-End Developer. Most of my experience has been in advertising, but I\'ve spent some time at a certain big tech company too. Here\u2019s a link to my ',
+        'It\'s me! I\'m a Creative Technologist! I am a creative thinker from a technical POV. Equally adept at the creative and production phases of a project, I can dream up a product or campaign, put together a prototype, run a UX study, iterate on designs, and write production quality webcode all by my lonesome. I\'m comfortable in all roles along the production timeline, from UX to Art Director to Front-End Developer. Most of my experience has been in advertising, but I\'ve spent some time at a big tech company too. Here\u2019s a link to my ',
         Object(preact_min["h"])(
           'a',
           { href: 'assets/docs/resume_bill-pearce.pdf', target: '_blank' },
@@ -2436,26 +3570,38 @@ var about__ref2 = Object(preact_min["h"])(
       Object(preact_min["h"])(
         'p',
         null,
-        'I\'m client friendly and I\'ve spoken at a few conferences. Here\'s a video of my two of my talks: ',
+        'I\'m client friendly and I\'ve spoken at a few conferences. Here\'s a video of two of my talks: ',
         Object(preact_min["h"])(
           'a',
-          { href: '#' },
+          { target: '_blank', href: 'assets/media/about/videos/wdc2018-ux.mp4' },
           'Guerilla-Style User Research'
         ),
         ' & ',
         Object(preact_min["h"])(
           'a',
-          { href: '#' },
+          { target: '_blank', href: 'assets/media/about/videos/dtsummit2017-alexa.mp4' },
           'Thou Shalt Not Skill Without a Build Process'
+        ),
+        '. If you\'re not sick of the sound of my voice yet, here\'s a few videos of me explaining some IoT projects I\'ve done (I swear these were for work): ',
+        Object(preact_min["h"])(
+          'a',
+          { target: '_blank', href: 'assets/media/about/videos/ABC Prototype - Dr Pepper_1.mp4' },
+          'Arduino Beverage Coozy'
+        ),
+        ' & ',
+        Object(preact_min["h"])(
+          'a',
+          { target: '_blank', href: 'assets/media/about/videos/Bill_FoodButton.mp4' },
+          'The Office Food Button'
         ),
         '.',
         Object(preact_min["h"])('br', null),
         Object(preact_min["h"])('br', null),
-        'I also have a few little side-business in which I design and illustrate logos (there\'s a few in the work section) and teach ',
+        'I also have a few side-businesses in which I design and illustrate logos (there\'s a few in the work section) and teach ',
         Object(preact_min["h"])(
           'a',
           { href: 'https://en.wikipedia.org/wiki/Muay_Thai' },
-          'Muay Thai'
+          'Thai boxing'
         ),
         '. I am usually pretty good about not mixing those two up so don\'t feel like I\'m gonna head kick you if you ask me for a logo (unless you step out on the bill (jk!)).',
         Object(preact_min["h"])('br', null),
@@ -2498,10 +3644,13 @@ var about_About = function (_Component) {
       TweenMax.to(window, 1, { scrollTo: 'work' });
     };
 
+    console.log(react_window_size_default.a);
     return _this;
   }
 
-  About.prototype.componentDidMount = function componentDidMount() {};
+  About.prototype.componentDidMount = function componentDidMount() {
+    about_height = this.windowHeight / 2;
+  };
 
   About.prototype.render = function render() {
     var _this2 = this;
@@ -2901,11 +4050,29 @@ var content__ref = Object(preact_min["h"])(
   ' | '
 );
 
-var content__ref2 = Object(preact_min["h"])('br', null);
+var content__ref2 = Object(preact_min["h"])(
+  'h5',
+  null,
+  'Client(s):'
+);
 
-var content__ref3 = Object(preact_min["h"])('br', null);
+var content__ref3 = Object(preact_min["h"])(
+  'h5',
+  null,
+  'Agency:'
+);
 
-var content__ref4 = Object(preact_min["h"])('br', null);
+var content__ref4 = Object(preact_min["h"])(
+  'h5',
+  null,
+  'Role(s):'
+);
+
+var _ref5 = Object(preact_min["h"])(
+  'h5',
+  null,
+  'Links:'
+);
 
 var content_Content = function (_Component) {
   content__inherits(Content, _Component);
@@ -2985,6 +4152,36 @@ var content_Content = function (_Component) {
       );
     };
 
+    _this.getBodyCopy = function (bodyCopy) {
+      var html = [];
+      var headers = ['The UX:', 'My Part:', 'Of Note:'];
+      if (Array.isArray(bodyCopy)) {
+        for (var i = 0; i < bodyCopy.length; i++) {
+          html.push(Object(preact_min["h"])(
+            'div',
+            null,
+            Object(preact_min["h"])(
+              'h5',
+              null,
+              headers[i]
+            ),
+            Object(preact_min["h"])(
+              'p',
+              null,
+              bodyCopy[i]
+            )
+          ));
+        }
+      } else {
+        html.push(Object(preact_min["h"])(
+          'p',
+          null,
+          bodyCopy
+        ));
+      }
+      return html;
+    };
+
     _this.scrollBackToWork = function () {
       TweenMax.to(window, 1, { scrollTo: 'work' });
     };
@@ -3025,15 +4222,23 @@ var content_Content = function (_Component) {
             'div',
             { 'class': content_style_default.a.flexLeft },
             Object(preact_min["h"])(
-              'p',
+              'div',
               null,
-              'Client(s): ',
-              content.client,
               content__ref2,
-              'Agency: ',
-              content.agency,
+              ' ',
+              content.client
+            ),
+            Object(preact_min["h"])(
+              'div',
+              null,
               content__ref3,
-              'Role(s):',
+              ' ',
+              content.agency
+            ),
+            Object(preact_min["h"])(
+              'div',
+              null,
+              content__ref4,
               content.roles.map(function (name, index) {
                 if (index < content.roles.length - 1) {
                   return Object(preact_min["h"])(
@@ -3051,20 +4256,20 @@ var content_Content = function (_Component) {
                     name
                   );
                 }
-              }),
-              content__ref4,
-              'Links: ',
+              })
+            ),
+            Object(preact_min["h"])(
+              'div',
+              null,
+              _ref5,
+              ' ',
               this.getLinks(content.links)
             )
           ),
           Object(preact_min["h"])(
             'div',
             { 'class': content_style_default.a.flexRight },
-            Object(preact_min["h"])(
-              'p',
-              null,
-              content.bodyCopy
-            )
+            this.getBodyCopy(content.bodyCopy)
           )
         )
       ),
@@ -3250,6 +4455,11 @@ var app_App = function (_Component) {
       _this.toggleState('menu');
     };
 
+    _this.initializeReactGA = function () {
+      esm.initialize('UA-141037958-1');
+      esm.pageview('/homepage');
+    };
+
     _this.setState({
       section: 'splash',
       scrollPos: 0,
@@ -3265,6 +4475,7 @@ var app_App = function (_Component) {
 
   App.prototype.componentDidMount = function componentDidMount() {
     this.getSessionStorage();
+    this.initializeReactGA();
     if (dist["isIOS"]) {
       document.querySelector('html').classList.add('iOS');
       document.querySelector('html').classList.add(dist["osVersion"]);
@@ -4058,7 +5269,7 @@ module.exports = {"splash":"splash__2UqTj","ticker":"ticker__1qbS8"};
 /***/ "ZGUF":
 /***/ (function(module, exports) {
 
-module.exports = {"menu":{"about":"about","work":"work","contact me":"contact me","resume":"resume"},"splash":{},"about":{"headline":"About","bodyCopy":"Hi! I'm Bill Pearce and I'm a Creative Technologist (WTF is a creative technologist). I've been working at creative agencies and tech companies for about thirteen years, wearing hats ranging from Art Director to Front-End Developer. Most recently, I worked at an internal creative agency inside Amazon, providing product and campaign solutions or clients. I split my time at Amazon working as the prototyping arm of a UX research team and as the technical guide in the advertising creative process. I can fit anywhere in the process of crafting user-centric products (UX, design, creative ideation, prototyping, development) but am most comfortable as the soft-technical arm of a small creative team. Whatever you're making, I can help you make it better!","images":{}},"resume":{"url":""},"work":{"tags":["web_development","ideation","chatbot","design","voice","ux","conversational_ux","prototyping","technical_consulting","ui_design","360_video","ar","art_direction","chatbot","development","hand_lettering","logo_design","mobile_development"],"projects":[{"visible":true,"name":"dunkirk","fullName":"Destination: Dunkirk","client":"Warner Brothers","agency":"Amazon Advertising","bodyCopy":"Destination: Dunkirk was a three-part, episodic choose-your-own-adventure style Alexa game. Part of a three person team, I was in on the entire ideation, sales, and production cycle. I helped sketch out ideas and the structure of the episodes, built prototypes, pitched the idea to Christopher Nolan's direct team, and oversaw UX and production (which included illustrations, choosing voice talent, approving sound designs, etc.).","thumbNail":"assets/media/work/thumbnails/dunkirk.jpg","images":[{"text":"Destination: Dunkirk was available on all Alexa Enabled devices.","url":"assets/media/content/dunkirk/dunkirk-01.jpg"}],"video":{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/dunkirk/dunkirk-01.mp4"},"links":[{"text":"user flow","link":"assets/media/content/dunkirk/dunkirk-02.jpg"},{"text":"video","link":"assets/media/content/dunkirk/dunkirk-01.mp4"},{"text":"press","link":"https://screenrant.com/dunkirk-movie-amazon-echo-alexa-skill/"}],"roles":["ideation","ux","technical consulting","prototyping"],"type":["Alexa Skill"],"tags":["ideation","ux","technical_consulting","prototyping","voice","conversational_ux","chatbot"]},{"visible":true,"name":"spiderman","fullName":"Spider-Man Homecoming","client":"Sony","agency":"Amazon Advertising","bodyCopy":"Spiderman Homecoming is an Alexa Skill made to build buzz for the film Spider-man Homecoming. Aimed at superfans, the skill dropped a new piece of content daily for a month, leading up to the release of the film. The content could be a behind the scenes interview, a joke, or a trivia fact. I put together the initial concept, prototyped, and wrote the user flow for this skill.","thumbNail":"assets/media/work/thumbnails/spiderman.jpg","images":[{"text":"Promo image from the campaign, which ran on the Amazon homepage.","url":"assets/media/content/spiderman/spiderman-01.jpg"}],"video":{},"links":[{"text":"skill","link":"https://www.amazon.com/Sony-Pictures-Entertainment-Spider-Man/dp/B0711M1Z4B"},{"text":"user flow","link":"assets/media/content/spiderman/spiderman-03.jpg"},{"text":"press","link":"https://mikeshouts.com/get-spider-man-skill-on-alexa-enabled-devices/"}],"roles":["ideation","ux","technical consulting","prototyping"],"type":["Alexa Skill"],"tags":["ideation","technical_consulting","voice","chatbot"]},{"visible":true,"name":"twentyfour","fullName":"24 Legacy: Daily Mission","client":"Fox","agency":"Amazon Advertising","bodyCopy":"24 Legacy Daily Mission is an (unupdated) daily content Skill made to drive awareness of the (then) new 24 Legacy TV show. The original concept for this Skill was handed to me, but I refined the user flow and coded this Skill by hand.","thumbNail":"assets/media/work/thumbnails/twentyfour.png","images":[{"text":"Promo image from the campaign, which ran on the Amazon homepage.","url":"assets/media/content/twentyfour/twentyfour-01.jpg"}],"video":{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/twentyfour/twentyfour-01.mp4"},"links":[{"text":"skill","link":"https://www.amazon.com/Fox-Home-Ent-24-Mission/dp/B01N2ATPJZ"},{"text":"user-flow","url":"assets/media/content/twentyfour/twentyfour-02.jpg"},{"text":"video","url":"assets/media/content/twentyfour/twentyfour-01.mp4"},{"text":"press","link":"https://variety.com/2017/digital/news/fox-24-legacy-amazons-alexa-alarm-1201972472/"}],"type":["Alexa Skill"],"roles":["ideation","ux","development"],"tags":["voice","development","web_development","chatbot"]},{"visible":true,"name":"wwe","fullName":"WWe.com","client":"WWE","agency":"Code & Theory","bodyCopy":"I was part of a small team that re-did the WWE website. I did most of the front-end development / theming of this site, mobile and desktop. This site was built with Drupal. No developers were body slammed during the production of this site.","thumbNail":"assets/media/work/thumbnails/wwe.jpg","images":[{"text":"wwe.com","url":"assets/media/content/wwe/wwe-01.jpg"}],"video":{},"links":[{"text":"site","link":"https://www.wwe.com/"}],"roles":["front-end development"],"type":["website"],"tags":["development","web_development","mobile_development"]},{"visible":true,"name":"spg","fullName":"SPG.com","client":"Starwood Hotels","agency":"Code & Theory","bodyCopy":"I ran the front-end development for the redesign of SPG.com, which was a points redemption site for Starwood Hotels. I ran the front-end development of this site, including supervising two other developers. This site was written in Java and uses JSPs.","thumbNail":"assets/media/work/thumbnails/spg.jpg","images":[{"text":"spg","url":"assets/media/content/spg/spg-01.jpg"}],"video":{},"links":[{"text":"waybacklink","link":"http://web.archive.org/web/20170601003220/http://www.starwoodhotels.com/preferredguest/index.html"},{"text":"press","link":"https://www.codeandtheory.com/things-we-make/starwood-preferred-guest-rewards-redemption-website"}],"roles":["front-end development"],"type":["website"],"tags":["development","web_development","mobile_development"]},{"visible":true,"name":"bernadettes","fullName":"Bernadette’s","client":"Bernadette’s","agency":"Freelance","bodyCopy":"Bernadette’s is a bar in downtown Los Angeles. The uppercase “B” is hand-lettered and the rest is type. I made a badge for square collateral needs.","thumbNail":"assets/media/work/thumbnails/bernadettes.jpg","images":[{"text":"In the wild.","url":"assets/media/content/bernadettes/bernadettes-02.jpg"},{"text":"","url":"assets/media/content/bernadettes/bernadettes-01.jpg"}],"video":{},"links":[{"text":"site","link":"https://www.bernadettesla.com/"}],"roles":["logo design","hand lettering"],"type":["logo"],"tags":["ideation","design","logo_design","hand_lettering"]},{"visible":true,"name":"tgs","fullName":"The Greatest Showman","client":"Fox","agency":"Amazon Advertising","bodyCopy":"Fox bought the OnBox program at Amazon, which allowed them to print branding on an undisclosed (but LARGE) percentage of Amazon boxes. Included in on the box was a graphic that could be scanned using the Amazon App that pointed you to a page on Amazon.com. When asked what I thought should go on that page, I suggested we leverage the 360 behind the scenes footage that Fox shot, and we ended up making a mobile-only 360 video experience that could only be accessed by scanning a box. I coded this site by hand and oversaw the overall UX.","thumbNail":"assets/media/work/thumbnails/tgs.jpg","images":[{"text":"User flow illustrating how the user scans the box to access the mobile site.","url":"assets/media/content/tgs/tgs-01.jpg"}],"video":{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/tgs/tgs-01.mp4"},"links":[{"text":"video","url":"assets/media/content/tgs/tgs-01.mp4"},{"text":"press","link":"https://bernardgolden.com/the-amazon-flywheel-prime-and-the-greatest-showman/"}],"roles":["ideation","ux","front-end development"],"type":["360 Video AR Experience"],"tags":["ideation","ux","art_direction","design","ui_design","development","web_development","ar","360_video"]},{"visible":true,"name":"afi","fullName":"American Family Insurance","client":"American Family Insurance","agency":"Amazon Advertising","bodyCopy":"This American Family Insurance chatbot is a great example of creative thinking from a technical POV. AFI wanted to give customers quotes on Amazon, but Amazon had very stringent rules about customer privacy. We side-stepped some of those issues by serving up a chatbot that would allow users to get a quote in a conversational manner.","thumbNail":"assets/media/work/thumbnails/afi.jpg","images":[{"text":"The AFI chatbot lives inside of a landing page on Amazon.com","url":"assets/media/content/afi/afi-01.jpg"}],"video":{},"links":[{"text":"product","link":"https://www.amazon.com/adlp/amfamconnectchat"}],"roles":["ideation","prototyping"],"type":["Chatbot"],"tags":["development","web_development","ideation","ux","prototyping","chatbot","conversational_ux","development"]},{"visible":true,"name":"various","fullName":"Amazon","client":"Various","agency":"Amazon Advertising","bodyCopy":"A collection of landing pages for various clients and various platforms (web, mobile, tablet, FireTV) designed and/or devloped during my time at Amazon.","thumbNail":"assets/media/work/thumbnails/amazon.jpg","images":{},"video":{},"roles":["design","development","ux"],"links":[{"text":"Amazon Advertising","link":"https://advertising.amazon.com/"}],"type":["landing pages"],"tags":["development","web_development","mobile_development","design","ui_design","art_direction"]}]}}
+module.exports = {"menu":{"about":"about","work":"work","contact me":"contact me","resume":"resume"},"splash":{},"about":{"headline":"About","bodyCopy":"Hi! I'm Bill Pearce and I'm a Creative Technologist (WTF is a creative technologist). I've been working at creative agencies and tech companies for about thirteen years, wearing hats ranging from Art Director to Front-End Developer. Most recently, I worked at an internal creative agency inside Amazon, providing product and campaign solutions or clients. I split my time at Amazon working as the prototyping arm of a UX research team and as the technical guide in the advertising creative process. I can fit anywhere in the process of crafting user-centric products (UX, design, creative ideation, prototyping, development) but am most comfortable as the soft-technical arm of a small creative team. Whatever you're making, I can help you make it better!","images":{}},"resume":{"url":""},"work":{"tags":["web_development","ideation","chatbot","design","voice","ux","conversational_ux","prototyping","technical_consulting","ui_design","360_video","ar","art_direction","chatbot","development","hand_lettering","logo_design","mobile_development"],"projects":[{"visible":true,"name":"dunkirk","fullName":"Destination: Dunkirk","client":"Warner Brothers","agency":"Amazon Advertising","bodyCopy":["Users of Destination: Dunkirk were given three episodic, choose-your-own-adventure-style audio games. This Alexa Skill  told the story leading up to the film Dunkirk, giving user the option of playing as a foot soldier, tank-commander, or pilot. Users chose from a list of possible actions to navigate the story tree.","I was part of a three person team who ideated, wrote outlines and scripts, built prototypes, pitched, evaluated voice-over, sounds, illustrations, and oversaw technical production.","First episodic game for Alexa, worked directly with Christopher Nolan's team"],"thumbNail":"assets/media/work/thumbnails/dunkirk.jpg","images":[{"text":"Destination: Dunkirk was available on all Alexa Enabled devices.","url":"assets/media/content/dunkirk/dunkirk-01.jpg"}],"video":{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"assets/media/content/dunkirk/dunkirk-01.mp4"},"links":[{"text":"user flow","link":"//billwpearce.com/assets/media/content/dunkirk/dunkirk-02.jpg"},{"text":"video","link":"//billwpearce.com/assets/media/content/dunkirk/dunkirk-01.mp4"},{"text":"press","link":"//screenrant.com/dunkirk-movie-amazon-echo-alexa-skill/"}],"roles":["ideation","ux","technical consulting","prototyping"],"type":["Alexa Skill"],"tags":["ideation","ux","technical_consulting","prototyping","voice","conversational_ux","chatbot"]},{"visible":true,"name":"tgs","fullName":"The Greatest Showman","client":"Fox","agency":"Amazon Advertising","bodyCopy":["Lucky users who received a branded The Greatest Showman box from their regular Amazon orders were invited to scan the box using the Amazon app. Scanning the box takes users to a custom, mobile-only 360 video experience accessible only via scan.","I was the creative lead of a two person team who tackled the mobile 360 experience. We came up with the idea to leverage scanning on boxes, connected the 360 experience, and made all creative assets save for the 360 video. I wrote the front-end code for the mobile site.","First mobile-only site to come out of Amazon Advertising, first use of scanning on boxes"],"thumbNail":"assets/media/work/thumbnails/tgs.jpg","images":[{"text":"User flow illustrating how the user scans the box to access the mobile site.","url":"assets/media/content/tgs/tgs-01.jpg"}],"video":{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"//billwpearce.com/assets/media/content/tgs/tgs-01.mp4"},"links":[{"text":"video","link":"assets/media/content/tgs/tgs-01.mp4"},{"text":"press","link":"//bernardgolden.com/the-amazon-flywheel-prime-and-the-greatest-showman/"}],"roles":["ideation","ux","front-end development"],"type":["360 Video AR Experience"],"tags":["ideation","ux","art_direction","design","ui_design","development","web_development","ar","360_video"]},{"visible":true,"name":"spiderman","fullName":"Spider-Man Homecoming","client":"Sony","agency":"Amazon Advertising","bodyCopy":["Spider-man superfans are invited to add this Alexa Skill to their daily schedule and are rewarded with a unique piece of content, every day, for thirty days, leading up to the release of Spider-man: Homecoming. Content varied from jokes and Spider-man facts (as told by Alexa), cast interviews, and more!","I was the creative lead and ran ideation, UX, pitched the idea, and oversaw technical production.","4/5 stars"],"thumbNail":"assets/media/work/thumbnails/spiderman.jpg","images":[{"text":"Promo image from the campaign, which ran on the Amazon homepage.","url":"assets/media/content/spiderman/spiderman-01.jpg"}],"video":{},"links":[{"text":"skill","link":"//www.amazon.com/Sony-Pictures-Entertainment-Spider-Man/dp/B0711M1Z4B"},{"text":"user flow","link":"//billwpearce.com/assets/media/content/spiderman/spiderman-03.jpg"},{"text":"press","link":"//mikeshouts.com/get-spider-man-skill-on-alexa-enabled-devices/"}],"roles":["ideation","ux","technical consulting","prototyping"],"type":["Alexa Skill"],"tags":["ideation","technical_consulting","voice","chatbot"]},{"visible":true,"name":"afi","fullName":"American Family Insurance","client":"American Family Insurance","agency":"Amazon Advertising","bodyCopy":["Amazon users are presented with a quick and easy way to get an insurance quote online. Leveraging a chatbot and our access to internal Amazon data, users can get a quote for renters insurance in a snap.","I led a two person creative tech team that come up with the concept, built a prototype, pitched, and won the business.","The idea came out of the creative tech team and was pushed through to sale without being touched by a creative director. Due to internal Amazon rules and regulations, the chatbot was created to exploit a loophole and take the conversation off of Amazon.com property, while still being on an Amazon page."],"thumbNail":"assets/media/work/thumbnails/afi.jpg","images":[{"text":"The AFI chatbot lives inside of a landing page on Amazon.com","url":"assets/media/content/afi/afi-01.jpg"}],"video":{},"links":[{"text":"product","link":"//www.amazon.com/adlp/amfamconnectchat"},{"text":"video","link":"assets/media/content/afi/afi.mp4"}],"roles":["ideation","prototyping"],"type":["Chatbot"],"tags":["development","web_development","ideation","ux","prototyping","chatbot","conversational_ux","development"]},{"visible":true,"name":"twentyfour","fullName":"24 Legacy: Daily Mission","client":"Fox","agency":"Amazon Advertising","bodyCopy":["Fans of the show 24 were invited to use this daily content skill and receive a different 24 second challenge every day. These challenges had a tounge-in-cheek quality to them and could range from reciting the alphabet in 24 seconds to brushing your teeth in 24 seconds.","I sketched out the UX and coded the skill. All content was provided.","3.5/5 stars, first daily content skill from Amazon Advertising"],"thumbNail":"assets/media/work/thumbnails/twentyfour.png","images":[{"text":"Promo image from the campaign, which ran on the Amazon homepage.","url":"assets/media/content/twentyfour/twentyfour-01.jpg"}],"video":{"text":"Destination Dunkirk was available on all Alexa enabled devices.","url":"//billwpearce.com/assets/media/content/twentyfour/twentyfour-01.mp4"},"links":[{"text":"skill","link":"//www.amazon.com/Fox-Home-Ent-24-Mission/dp/B01N2ATPJZ"},{"text":"user-flow","link":"//http:billwpearce.com/assets/media/content/twentyfour/twentyfour-02.jpg"},{"text":"video","link":"//http:billwpearce.com/assets/media/content/twentyfour/twentyfour-01.mp4"},{"text":"press","link":"//variety.com/2017/digital/news/fox-24-legacy-amazons-alexa-alarm-1201972472/"}],"type":["Alexa Skill"],"roles":["ideation","ux","development"],"tags":["voice","development","web_development","chatbot"]},{"visible":true,"name":"wwe","fullName":"WWe.com","client":"WWE","agency":"Code & Theory","bodyCopy":"I was part of a small team that re-did the WWE website. I did most of the front-end development / theming of this site, mobile and desktop. This site was built with Drupal. No developers were body slammed during the production of this site.","thumbNail":"assets/media/work/thumbnails/wwe.jpg","images":[{"text":"wwe.com","url":"assets/media/content/wwe/wwe-01.jpg"}],"video":{},"links":[{"text":"site","link":"//www.wwe.com/"}],"roles":["front-end development"],"type":["website"],"tags":["development","web_development","mobile_development"]},{"visible":true,"name":"spg","fullName":"SPG.com","client":"Starwood Hotels","agency":"Code & Theory","bodyCopy":"I ran the front-end development for the redesign of SPG.com, which was a points redemption site for Starwood Hotels. I ran the front-end development of this site, including supervising two other developers. This site was written in Java and uses JSPs.","thumbNail":"assets/media/work/thumbnails/spg.jpg","images":[{"text":"spg","url":"assets/media/content/spg/spg-01.jpg"}],"video":{},"links":[{"text":"waybacklink","link":"//web.archive.org/web/20170601003220///www.starwoodhotels.com/preferredguest/index.html"},{"text":"press","link":"//www.codeandtheory.com/things-we-make/starwood-preferred-guest-rewards-redemption-website"}],"roles":["front-end development"],"type":["website"],"tags":["development","web_development","mobile_development"]},{"visible":true,"name":"bernadettes","fullName":"Bernadette’s","client":"Bernadette’s","agency":"Freelance","bodyCopy":"Bernadette’s is a bar in downtown Los Angeles. The uppercase “B” is hand-lettered and the rest is type. I made a badge for square collateral needs.","thumbNail":"assets/media/work/thumbnails/bernadettes.jpg","images":[{"text":"In the wild.","url":"assets/media/content/bernadettes/bernadettes-02.jpg"},{"text":"","url":"assets/media/content/bernadettes/bernadettes-01.jpg"}],"video":{},"links":[{"text":"site","link":"//www.bernadettesla.com/"}],"roles":["logo design","hand lettering"],"type":["logo"],"tags":["ideation","design","logo_design","hand_lettering"]}]}}
 
 /***/ }),
 
